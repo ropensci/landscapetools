@@ -9,8 +9,7 @@ Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 Suggests: 
-    testthat,
-    nlmr
+    testthat
 URL: https://github.com/marcosci/landscapetools
 BugReports: https://github.com/marcosci/landscapetools/issues
 Roxygen: list(markdown = TRUE)
@@ -27,3 +26,5 @@ Imports:
     tibble,
     tidyr,
     viridis
+Remotes:
+    marcosci/nlmr
