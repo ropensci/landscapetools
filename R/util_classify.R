@@ -10,17 +10,14 @@
 #' If the numerical vector of weightings does not sum up to 1, the sum of the
 #' weightings is divided by the number of elements in the weightings vector and this is then used for the classification.
 #'
-#' @param x [\code{matrix(x,y)}]\cr
-#' 2D matrix of data values.
-#' @param weighting [\code{numerical}]\cr
-#' Vector of numeric values.
-#' @param level_names [\code{character}]\cr
-#' Vector of names for the factor levels.
+#' @param x 2D matrix
+#' @param weighting Vector of numeric values.
+#' @param level_names Vector of names for the factor levels.
 #'
 #' @return RasterLayer
 #'
 #' @examples
-#' x <- nlm_random(10, 10)
+#' x <- nlmr::nlm_random(10, 10)
 #' y <- c(0.5, 0.25, 0.25)
 #' util_classify(x, y, level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
 #'

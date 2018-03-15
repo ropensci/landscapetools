@@ -2,7 +2,7 @@
 #'
 #' Linearly rescale element values in a raster to a range between 0 and 1
 #'
-#' @param x [\code{Raster* object}]
+#' @param x Raster* object
 #'
 #' @return Raster* object with values ranging from 0-1
 #'
@@ -10,7 +10,7 @@
 #'
 #' @examples
 #'
-#' util_rescale(nlm_random(10, 10,  rescale = FALSE))
+#' util_rescale(nlmr::nlm_random(10, 10,  rescale = FALSE))
 #'
 #'
 #' @aliases util_rescale

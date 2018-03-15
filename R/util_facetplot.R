@@ -10,17 +10,17 @@
 #' size of the maps it is advisable to store the plot in an object and print it to
 #' a file. This will help with compressing and rendering the image.
 #'
-#' @param x [\code{Raster* object}] (Layer, Stack, Brick) or a list of rasterLayers.
+#' @param x Raster* Layer, Stack, Brick or a list of rasterLayers.
 #' @param nrow,ncol Number of rows and columns.
 #'
 #' @return ggplot
 #'
 #' @examples
 #' \dontrun{
-#' l1 <- nlm_fBm(64, 64)
-#' l2 <- nlm_planargradient(64, 64)
-#' l3 <- nlm_randomrectangularcluster(ncol = 60, nrow = 60, minl = 5, maxl = 10)
-#' l4 <- nlm_random(64, 64)
+#' l1 <- nlmr::nlm_fBm(64, 64)
+#' l2 <- nlmr::nlm_planargradient(64, 64)
+#' l3 <- nlmr::nlm_randomrectangularcluster(ncol = 60, nrow = 60, minl = 5, maxl = 10)
+#' l4 <- nlmr::nlm_random(64, 64)
 #'
 #' bri1 <- raster::brick(l1, l2)
 #' util_facetplot(bri1)

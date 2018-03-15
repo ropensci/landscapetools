@@ -12,10 +12,10 @@
 #'
 #' @param x a tibble
 #'
-#' @return [\code{Raster* object}]
+#' @return Raster* object
 #'
 #' @examples
-#' rndMap <- nlm_random(16, 9)
+#' rndMap <- nlmr::nlm_random(16, 9)
 #' maptib <- util_raster2tibble(rndMap)
 #' mapras <- util_tibble2raster(maptib)
 #' all.equal(rndMap, mapras)

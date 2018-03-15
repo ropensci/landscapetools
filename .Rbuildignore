@@ -1,2 +1,8 @@
 ^landscapetools\.Rproj$
 ^\.Rproj\.user$
+^appveyor\.yml$
+^README\.Rmd$
+^\.travis\.yml$
+^CODE_OF_CONDUCT\.md$
+^LICENSE\.md$
+^CONTRIBUTING\.md$

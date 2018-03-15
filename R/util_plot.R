@@ -2,8 +2,8 @@
 #'
 #' Plot a Raster* object with the NLMR default theme
 #'
-#' @param x [\code{Raster* object}]
-#' @param discrete [\code{logical}(1)] If TRUE, the function plots a raster with
+#' @param x Raster* object
+#' @param discrete If TRUE, the function plots a raster with
 #' a discrete legend.
 #' @param ... Arguments for  \code{\link{theme_nlm}}
 #'
@@ -12,7 +12,7 @@
 #' @examples
 #' \dontrun{
 #' # simulate NLM
-#' x <- NLMR::nlm_random(ncol = 25,
+#' x <- nlmr::nlm_random(ncol = 25,
 #'                       nrow = 75)
 #' # classify
 #' y <- c(0.5, 0.15, 0.25)

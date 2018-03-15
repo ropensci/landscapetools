@@ -2,38 +2,37 @@
 #'
 #' @description Opinionated ggplot2 theme to visualize NLM raster.
 #'
-#' @param base_family [\code{character}()]  base font family size
-#' @param base_size [\code{numeric}(1)] base font size
-#' @param plot_title_family [\code{character}()] plot title family
-#' @param plot_title_face [\code{character}()] plot title face
-#' @param plot_title_size [\code{character}()] plot title size
-#' @param plot_title_margin [\code{numeric}(1)] plot title margin
-#' @param plot_margin [\code{character}()]
-#' plot margin (specify with \code{ggplot2::margin})
-#' @param subtitle_family [\code{character}()] plot subtitle family
-#' @param subtitle_face [\code{character}()]` plot subtitle face
-#' @param subtitle_size [\code{numeric}(1)] plot subtitle size
-#' @param subtitle_margin [\code{numeric}(1)]
+#' @param base_family  base font family size
+#' @param base_size  base font size
+#' @param plot_title_family plot title family
+#' @param plot_title_face  plot title face
+#' @param plot_title_size  plot title size
+#' @param plot_title_margin plot title margin
+#' @param plot_margin plot margin (specify with `ggplot2::margin``)
+#' @param subtitle_family plot subtitle family
+#' @param subtitle_face  plot subtitle face
+#' @param subtitle_size plot subtitle size
+#' @param subtitle_margin
 #' plot subtitle margin bottom (single numeric value)
-#' @param strip_text_family [\code{character}()] facet facet label font family
-#' @param strip_text_face [\code{character}()] facet facet label font face
-#' @param strip_text_size [\code{numeric}(1)]
-#' facet label font family, face and size
-#' @param caption_family [\code{character}()] plot caption family
-#' @param caption_face [\code{character}()] plot caption face
-#' @param caption_size [\code{numeric}(1)] plot caption size
-#' @param caption_margin [\code{numeric}(1)] plot caption margin
-#' @param legend_title [\code{character}()] Title of the legend (default "Z")
-#' @param legend_labels [\code{character}()] Labels for the legend ticks, if
+#' @param strip_text_family facet facet label font family
+#' @param strip_text_face  facet facet label font face
+#' @param strip_text_size facet label font family, face and size
+#' @param caption_family plot caption family
+#' @param caption_face plot caption face
+#' @param caption_size plot caption size
+#' @param caption_margin plot caption margin
+#' @param legend_title Title of the legend (default `"Z"`)
+#' @param legend_labels Labels for the legend ticks, if
 #' used with \code{\link{util_plot}} they are automatically derived.
-#' @param ratio [\code{character}()]
+#' @param ratio
 #' ratio for tiles (default 1, if your raster is not a square the ratio should
 #' be \code{raster::nrow(x) / raster::ncol(x)})
-#' @param viridis_scale [\code{character}(1)]
+#' @param viridis_scale
 #' Five options are available: "viridis - magma" (= "A"),
 #'                             "viridis - inferno" (= "B"),
 #'                             "viridis - plasma" (= "C"),
-#'                             "viridis - viridis" (= "D",  the default option)
+#'                             "viridis - viridis" (= "D",  the default option),
+#'                             "viridis - cividis" (= "E")
 #'
 #' @details
 #' A focused theme to visualize raster data that sets a lot of defaults for the
@@ -55,7 +54,7 @@
 #' # nolint start
 #' \dontrun{
 #' # simulate NLM
-#' x <- nlm_random(ncol = 75,
+#' x <- nlmr::nlm_random(ncol = 75,
 #'                 nrow = 75)
 #' # classify
 #' y <- c(0.5, 0.15, 0.25)
@@ -111,20 +110,20 @@ NULL
 
 #' @rdname theme_nlm
 #' @export
-theme_nlm <- function(base_family = "serif",
+theme_nlm <- function(base_family = "plain",
                       base_size = 11.5,
-                      plot_title_family = "serif",
+                      plot_title_family = "plain",
                       plot_title_size = 18,
                       plot_title_face = "bold",
                       plot_title_margin = 10,
-                      subtitle_family = "serif",
+                      subtitle_family = "plain",
                       subtitle_size = 13,
                       subtitle_face = "plain",
                       subtitle_margin = 15,
                       strip_text_family = base_family,
                       strip_text_size = 12,
                       strip_text_face = "plain",
-                      caption_family = "serif",
+                      caption_family = "plain",
                       caption_size = 9,
                       caption_face = "plain",
                       caption_margin = 10,
@@ -197,20 +196,20 @@ theme_nlm <- function(base_family = "serif",
 #' @rdname theme_nlm
 #' @export
 theme_nlm_discrete <- function(
-  base_family = "serif",
+  base_family = "plain",
   base_size = 11.5,
   plot_title_family = base_family,
   plot_title_size = 18,
   plot_title_face = "bold",
   plot_title_margin = 10,
-  subtitle_family = "serif",
+  subtitle_family = "plain",
   subtitle_size = 13,
   subtitle_face = "plain",
   subtitle_margin = 15,
   strip_text_family = base_family,
   strip_text_size = 12,
   strip_text_face = "plain",
-  caption_family = "serif",
+  caption_family = "plain",
   caption_size = 9,
   caption_face = "plain",
   caption_margin = 10,
@@ -289,20 +288,20 @@ theme_nlm_discrete <- function(
 
 #' @rdname theme_nlm
 #' @export
-theme_nlm_grey <- function(base_family = "serif",
+theme_nlm_grey <- function(base_family = "plain",
                            base_size = 11.5,
                            plot_title_family = base_family,
                            plot_title_size = 18,
                            plot_title_face = "bold",
                            plot_title_margin = 10,
-                           subtitle_family = "serif",
+                           subtitle_family = "plain",
                            subtitle_size = 13,
                            subtitle_face = "plain",
                            subtitle_margin = 15,
                            strip_text_family = base_family,
                            strip_text_size = 12,
                            strip_text_face = "plain",
-                           caption_family = "serif",
+                           caption_family = "plain",
                            caption_size = 9,
                            caption_face = "plain",
                            caption_margin = 10,
@@ -375,20 +374,20 @@ theme_nlm_grey <- function(base_family = "serif",
 #' @rdname theme_nlm
 #' @export
 theme_nlm_grey_discrete <-
-  function(base_family = "serif",
+  function(base_family = "plain",
            base_size = 11.5,
            plot_title_family = base_family,
            plot_title_size = 18,
            plot_title_face = "bold",
            plot_title_margin = 10,
-           subtitle_family = "serif",
+           subtitle_family = "plain",
            subtitle_size = 13,
            subtitle_face = "plain",
            subtitle_margin = 15,
            strip_text_family = base_family,
            strip_text_size = 12,
            strip_text_face = "plain",
-           caption_family = "serif",
+           caption_family = "plain",
            caption_size = 9,
            caption_face = "plain",
            caption_margin = 10,

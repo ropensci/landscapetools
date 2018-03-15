@@ -1,11 +1,29 @@
 Package: landscapetools
-Version: 0.0.0.9000
+Version: 0.1
 Title: What the Package Does (One Line, Title Case)
 Description: What the package does (one paragraph).
-Authors@R: person("First", "Last", , "first.last@example.com", c("aut", "cre"))
-License: What license it uses
+Authors@R: c(person("Marco", "Sciaini", email = "sciaini.marco@gmail.com", role = c("aut", "cre")), 
+    person("Matthias", "Fritsch", email = "matthias.fritsch@forst.uni-goettingen.de", role =  c("aut")))
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 Suggests: 
-    testthat
+    testthat,
+    nlmr
+URL: https://github.com/marcosci/landscapetools
+BugReports: https://github.com/marcosci/landscapetools/issues
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.0.1
+Imports: 
+    magrittr,
+    checkmate,
+    dplyr,
+    extrafont,
+    ggplot2,
+    purrr,
+    raster,
+    rasterVis,
+    tibble,
+    tidyr,
+    viridis
