@@ -1,5 +1,7 @@
 ---
-output: github_document
+output:
+  github_document:
+    html_preview: false
 ---
 [![Travis build status](https://travis-ci.org/marcosci/landscapetools.svg?branch=master)](https://travis-ci.org/marcosci/landscapetools)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/marcosci/landscapetools?branch=master&svg=true)](https://ci.appveyor.com/project/marcosci/landscapetools)
@@ -21,13 +23,7 @@ The goal of landscapetools is to ...
 
 ## Installation
 
-You can install the released version of landscapetools from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("landscapetools")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+You can install the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")

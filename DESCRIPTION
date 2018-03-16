@@ -10,23 +10,23 @@ Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 Suggests: 
-    testthat (>= 2.0.0),
-    nlmr (>= 0.2.1),
-    covr (>= 3.0.1)
+    testthat,
+    covr,
+    nlmr
 URL: https://github.com/marcosci/landscapetools
 BugReports: https://github.com/marcosci/landscapetools/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.0.1
 Imports: 
-    magrittr (>= 1.5),
-    checkmate (>= 1.8.5),
-    dplyr (>= 0.7.4),
-    extrafont (>= 0.17),
-    ggplot2 (>= 2.2.1.9000),
-    purrr (>= 0.2.4),
-    raster (>= 2.6.7),
-    rasterVis (>= 0.43),
-    tibble (>= 1.4.2),
-    tidyr (>= 0.8.0),
-    viridis (>= 0.5.0)
-Remotes: marcosci/nlmr
+    magrittr,
+    checkmate,
+    dplyr,
+    extrafont,
+    ggplot2,
+    purrr,
+    raster,
+    rasterVis,
+    tibble,
+    tidyr,
+    viridis
+Remotes: marcosci/nlmr@0.3.0

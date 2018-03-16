@@ -1,3 +1,3 @@
 # landscapetools 0.1
 
-* Added a `NEWS.md` file to track changes to the package.
+* landscapetools will be a safe haven for the remnants (utility functions) of nlmr
