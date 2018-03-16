@@ -27,4 +27,9 @@ Authors:
   \item Matthias Fritsch \email{matthias.fritsch@forst.uni-goettingen.de}
 }
 
+Other contributors:
+\itemize{
+  \item Google (Roboto Condensed Font) [copyright holder]
+}
+
 }

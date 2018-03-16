@@ -7,20 +7,30 @@
 #' @param plot_title_family plot title family
 #' @param plot_title_face  plot title face
 #' @param plot_title_size  plot title size
-#' @param plot_title_margin plot title margin
-#' @param plot_margin plot margin (specify with `ggplot2::margin``)
+#' @param plot_title_margin plot title ggplot2::margin
+#' @param plot_margin plot ggplot2::margin (specify with `ggplot2::margin``)
 #' @param subtitle_family plot subtitle family
 #' @param subtitle_face  plot subtitle face
 #' @param subtitle_size plot subtitle size
 #' @param subtitle_margin
-#' plot subtitle margin bottom (single numeric value)
+#' plot subtitle ggplot2::margin bottom (single numeric value)
 #' @param strip_text_family facet facet label font family
 #' @param strip_text_face  facet facet label font face
 #' @param strip_text_size facet label font family, face and size
 #' @param caption_family plot caption family
 #' @param caption_face plot caption face
 #' @param caption_size plot caption size
-#' @param caption_margin plot caption margin
+#' @param caption_margin plot caption ggplot2::margin
+#' @param axis_text_size axis text size
+#' @param axis_title_family axis title family
+#' @param axis_title_size axis title size
+#' @param axis_title_face axis title face
+#' @param axis_title_just axis title justification
+#' @param grid_col grid color
+#' @param grid grid TRUE/FALSE
+#' @param axis_col axis color
+#' @param axis axis TRUE/FALSE
+#' @param ticks ticks TRUE/FALSE
 #' @param legend_title Title of the legend (default `"Z"`)
 #' @param legend_labels Labels for the legend ticks, if
 #' used with \code{\link{util_plot}} they are automatically derived.
@@ -33,7 +43,7 @@
 #'                             "viridis - plasma" (= "C"),
 #'                             "viridis - viridis" (= "D",  the default option),
 #'                             "viridis - cividis" (= "E")
-#'
+#' @param ... optional arguments to ggplot2::theme
 #' @details
 #' A focused theme to visualize raster data that sets a lot of defaults for the
 #' \code{ggplot2::theme}.
@@ -110,30 +120,47 @@ NULL
 
 #' @rdname theme_nlm
 #' @export
-theme_nlm <- function(base_family = "plain",
+theme_nlm <- function(base_family = "Roboto Condensed",
                       base_size = 11.5,
-                      plot_title_family = "plain",
+                      plot_title_family = base_family,
                       plot_title_size = 18,
                       plot_title_face = "bold",
                       plot_title_margin = 10,
-                      subtitle_family = "plain",
+                      subtitle_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
                       subtitle_size = 13,
                       subtitle_face = "plain",
                       subtitle_margin = 15,
                       strip_text_family = base_family,
                       strip_text_size = 12,
                       strip_text_face = "plain",
-                      caption_family = "plain",
+                      caption_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
                       caption_size = 9,
                       caption_face = "plain",
                       caption_margin = 10,
-                      legend_title = "Z",
+                      axis_text_size = base_size,
+                      axis_title_family = base_family,
+                      axis_title_size = 9,
+                      axis_title_face = "plain",
+                      axis_title_just = "rt",
                       plot_margin = ggplot2::margin(30, 30, 30, 30),
+                      grid_col = "#cccccc",
+                      grid = TRUE,
+                      axis_col = "#cccccc",
+                      axis = FALSE,
+                      ticks = FALSE,
+                      legend_title = "Z",
+                      legend_labels = NULL,
                       ratio = 1,
-                      viridis_scale = "D") {
+                      viridis_scale = "D",
+                      ...) {
   # start with minimal theme
   ret <-
     ggplot2::theme_minimal(base_family = base_family, base_size = base_size)
+
+
+  xj <- switch(tolower(substr(axis_title_just, 1, 1)), b = 0, l = 0, m = 0.5, c = 0.5, r = 1, t = 1)
+  yj <- switch(tolower(substr(axis_title_just, 2, 2)), b = 0, l = 0, m = 0.5, c = 0.5, r = 1, t = 1)
+
 
   # extend it
   theme_base <- ret + ggplot2::theme(
@@ -168,7 +195,17 @@ theme_nlm <- function(base_family = "plain",
       margin = ggplot2::margin(t = caption_margin),
       family = caption_family,
       face = caption_face
-    )
+    ),
+    axis.text.x = ggplot2::element_text(size = axis_text_size, margin = ggplot2::margin(t = 0)),
+    axis.text.y = ggplot2::element_text(size = axis_text_size, margin = ggplot2::margin(r = 0)),
+    axis.title = ggplot2::element_text(size = axis_title_size, family = axis_title_family),
+    axis.title.x = ggplot2::element_text(hjust = xj, size = axis_title_size,
+                              family = axis_title_family, face = axis_title_face),
+    axis.title.y = ggplot2::element_text(hjust = yj, size = axis_title_size,
+                              family = axis_title_family, face = axis_title_face),
+    axis.title.y.right = ggplot2::element_text(hjust = yj, size = axis_title_size, angle = 90,
+                                    family = axis_title_family, face = axis_title_face),
+    ...
   )
 
   # define color scale
@@ -195,68 +232,93 @@ theme_nlm <- function(base_family = "plain",
 
 #' @rdname theme_nlm
 #' @export
-theme_nlm_discrete <- function(
-  base_family = "plain",
-  base_size = 11.5,
-  plot_title_family = base_family,
-  plot_title_size = 18,
-  plot_title_face = "bold",
-  plot_title_margin = 10,
-  subtitle_family = "plain",
-  subtitle_size = 13,
-  subtitle_face = "plain",
-  subtitle_margin = 15,
-  strip_text_family = base_family,
-  strip_text_size = 12,
-  strip_text_face = "plain",
-  caption_family = "plain",
-  caption_size = 9,
-  caption_face = "plain",
-  caption_margin = 10,
-  legend_title = "Z",
-  legend_labels = NULL,
-  plot_margin = ggplot2::margin(30, 30, 30, 30),
-  ratio = 1,
-  viridis_scale = "D") {
-  # start with minimal theme
-  ret <-
-    ggplot2::theme_minimal(base_family = base_family, base_size = base_size)
+theme_nlm_discrete <- function(base_family = "Roboto Condensed",
+                               base_size = 11.5,
+                               plot_title_family = base_family,
+                               plot_title_size = 18,
+                               plot_title_face = "bold",
+                               plot_title_margin = 10,
+                               subtitle_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
+                               subtitle_size = 13,
+                               subtitle_face = "plain",
+                               subtitle_margin = 15,
+                               strip_text_family = base_family,
+                               strip_text_size = 12,
+                               strip_text_face = "plain",
+                               caption_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
+                               caption_size = 9,
+                               caption_face = "plain",
+                               caption_margin = 10,
+                               axis_text_size = base_size,
+                               axis_title_family = base_family,
+                               axis_title_size = 9,
+                               axis_title_face = "plain",
+                               axis_title_just = "rt",
+                               plot_margin = ggplot2::margin(30, 30, 30, 30),
+                               grid_col = "#cccccc",
+                               grid = TRUE,
+                               axis_col = "#cccccc",
+                               axis = FALSE,
+                               ticks = FALSE,
+                               legend_title = "Z",
+                               legend_labels = NULL,
+                               ratio = 1,
+                               viridis_scale = "D",
+                               ...) {
+    # start with minimal theme
+    ret <-
+        ggplot2::theme_minimal(base_family = base_family, base_size = base_size)
 
-  # extend it
-  theme_base <- ret + ggplot2::theme(
-    legend.background = ggplot2::element_blank(),
-    legend.text = ggplot2::element_text(size = 8),
-    aspect.ratio = ratio,
-    plot.margin = plot_margin,
-    strip.text = ggplot2::element_text(
-      hjust = 0,
-      size = strip_text_size,
-      face = strip_text_face,
-      family = strip_text_family
-    ),
-    panel.spacing = grid::unit(2, "lines"),
-    plot.title = ggplot2::element_text(
-      hjust = 0,
-      size = plot_title_size,
-      margin = ggplot2::margin(b = plot_title_margin),
-      family = plot_title_family,
-      face = plot_title_face
-    ),
-    plot.subtitle = ggplot2::element_text(
-      hjust = 0,
-      size = subtitle_size,
-      margin = ggplot2::margin(b = subtitle_margin),
-      family = subtitle_family,
-      face = subtitle_face
-    ),
-    plot.caption = ggplot2::element_text(
-      hjust = 1,
-      size = caption_size,
-      margin = ggplot2::margin(t = caption_margin),
-      family = caption_family,
-      face = caption_face
+
+    xj <- switch(tolower(substr(axis_title_just, 1, 1)), b = 0, l = 0, m = 0.5, c = 0.5, r = 1, t = 1)
+    yj <- switch(tolower(substr(axis_title_just, 2, 2)), b = 0, l = 0, m = 0.5, c = 0.5, r = 1, t = 1)
+
+
+    # extend it
+    theme_base <- ret + ggplot2::theme(
+        legend.background = ggplot2::element_blank(),
+        legend.text = ggplot2::element_text(size = 8),
+        aspect.ratio = ratio,
+        plot.margin = plot_margin,
+        strip.text = ggplot2::element_text(
+            hjust = 0,
+            size = strip_text_size,
+            face = strip_text_face,
+            family = strip_text_family
+        ),
+        panel.spacing = grid::unit(2, "lines"),
+        plot.title = ggplot2::element_text(
+            hjust = 0,
+            size = plot_title_size,
+            margin = ggplot2::margin(b = plot_title_margin),
+            family = plot_title_family,
+            face = plot_title_face
+        ),
+        plot.subtitle = ggplot2::element_text(
+            hjust = 0,
+            size = subtitle_size,
+            margin = ggplot2::margin(b = subtitle_margin),
+            family = subtitle_family,
+            face = subtitle_face
+        ),
+        plot.caption = ggplot2::element_text(
+            hjust = 1,
+            size = caption_size,
+            margin = ggplot2::margin(t = caption_margin),
+            family = caption_family,
+            face = caption_face
+        ),
+        axis.text.x = ggplot2::element_text(size = axis_text_size, margin = ggplot2::margin(t = 0)),
+        axis.text.y = ggplot2::element_text(size = axis_text_size, margin = ggplot2::margin(r = 0)),
+        axis.title = ggplot2::element_text(size = axis_title_size, family = axis_title_family),
+        axis.title.x = ggplot2::element_text(hjust = xj, size = axis_title_size,
+                                    family = axis_title_family, face = axis_title_face),
+        axis.title.y = ggplot2::element_text(hjust = yj, size = axis_title_size,
+                                    family = axis_title_family, face = axis_title_face),
+        axis.title.y.right = ggplot2::element_text(hjust = yj, size = axis_title_size, angle = 90,
+                                          family = axis_title_family, face = axis_title_face),
+        ...
     )
-  )
 
   # define color scale
   theme_color <- viridis::scale_fill_viridis(
@@ -288,66 +350,92 @@ theme_nlm_discrete <- function(
 
 #' @rdname theme_nlm
 #' @export
-theme_nlm_grey <- function(base_family = "plain",
+theme_nlm_grey <- function(base_family = "Roboto Condensed",
                            base_size = 11.5,
                            plot_title_family = base_family,
                            plot_title_size = 18,
                            plot_title_face = "bold",
                            plot_title_margin = 10,
-                           subtitle_family = "plain",
+                           subtitle_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
                            subtitle_size = 13,
                            subtitle_face = "plain",
                            subtitle_margin = 15,
                            strip_text_family = base_family,
                            strip_text_size = 12,
                            strip_text_face = "plain",
-                           caption_family = "plain",
+                           caption_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
                            caption_size = 9,
                            caption_face = "plain",
                            caption_margin = 10,
-                           legend_title = "Z",
+                           axis_text_size = base_size,
+                           axis_title_family = base_family,
+                           axis_title_size = 9,
+                           axis_title_face = "plain",
+                           axis_title_just = "rt",
                            plot_margin = ggplot2::margin(30, 30, 30, 30),
+                           grid_col = "#cccccc",
+                           grid = TRUE,
+                           axis_col = "#cccccc",
+                           axis = FALSE,
+                           ticks = FALSE,
+                           legend_title = "Z",
+                           legend_labels = NULL,
                            ratio = 1,
-                           viridis_scale = "D") {
-  # start with minimal theme
-  ret <-
-    ggplot2::theme_minimal(base_family = base_family, base_size = base_size)
+                           ...) {
+    # start with minimal theme
+    ret <-
+        ggplot2::theme_minimal(base_family = base_family, base_size = base_size)
 
-  # extend it
-  theme_base <- ret + ggplot2::theme(
-    legend.background = ggplot2::element_blank(),
-    legend.text = ggplot2::element_text(size = 8),
-    aspect.ratio = ratio,
-    plot.margin = plot_margin,
-    strip.text = ggplot2::element_text(
-      hjust = 0,
-      size = strip_text_size,
-      face = strip_text_face,
-      family = strip_text_family
-    ),
-    panel.spacing = grid::unit(2, "lines"),
-    plot.title = ggplot2::element_text(
-      hjust = 0,
-      size = plot_title_size,
-      margin = ggplot2::margin(b = plot_title_margin),
-      family = plot_title_family,
-      face = plot_title_face
-    ),
-    plot.subtitle = ggplot2::element_text(
-      hjust = 0,
-      size = subtitle_size,
-      margin = ggplot2::margin(b = subtitle_margin),
-      family = subtitle_family,
-      face = subtitle_face
-    ),
-    plot.caption = ggplot2::element_text(
-      hjust = 1,
-      size = caption_size,
-      margin = ggplot2::margin(t = caption_margin),
-      family = caption_family,
-      face = caption_face
+
+    xj <- switch(tolower(substr(axis_title_just, 1, 1)), b = 0, l = 0, m = 0.5, c = 0.5, r = 1, t = 1)
+    yj <- switch(tolower(substr(axis_title_just, 2, 2)), b = 0, l = 0, m = 0.5, c = 0.5, r = 1, t = 1)
+
+
+    # extend it
+    theme_base <- ret + ggplot2::theme(
+        legend.background = ggplot2::element_blank(),
+        legend.text = ggplot2::element_text(size = 8),
+        aspect.ratio = ratio,
+        plot.margin = plot_margin,
+        strip.text = ggplot2::element_text(
+            hjust = 0,
+            size = strip_text_size,
+            face = strip_text_face,
+            family = strip_text_family
+        ),
+        panel.spacing = grid::unit(2, "lines"),
+        plot.title = ggplot2::element_text(
+            hjust = 0,
+            size = plot_title_size,
+            margin = ggplot2::margin(b = plot_title_margin),
+            family = plot_title_family,
+            face = plot_title_face
+        ),
+        plot.subtitle = ggplot2::element_text(
+            hjust = 0,
+            size = subtitle_size,
+            margin = ggplot2::margin(b = subtitle_margin),
+            family = subtitle_family,
+            face = subtitle_face
+        ),
+        plot.caption = ggplot2::element_text(
+            hjust = 1,
+            size = caption_size,
+            margin = ggplot2::margin(t = caption_margin),
+            family = caption_family,
+            face = caption_face
+        ),
+        axis.text.x = ggplot2::element_text(size = axis_text_size, margin = ggplot2::margin(t = 0)),
+        axis.text.y = ggplot2::element_text(size = axis_text_size, margin = ggplot2::margin(r = 0)),
+        axis.title = ggplot2::element_text(size = axis_title_size, family = axis_title_family),
+        axis.title.x = ggplot2::element_text(hjust = xj, size = axis_title_size,
+                                    family = axis_title_family, face = axis_title_face),
+        axis.title.y = ggplot2::element_text(hjust = yj, size = axis_title_size,
+                                    family = axis_title_family, face = axis_title_face),
+        axis.title.y.right = ggplot2::element_text(hjust = yj, size = axis_title_size, angle = 90,
+                                          family = axis_title_family, face = axis_title_face),
+        ...
     )
-  )
 
   # define color scale
   theme_color <- ggplot2::scale_fill_gradient(
@@ -374,68 +462,92 @@ theme_nlm_grey <- function(base_family = "plain",
 #' @rdname theme_nlm
 #' @export
 theme_nlm_grey_discrete <-
-  function(base_family = "plain",
+  function(base_family = "Roboto Condensed",
            base_size = 11.5,
            plot_title_family = base_family,
            plot_title_size = 18,
            plot_title_face = "bold",
            plot_title_margin = 10,
-           subtitle_family = "plain",
+           subtitle_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
            subtitle_size = 13,
            subtitle_face = "plain",
            subtitle_margin = 15,
            strip_text_family = base_family,
            strip_text_size = 12,
            strip_text_face = "plain",
-           caption_family = "plain",
+           caption_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
            caption_size = 9,
            caption_face = "plain",
            caption_margin = 10,
+           axis_text_size = base_size,
+           axis_title_family = base_family,
+           axis_title_size = 9,
+           axis_title_face = "plain",
+           axis_title_just = "rt",
+           plot_margin = ggplot2::margin(30, 30, 30, 30),
+           grid_col = "#cccccc",
+           grid = TRUE,
+           axis_col = "#cccccc",
+           axis = FALSE,
+           ticks = FALSE,
            legend_title = "Z",
            legend_labels = NULL,
-           plot_margin = ggplot2::margin(30, 30, 30, 30),
            ratio = 1,
-           viridis_scale = "D") {
-    # start with minimal theme
-    ret <-
-      ggplot2::theme_minimal(base_family = base_family, base_size = base_size)
+           ...) {
+      # start with minimal theme
+      ret <-
+          ggplot2::theme_minimal(base_family = base_family, base_size = base_size)
 
-    # extend it
-    theme_base <- ret + ggplot2::theme(
-      legend.background = ggplot2::element_blank(),
-      legend.text = ggplot2::element_text(size = 8),
-      aspect.ratio = ratio,
-      plot.margin = plot_margin,
-      strip.text = ggplot2::element_text(
-        hjust = 0,
-        size = strip_text_size,
-        face = strip_text_face,
-        family = strip_text_family
-      ),
-      panel.spacing = grid::unit(2, "lines"),
-      plot.title = ggplot2::element_text(
-        hjust = 0,
-        size = plot_title_size,
-        margin = ggplot2::margin(b = plot_title_margin),
-        family = plot_title_family,
-        face = plot_title_face
-      ),
-      plot.subtitle = ggplot2::element_text(
-        hjust = 0,
-        size = subtitle_size,
-        margin = ggplot2::margin(b = subtitle_margin),
-        family = subtitle_family,
-        face = subtitle_face
-      ),
-      plot.caption = ggplot2::element_text(
-        hjust = 1,
-        size = caption_size,
-        margin = ggplot2::margin(t = caption_margin),
-        family = caption_family,
-        face = caption_face
+
+      xj <- switch(tolower(substr(axis_title_just, 1, 1)), b = 0, l = 0, m = 0.5, c = 0.5, r = 1, t = 1)
+      yj <- switch(tolower(substr(axis_title_just, 2, 2)), b = 0, l = 0, m = 0.5, c = 0.5, r = 1, t = 1)
+
+
+      # extend it
+      theme_base <- ret + ggplot2::theme(
+          legend.background = ggplot2::element_blank(),
+          legend.text = ggplot2::element_text(size = 8),
+          aspect.ratio = ratio,
+          plot.margin = plot_margin,
+          strip.text = ggplot2::element_text(
+              hjust = 0,
+              size = strip_text_size,
+              face = strip_text_face,
+              family = strip_text_family
+          ),
+          panel.spacing = grid::unit(2, "lines"),
+          plot.title = ggplot2::element_text(
+              hjust = 0,
+              size = plot_title_size,
+              margin = ggplot2::margin(b = plot_title_margin),
+              family = plot_title_family,
+              face = plot_title_face
+          ),
+          plot.subtitle = ggplot2::element_text(
+              hjust = 0,
+              size = subtitle_size,
+              margin = ggplot2::margin(b = subtitle_margin),
+              family = subtitle_family,
+              face = subtitle_face
+          ),
+          plot.caption = ggplot2::element_text(
+              hjust = 1,
+              size = caption_size,
+              margin = ggplot2::margin(t = caption_margin),
+              family = caption_family,
+              face = caption_face
+          ),
+          axis.text.x = ggplot2::element_text(size = axis_text_size, margin = ggplot2::margin(t = 0)),
+          axis.text.y = ggplot2::element_text(size = axis_text_size, margin = ggplot2::margin(r = 0)),
+          axis.title = ggplot2::element_text(size = axis_title_size, family = axis_title_family),
+          axis.title.x = ggplot2::element_text(hjust = xj, size = axis_title_size,
+                                      family = axis_title_family, face = axis_title_face),
+          axis.title.y = ggplot2::element_text(hjust = yj, size = axis_title_size,
+                                      family = axis_title_family, face = axis_title_face),
+          axis.title.y.right = ggplot2::element_text(hjust = yj, size = axis_title_size, angle = 90,
+                                            family = axis_title_family, face = axis_title_face),
+          ...
       )
-    )
-
     # define color scale
     theme_color <- ggplot2::scale_fill_brewer(
       palette = "Greys",

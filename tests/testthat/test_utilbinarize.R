@@ -1,10 +1,12 @@
 # nolint start
 context("theme_nlm")
 
-rnd_bin <- util_binarize(nlm_random(10, 10), c(0.3, 0.5, 0.7, 0.9))
+rnd_bin <- util_binarize(nlmr::nlm_random(10, 10), c(0.3, 0.5, 0.7, 0.9))
 
 test_that("basic functionality", {
-  expect_error(util_binarize(nlm_random(10, 10), c(0.3, 0.5, 0.7, 0.9)), NA)
+  expect_error(util_binarize(nlmr::nlm_random(10, 10),
+                             c(0.3, 0.5, 0.7, 0.9)),
+               NA)
 })
 
 
@@ -20,7 +22,8 @@ test_that("binary maps in every layer", {
 })
 
 test_that("right number of layers in the brick", {
-  expect_equal(raster::nlayers(util_binarize(nlm_random(10, 10), c(0.3))), 1)
+  expect_equal(raster::nlayers(util_binarize(nlmr::nlm_random(10, 10),
+                                             c(0.3))), 1)
 })
 
 

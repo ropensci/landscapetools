@@ -16,17 +16,34 @@ util_import_roboto_condensed <- function() {
   # https://github.com/hrbrmstr/hrbrthemes
 
   rc_font_dir <-
-    system.file("fonts", "roboto-condensed", package = "NLMR")
+    system.file("fonts", "roboto-condensed", package = "landscapetools")
 
   suppressWarnings(suppressMessages(extrafont::font_import(rc_font_dir, prompt =
-                                                             FALSE)))
+                                                               FALSE)))
 
   message(
-    sprintf(
-      "You will likely need to install these fonts on your system as well.\n\n
+      sprintf(
+          "You will likely need to install these fonts on your system as well.\n\n
       You can find them in [%s]",
-      rc_font_dir
-    )
+          rc_font_dir
+      )
   )
 
 }
+
+#' @rdname RobotoCondensed
+#' @md
+#' @title Roboto Condensed font name R variable aliases
+#' @description `font_rc` == "`Roboto Condensed`"
+#' @format length 1 character vector
+#' @export
+font_rc <- "Roboto Condensed"
+
+#' @rdname RobotoCondensed
+#' @md
+#' @note `font_rc_light` (a.k.a. "`Roboto Condensed Light`") is not available on
+#'     Windows and will throw a warning if used in plots.
+#' @description `font_fc_light` == "`Roboto Condensed Light`"
+#' @export
+font_rc_light <- "Roboto Condensed Light"
+

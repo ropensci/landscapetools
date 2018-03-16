@@ -14,9 +14,8 @@
 #'
 #' @examples
 #' rndMap <- nlmr::nlm_random(10, 10)
-#' breaks <- c(0.3, 0.5, 0.7, 0.9)
-#' rnd_bin <- util_binarize(rndMap, breaks)
-#' util_plot(rnd_bin)
+#' breaks <- c(0.3, 0.5)
+#' (rnd_bin <- util_binarize(rndMap, breaks))
 #'
 #' @aliases util_binarize
 #' @rdname util_binarize

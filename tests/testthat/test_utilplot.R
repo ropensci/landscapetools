@@ -1,7 +1,7 @@
 # nolint start
 context("util_plot")
 
-x <- NLMR::nlm_random(ncol = 75,
+x <- nlmr::nlm_random(ncol = 75,
                       nrow = 75)
 
 p <- util_plot(x)

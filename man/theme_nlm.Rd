@@ -8,49 +8,71 @@
 \alias{theme_nlm_grey_discrete}
 \title{theme_nlm}
 \usage{
-theme_nlm(base_family = "plain", base_size = 11.5,
-  plot_title_family = "plain", plot_title_size = 18,
-  plot_title_face = "bold", plot_title_margin = 10,
-  subtitle_family = "plain", subtitle_size = 13, subtitle_face = "plain",
-  subtitle_margin = 15, strip_text_family = base_family,
-  strip_text_size = 12, strip_text_face = "plain",
-  caption_family = "plain", caption_size = 9, caption_face = "plain",
-  caption_margin = 10, legend_title = "Z",
-  plot_margin = ggplot2::margin(30, 30, 30, 30), ratio = 1,
-  viridis_scale = "D")
-
-theme_nlm_discrete(base_family = "plain", base_size = 11.5,
+theme_nlm(base_family = "Roboto Condensed", base_size = 11.5,
   plot_title_family = base_family, plot_title_size = 18,
-  plot_title_face = "bold", plot_title_margin = 10,
-  subtitle_family = "plain", subtitle_size = 13, subtitle_face = "plain",
+  plot_title_face = "bold", plot_title_margin = 10, subtitle_family = if
+  (.Platform$OS.type == "windows") "Roboto Condensed" else
+  "Roboto Condensed Light", subtitle_size = 13, subtitle_face = "plain",
   subtitle_margin = 15, strip_text_family = base_family,
-  strip_text_size = 12, strip_text_face = "plain",
-  caption_family = "plain", caption_size = 9, caption_face = "plain",
-  caption_margin = 10, legend_title = "Z", legend_labels = NULL,
-  plot_margin = ggplot2::margin(30, 30, 30, 30), ratio = 1,
-  viridis_scale = "D")
+  strip_text_size = 12, strip_text_face = "plain", caption_family = if
+  (.Platform$OS.type == "windows") "Roboto Condensed" else
+  "Roboto Condensed Light", caption_size = 9, caption_face = "plain",
+  caption_margin = 10, axis_text_size = base_size,
+  axis_title_family = base_family, axis_title_size = 9,
+  axis_title_face = "plain", axis_title_just = "rt",
+  plot_margin = ggplot2::margin(30, 30, 30, 30), grid_col = "#cccccc",
+  grid = TRUE, axis_col = "#cccccc", axis = FALSE, ticks = FALSE,
+  legend_title = "Z", legend_labels = NULL, ratio = 1,
+  viridis_scale = "D", ...)
 
-theme_nlm_grey(base_family = "plain", base_size = 11.5,
+theme_nlm_discrete(base_family = "Roboto Condensed", base_size = 11.5,
   plot_title_family = base_family, plot_title_size = 18,
-  plot_title_face = "bold", plot_title_margin = 10,
-  subtitle_family = "plain", subtitle_size = 13, subtitle_face = "plain",
+  plot_title_face = "bold", plot_title_margin = 10, subtitle_family = if
+  (.Platform$OS.type == "windows") "Roboto Condensed" else
+  "Roboto Condensed Light", subtitle_size = 13, subtitle_face = "plain",
   subtitle_margin = 15, strip_text_family = base_family,
-  strip_text_size = 12, strip_text_face = "plain",
-  caption_family = "plain", caption_size = 9, caption_face = "plain",
-  caption_margin = 10, legend_title = "Z",
-  plot_margin = ggplot2::margin(30, 30, 30, 30), ratio = 1,
-  viridis_scale = "D")
+  strip_text_size = 12, strip_text_face = "plain", caption_family = if
+  (.Platform$OS.type == "windows") "Roboto Condensed" else
+  "Roboto Condensed Light", caption_size = 9, caption_face = "plain",
+  caption_margin = 10, axis_text_size = base_size,
+  axis_title_family = base_family, axis_title_size = 9,
+  axis_title_face = "plain", axis_title_just = "rt",
+  plot_margin = ggplot2::margin(30, 30, 30, 30), grid_col = "#cccccc",
+  grid = TRUE, axis_col = "#cccccc", axis = FALSE, ticks = FALSE,
+  legend_title = "Z", legend_labels = NULL, ratio = 1,
+  viridis_scale = "D", ...)
 
-theme_nlm_grey_discrete(base_family = "plain", base_size = 11.5,
+theme_nlm_grey(base_family = "Roboto Condensed", base_size = 11.5,
   plot_title_family = base_family, plot_title_size = 18,
-  plot_title_face = "bold", plot_title_margin = 10,
-  subtitle_family = "plain", subtitle_size = 13, subtitle_face = "plain",
+  plot_title_face = "bold", plot_title_margin = 10, subtitle_family = if
+  (.Platform$OS.type == "windows") "Roboto Condensed" else
+  "Roboto Condensed Light", subtitle_size = 13, subtitle_face = "plain",
   subtitle_margin = 15, strip_text_family = base_family,
-  strip_text_size = 12, strip_text_face = "plain",
-  caption_family = "plain", caption_size = 9, caption_face = "plain",
-  caption_margin = 10, legend_title = "Z", legend_labels = NULL,
-  plot_margin = ggplot2::margin(30, 30, 30, 30), ratio = 1,
-  viridis_scale = "D")
+  strip_text_size = 12, strip_text_face = "plain", caption_family = if
+  (.Platform$OS.type == "windows") "Roboto Condensed" else
+  "Roboto Condensed Light", caption_size = 9, caption_face = "plain",
+  caption_margin = 10, axis_text_size = base_size,
+  axis_title_family = base_family, axis_title_size = 9,
+  axis_title_face = "plain", axis_title_just = "rt",
+  plot_margin = ggplot2::margin(30, 30, 30, 30), grid_col = "#cccccc",
+  grid = TRUE, axis_col = "#cccccc", axis = FALSE, ticks = FALSE,
+  legend_title = "Z", legend_labels = NULL, ratio = 1, ...)
+
+theme_nlm_grey_discrete(base_family = "Roboto Condensed", base_size = 11.5,
+  plot_title_family = base_family, plot_title_size = 18,
+  plot_title_face = "bold", plot_title_margin = 10, subtitle_family = if
+  (.Platform$OS.type == "windows") "Roboto Condensed" else
+  "Roboto Condensed Light", subtitle_size = 13, subtitle_face = "plain",
+  subtitle_margin = 15, strip_text_family = base_family,
+  strip_text_size = 12, strip_text_face = "plain", caption_family = if
+  (.Platform$OS.type == "windows") "Roboto Condensed" else
+  "Roboto Condensed Light", caption_size = 9, caption_face = "plain",
+  caption_margin = 10, axis_text_size = base_size,
+  axis_title_family = base_family, axis_title_size = 9,
+  axis_title_face = "plain", axis_title_just = "rt",
+  plot_margin = ggplot2::margin(30, 30, 30, 30), grid_col = "#cccccc",
+  grid = TRUE, axis_col = "#cccccc", axis = FALSE, ticks = FALSE,
+  legend_title = "Z", legend_labels = NULL, ratio = 1, ...)
 }
 \arguments{
 \item{base_family}{base font family size}
@@ -63,7 +85,7 @@ theme_nlm_grey_discrete(base_family = "plain", base_size = 11.5,
 
 \item{plot_title_face}{plot title face}
 
-\item{plot_title_margin}{plot title margin}
+\item{plot_title_margin}{plot title ggplot2::margin}
 
 \item{subtitle_family}{plot subtitle family}
 
@@ -71,7 +93,7 @@ theme_nlm_grey_discrete(base_family = "plain", base_size = 11.5,
 
 \item{subtitle_face}{plot subtitle face}
 
-\item{subtitle_margin}{plot subtitle margin bottom (single numeric value)}
+\item{subtitle_margin}{plot subtitle ggplot2::margin bottom (single numeric value)}
 
 \item{strip_text_family}{facet facet label font family}
 
@@ -85,11 +107,34 @@ theme_nlm_grey_discrete(base_family = "plain", base_size = 11.5,
 
 \item{caption_face}{plot caption face}
 
-\item{caption_margin}{plot caption margin}
+\item{caption_margin}{plot caption ggplot2::margin}
+
+\item{axis_text_size}{axis text size}
+
+\item{axis_title_family}{axis title family}
+
+\item{axis_title_size}{axis title size}
+
+\item{axis_title_face}{axis title face}
+
+\item{axis_title_just}{axis title justification}
+
+\item{plot_margin}{plot ggplot2::margin (specify with `ggplot2::margin``)}
+
+\item{grid_col}{grid color}
+
+\item{grid}{grid TRUE/FALSE}
+
+\item{axis_col}{axis color}
+
+\item{axis}{axis TRUE/FALSE}
+
+\item{ticks}{ticks TRUE/FALSE}
 
 \item{legend_title}{Title of the legend (default \code{"Z"})}
 
-\item{plot_margin}{plot margin (specify with `ggplot2::margin``)}
+\item{legend_labels}{Labels for the legend ticks, if
+used with \code{\link{util_plot}} they are automatically derived.}
 
 \item{ratio}{ratio for tiles (default 1, if your raster is not a square the ratio should
 be \code{raster::nrow(x) / raster::ncol(x)})}
@@ -100,8 +145,7 @@ be \code{raster::nrow(x) / raster::ncol(x)})}
 "viridis - viridis" (= "D",  the default option),
 "viridis - cividis" (= "E")}
 
-\item{legend_labels}{Labels for the legend ticks, if
-used with \code{\link{util_plot}} they are automatically derived.}
+\item{...}{optional arguments to ggplot2::theme}
 }
 \description{
 Opinionated ggplot2 theme to visualize NLM raster.

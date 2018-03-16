@@ -6,3 +6,8 @@
 ^CODE_OF_CONDUCT\.md$
 ^LICENSE\.md$
 ^CONTRIBUTING\.md$
+^README\.md$
+^NEWS\.md$
+^codecov\.yml$
+^_pkgdown\.yml$
+^docs$

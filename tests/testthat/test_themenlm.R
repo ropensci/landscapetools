@@ -1,7 +1,7 @@
 # nolint start
 context("theme_nlm")
 
-x <- NLMR::nlm_random(ncol = 75,
+x <- nlmr::nlm_random(ncol = 75,
                       nrow = 75)
 
 p1 <- rasterVis::gplot(x) +

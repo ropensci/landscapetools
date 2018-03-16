@@ -2,12 +2,14 @@
 context("util_merge")
 
 set.seed(5)
-pL <- nlm_percolation(50, 50)
-sL <- nlm_random(50, 50)
+pL <- nlmr::nlm_percolation(50, 50)
+sL <- nlmr::nlm_random(50, 50)
 mL <- util_merge(pL, sL)
 
 test_that("basic functionality", {
-  expect_error(util_merge(nlm_percolation(50, 50), nlm_random(50, 50)), NA)
+  expect_error(util_merge(nlmr::nlm_percolation(50, 50),
+                          nlmr::nlm_random(50, 50)),
+               NA)
 })
 
 test_that("mL behaves like it should", {

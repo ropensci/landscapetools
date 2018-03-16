@@ -24,8 +24,7 @@ one percentage is given multiple layers are written in the same brick.
 }
 \examples{
 rndMap <- nlmr::nlm_random(10, 10)
-breaks <- c(0.3, 0.5, 0.7, 0.9)
-rnd_bin <- util_binarize(rndMap, breaks)
-util_plot(rnd_bin)
+breaks <- c(0.3, 0.5)
+(rnd_bin <- util_binarize(rndMap, breaks))
 
 }
