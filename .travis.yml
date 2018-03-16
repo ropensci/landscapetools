@@ -3,3 +3,14 @@
 language: R
 sudo: false
 cache: packages
+
+r_github_packages:
+  - marcosci/nlmr
+
+after_success:
+  - Rscript -e 'covr::codecov()'
+
+notifications:
+  email:
+  on_success: change
+on_failure: change
