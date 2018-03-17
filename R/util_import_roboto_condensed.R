@@ -23,7 +23,7 @@ util_import_roboto_condensed <- function() {
 
   message(
       sprintf(
-          "You will likely need to install these fonts on your system as well.\n\n
+      "You will likely need to install these fonts on your system as well.\n\n
       You can find them in [%s]",
           rc_font_dir
       )

@@ -1,6 +1,6 @@
 #' util_plot
 #'
-#' Plot a Raster* object with the NLMR default theme
+#' Plot a Raster* object with the NLMR default theme (as ggplot).
 #'
 #' @param x Raster* object
 #' @param discrete If TRUE, the function plots a raster with

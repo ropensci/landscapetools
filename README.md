@@ -5,7 +5,21 @@
 landscapetools
 ==============
 
-The goal of landscapetools is to ...
+`landscapetools` provides utility functions to work with landscape data (raster\* Objects).
+
+### The following functions are implemented:
+
+#### Themes:
+
+`theme_nlm`, `theme_nlm_grey`: Opinionated ggplot2 theme to visualize raster (continous data). `theme_nlm_discrete`,`theme_nlm_grey_discrete`: Opinionated ggplot2 theme to visualize raster (discrete data). `util_import_roboto_condensed`: Import Roboto Condensed font for `theme_nlm`.
+
+#### Utilities:
+
+`util_binarize`: Binarize continuous raster values, if &gt; 1 breaks are given return a RasterBrick. `util_classify`: Classify a raster into proportions based upon a vector of class weightings. `util_merge`: Merge a primary raster with other rasters weighted by scaling factors. `util_raster2tibble`, `util_tibble2raster`: Coerce raster\* objects to tibbles and vice versa. `util_rescale`: Linearly rescale element values in a raster to a range between 0 and 1
+
+#### Visualization
+
+`util_plot`: Plot a Raster\* object with the landscapetools default theme (as ggplot). `util_facetplot`: Plot multiple raster (RasterStack, -brick or list of raster) side by side as facets.
 
 Installation
 ------------
@@ -16,6 +30,66 @@ You can install the development version from [GitHub](https://github.com/) with:
 # install.packages("devtools")
 devtools::install_github("marcosci/landscapetools")
 ```
+
+Usage
+-----
+
+``` r
+library(patchwork)
+library(nlmr)
+library(landscapetools)
+library(ggplot2)
+# Create artificial landscape
+nlm_raster <- nlm_fBm(ncol = 300, nrow = 200, fract_dim = 0.8)
+```
+
+### Utilities
+
+### Binarize
+
+``` r
+binary_stack <- util_binarize(nlm_raster, breaks = c(0.3, 0.5, 0.7, 0.9))
+util_facetplot(binary_stack)
+```
+
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" /> \#\#\# Classify
+
+``` r
+classified_raster <- util_classify(nlm_raster,
+                                   c(0.5, 0.25, 0.25),
+                                   level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
+util_plot(classified_raster, discrete = TRUE)
+```
+
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+
+### Merge
+
+``` r
+pL <- nlm_edgegradient(ncol = 100,
+                       nrow = 100)
+
+sL1 <- nlm_distancegradient(ncol = 100,
+                            nrow = 100,
+                            origin = c(10, 10, 10, 10))
+sL2 <- nlm_random(ncol = 100,
+                  nrow = 100)
+mL1 <- util_merge(pL,
+                  c(sL1, sL2),
+                  scalingfactor = 1)
+  
+util_plot(mL1)
+```
+
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" /> \#\#\# Visualization
+
+``` r
+g1 <- util_plot(nlm_raster) + guides(fill = FALSE)
+g2 <- util_plot_grey(nlm_raster) + guides(fill = FALSE)
+g1 + g2
+```
+
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
 Meta
 ----

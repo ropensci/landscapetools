@@ -8,7 +8,8 @@ r_github_packages:
   - marcosci/nlmr
 
 install:
-- R -e 'devtools::install_github("marcosci/nlmr", ref = "develop")'
+  - ./travis-tool.sh install_github hadley/devtools
+  - R -e 'devtools::install_github("marcosci/nlmr", ref = "develop")'
 
 after_success:
   - Rscript -e 'covr::codecov()'

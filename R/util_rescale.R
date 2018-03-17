@@ -1,6 +1,6 @@
 #' util_rescale
 #'
-#' Linearly rescale element values in a raster to a range between 0 and 1
+#' Linearly rescale element values in a raster to a range between 0 and 1.
 #'
 #' @param x Raster* object
 #'

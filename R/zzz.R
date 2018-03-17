@@ -7,6 +7,8 @@
   # adapted from hrbrthemes and his great package hrbrthemes/ elevator R package
   # https://github.com/hrbrmstr/hrbrthemes
 
+  suppressMessages(util_import_roboto_condensed())
+
   if (.Platform$OS.type == "windows")  {
     # work around for https://github.com/wch/extrafont/issues/44
     windowsFonts <- grDevices::windowsFonts

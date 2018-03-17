@@ -22,7 +22,7 @@ a discrete legend.}
 ggplot2 Object
 }
 \description{
-Plot a Raster* object with the NLMR default theme
+Plot a Raster* object with the NLMR default theme (as ggplot).
 }
 \examples{
 \dontrun{

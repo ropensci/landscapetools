@@ -72,13 +72,80 @@
 <div id="landscapetools" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#landscapetools" class="anchor"></a>landscapetools</h1></div>
-<p>The goal of landscapetools is to …</p>
+<p><code>landscapetools</code> provides utility functions to work with landscape data (raster* Objects).</p>
+<div id="the-following-functions-are-implemented" class="section level3">
+<h3 class="hasAnchor">
+<a href="#the-following-functions-are-implemented" class="anchor"></a>The following functions are implemented:</h3>
+<div id="themes" class="section level4">
+<h4 class="hasAnchor">
+<a href="#themes" class="anchor"></a>Themes:</h4>
+<p><code>theme_nlm</code>, <code>theme_nlm_grey</code>: Opinionated ggplot2 theme to visualize raster (continous data). <code>theme_nlm_discrete</code>,<code>theme_nlm_grey_discrete</code>: Opinionated ggplot2 theme to visualize raster (discrete data). <code>util_import_roboto_condensed</code>: Import Roboto Condensed font for <code>theme_nlm</code>.</p>
+</div>
+<div id="utilities" class="section level4">
+<h4 class="hasAnchor">
+<a href="#utilities" class="anchor"></a>Utilities:</h4>
+<p><code>util_binarize</code>: Binarize continuous raster values, if &gt; 1 breaks are given return a RasterBrick. <code>util_classify</code>: Classify a raster into proportions based upon a vector of class weightings. <code>util_merge</code>: Merge a primary raster with other rasters weighted by scaling factors. <code>util_raster2tibble</code>, <code>util_tibble2raster</code>: Coerce raster* objects to tibbles and vice versa. <code>util_rescale</code>: Linearly rescale element values in a raster to a range between 0 and 1</p>
+</div>
+<div id="visualization" class="section level4">
+<h4 class="hasAnchor">
+<a href="#visualization" class="anchor"></a>Visualization</h4>
+<p><code>util_plot</code>: Plot a Raster* object with the landscapetools default theme (as ggplot). <code>util_facetplot</code>: Plot multiple raster (RasterStack, -brick or list of raster) side by side as facets.</p>
+</div>
+</div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install the development version from <a href="https://github.com/">GitHub</a> with:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("devtools")</span>
 devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"marcosci/landscapetools"</span>)</code></pre></div>
+</div>
+<div id="usage" class="section level2">
+<h2 class="hasAnchor">
+<a href="#usage" class="anchor"></a>Usage</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(patchwork)
+<span class="kw">library</span>(nlmr)
+<span class="kw">library</span>(landscapetools)
+<span class="kw">library</span>(ggplot2)
+<span class="co"># Create artificial landscape</span>
+nlm_raster &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/nlmr/topics/nlm_fBm">nlm_fBm</a></span>(<span class="dt">ncol =</span> <span class="dv">300</span>, <span class="dt">nrow =</span> <span class="dv">200</span>, <span class="dt">fract_dim =</span> <span class="fl">0.8</span>)</code></pre></div>
+<div id="utilities-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#utilities-1" class="anchor"></a>Utilities</h3>
+</div>
+<div id="binarize" class="section level3">
+<h3 class="hasAnchor">
+<a href="#binarize" class="anchor"></a>Binarize</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">binary_stack &lt;-<span class="st"> </span><span class="kw"><a href="reference/util_binarize.html">util_binarize</a></span>(nlm_raster, <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="fl">0.3</span>, <span class="fl">0.5</span>, <span class="fl">0.7</span>, <span class="fl">0.9</span>))
+<span class="kw"><a href="reference/util_facetplot.html">util_facetplot</a></span>(binary_stack)</code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"> ### Classify</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">classified_raster &lt;-<span class="st"> </span><span class="kw"><a href="reference/util_classify.html">util_classify</a></span>(nlm_raster,
+                                   <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.25</span>, <span class="fl">0.25</span>),
+                                   <span class="dt">level_names =</span> <span class="kw">c</span>(<span class="st">"Land Use 1"</span>, <span class="st">"Land Use 2"</span>, <span class="st">"Land Use 3"</span>))
+<span class="kw">util_plot</span>(classified_raster, <span class="dt">discrete =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%"></p>
+</div>
+<div id="merge" class="section level3">
+<h3 class="hasAnchor">
+<a href="#merge" class="anchor"></a>Merge</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pL &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/nlmr/topics/nlm_edgegradient">nlm_edgegradient</a></span>(<span class="dt">ncol =</span> <span class="dv">100</span>,
+                       <span class="dt">nrow =</span> <span class="dv">100</span>)
+
+sL1 &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/nlmr/topics/nlm_distancegradient">nlm_distancegradient</a></span>(<span class="dt">ncol =</span> <span class="dv">100</span>,
+                            <span class="dt">nrow =</span> <span class="dv">100</span>,
+                            <span class="dt">origin =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))
+sL2 &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/nlmr/topics/nlm_random">nlm_random</a></span>(<span class="dt">ncol =</span> <span class="dv">100</span>,
+                  <span class="dt">nrow =</span> <span class="dv">100</span>)
+mL1 &lt;-<span class="st"> </span><span class="kw"><a href="reference/util_merge.html">util_merge</a></span>(pL,
+                  <span class="kw">c</span>(sL1, sL2),
+                  <span class="dt">scalingfactor =</span> <span class="dv">1</span>)
+  
+<span class="kw">util_plot</span>(mL1)</code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="100%"> ### Visualization</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">g1 &lt;-<span class="st"> </span><span class="kw">util_plot</span>(nlm_raster) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/guides">guides</a></span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>)
+g2 &lt;-<span class="st"> </span><span class="kw"><a href="reference/util_plot.html">util_plot_grey</a></span>(nlm_raster) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/guides">guides</a></span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>)
+g1 <span class="op">+</span><span class="st"> </span>g2</code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-5-1.png" width="100%"></p>
+</div>
 </div>
 <div id="meta" class="section level2">
 <h2 class="hasAnchor">
