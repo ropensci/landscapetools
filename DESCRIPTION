@@ -29,4 +29,4 @@ Imports:
     tibble,
     tidyr,
     viridis
-Remotes: marcosci/nlmr@0.3.0
+Remotes: marcosci/nlmr@c268434f6b4000b7d6bc87a848cbf3562cd05163
