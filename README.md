@@ -40,7 +40,8 @@ library(nlmr)
 library(landscapetools)
 library(ggplot2)
 # Create artificial landscape
-nlm_raster <- nlm_fBm(ncol = 300, nrow = 200, fract_dim = 0.8)
+nlm_raster <- nlm_mpd(ncol = 200, nrow = 200, roughness = 0.8)
+#> nlm_mpd returns RasterLayer that fits in the dimension 2^n+1
 ```
 
 ### Utilities
