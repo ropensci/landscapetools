@@ -11,15 +11,22 @@ landscapetools
 
 #### Themes:
 
-`theme_nlm`, `theme_nlm_grey`: Opinionated ggplot2 theme to visualize raster (continous data). `theme_nlm_discrete`,`theme_nlm_grey_discrete`: Opinionated ggplot2 theme to visualize raster (discrete data). `util_import_roboto_condensed`: Import Roboto Condensed font for `theme_nlm`.
+`theme_nlm`, `theme_nlm_grey`: Opinionated ggplot2 theme to visualize raster (continous data).
+`theme_nlm_discrete`,`theme_nlm_grey_discrete`: Opinionated ggplot2 theme to visualize raster (discrete data).
+`util_import_roboto_condensed`: Import Roboto Condensed font for `theme_nlm`.
 
 #### Utilities:
 
-`util_binarize`: Binarize continuous raster values, if &gt; 1 breaks are given return a RasterBrick. `util_classify`: Classify a raster into proportions based upon a vector of class weightings. `util_merge`: Merge a primary raster with other rasters weighted by scaling factors. `util_raster2tibble`, `util_tibble2raster`: Coerce raster\* objects to tibbles and vice versa. `util_rescale`: Linearly rescale element values in a raster to a range between 0 and 1
+`util_binarize`: Binarize continuous raster values, if &gt; 1 breaks are given return a RasterBrick.
+`util_classify`: Classify a raster into proportions based upon a vector of class weightings.
+`util_merge`: Merge a primary raster with other rasters weighted by scaling factors.
+`util_raster2tibble`, `util_tibble2raster`: Coerce raster\* objects to tibbles and vice versa.
+`util_rescale`: Linearly rescale element values in a raster to a range between 0 and 1
 
 #### Visualization
 
-`util_plot`: Plot a Raster\* object with the landscapetools default theme (as ggplot). `util_facetplot`: Plot multiple raster (RasterStack, -brick or list of raster) side by side as facets.
+`util_plot`: Plot a Raster\* object with the landscapetools default theme (as ggplot).
+`util_facetplot`: Plot multiple raster (RasterStack, -brick or list of raster) side by side as facets.
 
 Installation
 ------------
