@@ -79,17 +79,17 @@
 <div id="themes" class="section level4">
 <h4 class="hasAnchor">
 <a href="#themes" class="anchor"></a>Themes:</h4>
-<p><code>theme_nlm</code>, <code>theme_nlm_grey</code>: Opinionated ggplot2 theme to visualize raster (continous data). <code>theme_nlm_discrete</code>,<code>theme_nlm_grey_discrete</code>: Opinionated ggplot2 theme to visualize raster (discrete data). <code>util_import_roboto_condensed</code>: Import Roboto Condensed font for <code>theme_nlm</code>.</p>
+<p><code>theme_nlm</code>, <code>theme_nlm_grey</code>: Opinionated ggplot2 theme to visualize raster (continous data).<br><code>theme_nlm_discrete</code>,<code>theme_nlm_grey_discrete</code>: Opinionated ggplot2 theme to visualize raster (discrete data).<br><code>util_import_roboto_condensed</code>: Import Roboto Condensed font for <code>theme_nlm</code>.<br></p>
 </div>
 <div id="utilities" class="section level4">
 <h4 class="hasAnchor">
 <a href="#utilities" class="anchor"></a>Utilities:</h4>
-<p><code>util_binarize</code>: Binarize continuous raster values, if &gt; 1 breaks are given return a RasterBrick. <code>util_classify</code>: Classify a raster into proportions based upon a vector of class weightings. <code>util_merge</code>: Merge a primary raster with other rasters weighted by scaling factors. <code>util_raster2tibble</code>, <code>util_tibble2raster</code>: Coerce raster* objects to tibbles and vice versa. <code>util_rescale</code>: Linearly rescale element values in a raster to a range between 0 and 1</p>
+<p><code>util_binarize</code>: Binarize continuous raster values, if &gt; 1 breaks are given return a RasterBrick.<br><code>util_classify</code>: Classify a raster into proportions based upon a vector of class weightings.<br><code>util_merge</code>: Merge a primary raster with other rasters weighted by scaling factors.<br><code>util_raster2tibble</code>, <code>util_tibble2raster</code>: Coerce raster* objects to tibbles and vice versa.<br><code>util_rescale</code>: Linearly rescale element values in a raster to a range between 0 and 1.<br></p>
 </div>
 <div id="visualization" class="section level4">
 <h4 class="hasAnchor">
 <a href="#visualization" class="anchor"></a>Visualization</h4>
-<p><code>util_plot</code>: Plot a Raster* object with the landscapetools default theme (as ggplot). <code>util_facetplot</code>: Plot multiple raster (RasterStack, -brick or list of raster) side by side as facets.</p>
+<p><code>util_plot</code>: Plot a Raster* object with the landscapetools default theme (as ggplot).<br><code>util_facetplot</code>: Plot multiple raster (RasterStack, -brick or list of raster) side by side as facets.<br></p>
 </div>
 </div>
 <div id="installation" class="section level2">
@@ -118,7 +118,11 @@ nlm_raster &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rd
 <a href="#binarize" class="anchor"></a>Binarize</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">binary_stack &lt;-<span class="st"> </span><span class="kw"><a href="reference/util_binarize.html">util_binarize</a></span>(nlm_raster, <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="fl">0.3</span>, <span class="fl">0.5</span>, <span class="fl">0.7</span>, <span class="fl">0.9</span>))
 <span class="kw"><a href="reference/util_facetplot.html">util_facetplot</a></span>(binary_stack)</code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"> ### Classify</p>
+<p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"></p>
+</div>
+<div id="classify" class="section level3">
+<h3 class="hasAnchor">
+<a href="#classify" class="anchor"></a>Classify</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">classified_raster &lt;-<span class="st"> </span><span class="kw"><a href="reference/util_classify.html">util_classify</a></span>(nlm_raster,
                                    <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.25</span>, <span class="fl">0.25</span>),
                                    <span class="dt">level_names =</span> <span class="kw">c</span>(<span class="st">"Land Use 1"</span>, <span class="st">"Land Use 2"</span>, <span class="st">"Land Use 3"</span>))
@@ -141,7 +145,11 @@ mL1 &lt;-<span class="st"> </span><span class="kw"><a href="reference/util_merge
                   <span class="dt">scalingfactor =</span> <span class="dv">1</span>)
   
 <span class="kw">util_plot</span>(mL1)</code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="100%"> ### Visualization</p>
+<p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="100%"></p>
+</div>
+<div id="visualize" class="section level3">
+<h3 class="hasAnchor">
+<a href="#visualize" class="anchor"></a>Visualize</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">g1 &lt;-<span class="st"> </span><span class="kw">util_plot</span>(nlm_raster) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/guides">guides</a></span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>)
 g2 &lt;-<span class="st"> </span><span class="kw"><a href="reference/util_plot.html">util_plot_grey</a></span>(nlm_raster) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/guides">guides</a></span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>)
 g1 <span class="op">+</span><span class="st"> </span>g2</code></pre></div>
@@ -180,8 +188,8 @@ g1 <span class="op">+</span><span class="st"> </span>g2</code></pre></div>
 <p><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></p>
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Marco Sciaini <br><small class="roles"> Author, maintainer </small>  </li>
-<li>Matthias Fritsch <br><small class="roles"> Author </small>  </li>
+<li>Matthias Fritsch <br><small class="roles"> Author, maintainer </small>  </li>
+<li>Marco Sciaini <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-3042-5435" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid"></a> </li>
 <li><a href="authors.html">All authors...</a></li>
 </ul>
 <h2>Dev status</h2>
@@ -196,7 +204,7 @@ g1 <span class="op">+</span><span class="st"> </span>g2</code></pre></div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Marco Sciaini, Matthias Fritsch.</p>
+  <p>Developed by Matthias Fritsch, Marco Sciaini.</p>
 </div>
 
 <div class="pkgdown">

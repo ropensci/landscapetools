@@ -53,7 +53,9 @@ binary_stack <- util_binarize(nlm_raster, breaks = c(0.3, 0.5, 0.7, 0.9))
 util_facetplot(binary_stack)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" /> \#\#\# Classify
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+
+### Classify
 
 ``` r
 classified_raster <- util_classify(nlm_raster,
@@ -82,7 +84,9 @@ mL1 <- util_merge(pL,
 util_plot(mL1)
 ```
 
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" /> \#\#\# Visualization
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+
+### Visualize
 
 ``` r
 g1 <- util_plot(nlm_raster) + guides(fill = FALSE)
@@ -100,5 +104,3 @@ Meta
 -   Get citation information for `landscapetools` in R doing `citation(package = 'landscapetools')`
 -   We are very open to contributions - if you are interested check [Contributor Code of Conduct](CONTRIBUTING.md).
     -   Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
-
-sdsdfsdfsdfsdfsdfsd

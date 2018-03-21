@@ -130,12 +130,12 @@ weightings is divided by the number of elements in the weightings vector and thi
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>nlmr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/nlmr/topics/nlm_random'>nlm_random</a></span>(<span class='fl'>10</span>, <span class='fl'>10</span>)
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='fl'>0.5</span>, <span class='fl'>0.25</span>, <span class='fl'>0.25</span>)
-<span class='fu'>util_classify</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>level_names</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Land Use 1"</span>, <span class='st'>"Land Use 2"</span>, <span class='st'>"Land Use 3"</span>))</div><div class='output co'>#&gt; class       : RasterLayer 
-#&gt; dimensions  : 10, 10, 100  (nrow, ncol, ncell)
+    <pre class="examples"><div class='input'><span class='no'>weight</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='fl'>0.5</span>, <span class='fl'>0.25</span>, <span class='fl'>0.25</span>)
+<span class='fu'>util_classify</span>(<span class='no'>fbmmap</span>, <span class='no'>weight</span>,
+              <span class='kw'>level_names</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Land Use 1"</span>, <span class='st'>"Land Use 2"</span>, <span class='st'>"Land Use 3"</span>))</div><div class='output co'>#&gt; class       : RasterLayer 
+#&gt; dimensions  : 200, 200, 40000  (nrow, ncol, ncell)
 #&gt; resolution  : 1, 1  (x, y)
-#&gt; extent      : 0, 10, 0, 10  (xmin, xmax, ymin, ymax)
+#&gt; extent      : 0, 200, 0, 200  (xmin, xmax, ymin, ymax)
 #&gt; coord. ref. : NA 
 #&gt; data source : in memory
 #&gt; names       : layer 
@@ -166,7 +166,7 @@ weightings is divided by the number of elements in the weightings vector and thi
 
       <footer>
       <div class="copyright">
-  <p>Developed by Marco Sciaini, Matthias Fritsch.</p>
+  <p>Developed by Matthias Fritsch, Marco Sciaini.</p>
 </div>
 
 <div class="pkgdown">

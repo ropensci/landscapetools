@@ -122,12 +122,11 @@ one percentage is given multiple layers are written in the same brick.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>rndMap</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>nlmr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/nlmr/topics/nlm_random'>nlm_random</a></span>(<span class='fl'>10</span>, <span class='fl'>10</span>)
-<span class='no'>breaks</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='fl'>0.3</span>, <span class='fl'>0.5</span>)
-(<span class='no'>rnd_bin</span> <span class='kw'>&lt;-</span> <span class='fu'>util_binarize</span>(<span class='no'>rndMap</span>, <span class='no'>breaks</span>))</div><div class='output co'>#&gt; class       : RasterBrick 
-#&gt; dimensions  : 10, 10, 100, 2  (nrow, ncol, ncell, nlayers)
+    <pre class="examples"><div class='input'><span class='no'>breaks</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='fl'>0.3</span>, <span class='fl'>0.5</span>)
+(<span class='no'>binary_maps</span> <span class='kw'>&lt;-</span> <span class='fu'>util_binarize</span>(<span class='no'>fbmmap</span>, <span class='no'>breaks</span>))</div><div class='output co'>#&gt; class       : RasterBrick 
+#&gt; dimensions  : 200, 200, 40000, 2  (nrow, ncol, ncell, nlayers)
 #&gt; resolution  : 1, 1  (x, y)
-#&gt; extent      : 0, 10, 0, 10  (xmin, xmax, ymin, ymax)
+#&gt; extent      : 0, 200, 0, 200  (xmin, xmax, ymin, ymax)
 #&gt; coord. ref. : NA 
 #&gt; data source : in memory
 #&gt; names       : p.0.3, p.0.5 
@@ -153,7 +152,7 @@ one percentage is given multiple layers are written in the same brick.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Marco Sciaini, Matthias Fritsch.</p>
+  <p>Developed by Matthias Fritsch, Marco Sciaini.</p>
 </div>
 
 <div class="pkgdown">

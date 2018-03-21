@@ -17,6 +17,7 @@
 #' @param strip_text_family facet facet label font family
 #' @param strip_text_face  facet facet label font face
 #' @param strip_text_size facet label font family, face and size
+#' @param strip.background strip background
 #' @param caption_family plot caption family
 #' @param caption_face plot caption face
 #' @param caption_size plot caption size
@@ -170,7 +171,7 @@ theme_nlm <- function(base_family = "Roboto Condensed",
   theme_base <- ret + ggplot2::theme(
     legend.background = ggplot2::element_blank(),
     legend.text  = ggplot2::element_text(size = legend_text_size),
-    legend.title = element_text(size = legend_title_size),
+    legend.title = ggplot2::element_text(size = legend_title_size),
     aspect.ratio = ratio,
     plot.margin = plot_margin,
     strip.text = ggplot2::element_text(
@@ -179,7 +180,7 @@ theme_nlm <- function(base_family = "Roboto Condensed",
       face = strip_text_face,
       family = strip_text_family
     ),
-    strip.background =element_rect(fill = strip.background),
+    strip.background = ggplot2::element_rect(fill = strip.background),
     panel.spacing = grid::unit(2, "lines"),
     plot.title = ggplot2::element_text(
       hjust = 0,
@@ -287,7 +288,7 @@ theme_nlm_discrete <- function(base_family = "Roboto Condensed",
     theme_base <- ret + ggplot2::theme(
         legend.background = ggplot2::element_blank(),
         legend.text  = ggplot2::element_text(size = legend_text_size),
-        legend.title = element_text(size = legend_title_size),
+        legend.title = ggplot2::element_text(size = legend_title_size),
         aspect.ratio = ratio,
         plot.margin = plot_margin,
         strip.text = ggplot2::element_text(
@@ -296,7 +297,7 @@ theme_nlm_discrete <- function(base_family = "Roboto Condensed",
             face = strip_text_face,
             family = strip_text_family
         ),
-        strip.background =element_rect(fill = strip.background),
+        strip.background = ggplot2::element_rect(fill = strip.background),
         panel.spacing = grid::unit(2, "lines"),
         plot.title = ggplot2::element_text(
             hjust = 0,
@@ -409,7 +410,7 @@ theme_nlm_grey <- function(base_family = "Roboto Condensed",
     theme_base <- ret + ggplot2::theme(
         legend.background = ggplot2::element_blank(),
         legend.text  = ggplot2::element_text(size = legend_text_size),
-        legend.title = element_text(size = legend_title_size),
+        legend.title = ggplot2::element_text(size = legend_title_size),
         aspect.ratio = ratio,
         plot.margin = plot_margin,
         strip.text = ggplot2::element_text(
@@ -418,7 +419,7 @@ theme_nlm_grey <- function(base_family = "Roboto Condensed",
             face = strip_text_face,
             family = strip_text_family
         ),
-        strip.background =element_rect(fill = strip.background),
+        strip.background = ggplot2::element_rect(fill = strip.background),
         panel.spacing = grid::unit(2, "lines"),
         plot.title = ggplot2::element_text(
             hjust = 0,
@@ -526,7 +527,7 @@ theme_nlm_grey_discrete <-
       theme_base <- ret + ggplot2::theme(
           legend.background = ggplot2::element_blank(),
           legend.text  = ggplot2::element_text(size = legend_text_size),
-          legend.title = element_text(size = legend_title_size),
+          legend.title = ggplot2::element_text(size = legend_title_size),
           aspect.ratio = ratio,
           plot.margin = plot_margin,
           strip.text = ggplot2::element_text(
@@ -535,7 +536,7 @@ theme_nlm_grey_discrete <-
               face = strip_text_face,
               family = strip_text_family
           ),
-          strip.background =element_rect(fill = strip.background),
+          strip.background = ggplot2::element_rect(fill = strip.background),
           panel.spacing = grid::unit(2, "lines"),
           plot.title = ggplot2::element_text(
               hjust = 0,
