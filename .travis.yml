@@ -3,13 +3,17 @@
 language: R
 sudo: false
 cache: packages
+fortran: false
+latex: false
 
-r_github_packages:
-  - marcosci/nlmr
-
-install:
-  - ./travis-tool.sh install_github hadley/devtools
-  - R -e 'devtools::install_github("marcosci/nlmr", ref = "develop")'
+matrix:
+  include:
+    - os: linux
+    - os: osx
+      osx_image: xcode9.2
+      before_install:
+        - brew install curl
+        - brew link --force curl
 
 after_success:
   - Rscript -e 'covr::codecov()'

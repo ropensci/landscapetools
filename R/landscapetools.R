@@ -1,8 +1,7 @@
 #' landscapetools
 #'
-#' \emph{landscapetools} is
-#'
-#' @details ...
+#' \emph{landscapetools} provides utility functions to work with landscape data
+#' (raster* Objects).
 #'
 
 # nocov start
