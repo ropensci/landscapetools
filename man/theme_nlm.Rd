@@ -167,9 +167,8 @@ hrbrthemes (\url{https://github.com/hrbrmstr/hrbrthemes/}).
 \examples{
 # nolint start
 \dontrun{
-# simulate NLM
-x <- nlmr::nlm_random(ncol = 75,
-                nrow = 75)
+# provided example map
+x <- fbmmap
 # classify
 y <- c(0.5, 0.15, 0.25)
 y <- util_classify(x, y, c("1", "2", "3"))
@@ -180,9 +179,9 @@ rasterVis::gplot(x) +
   ggplot2::labs(x = "Easting",
                 y = "Northing") +
   theme_nlm() +
-  ggplot2::ggtitle("Random NLM with continuous viridis color scale",
-                   subtitle = "75x75 cells") +
-  ggplot2::labs(caption = "Random map simulated with the R package NLMR.")
+  ggplot2::ggtitle("Example map",
+                   subtitle = "with continuous viridis color scale") +
+  ggplot2::labs(caption = "Example map simulated with the R package nlmr.")
 
 # grey + continuous
 rasterVis::gplot(x) +
@@ -190,9 +189,9 @@ rasterVis::gplot(x) +
   ggplot2::labs(x = "Easting",
                 y = "Northing") +
   theme_nlm_grey() +
-  ggplot2::ggtitle("Random NLM with continuous grey color scale",
-                   subtitle = "75x75 cells") +
-  ggplot2::labs(caption = "Random map simulated with the R package NLMR.")
+  ggplot2::ggtitle("Example map",
+                   subtitle = "with continuous grey color scale") +
+  ggplot2::labs(caption = "Example map simulated with the R package nlmr.")
 
 # color + discrete
 rasterVis::gplot(y) +
@@ -200,9 +199,9 @@ rasterVis::gplot(y) +
   ggplot2::labs(x = "Easting",
                 y = "Northing") +
   theme_nlm_discrete() +
-  ggplot2::ggtitle("Random NLM with discrete viridis color scale",
-                   subtitle = "75x75 cells") +
-  ggplot2::labs(caption = "Random map simulated with the R package NLMR.")
+  ggplot2::ggtitle("Example map",
+                   subtitle = "with discrete viridis color scale") +
+  ggplot2::labs(caption = "Random map simulated with the R package nlmr.")
 
 # grey + discrete
 rasterVis::gplot(y) +
@@ -210,9 +209,9 @@ rasterVis::gplot(y) +
   ggplot2::labs(x = "Easting",
                 y = "Northing") +
   theme_nlm_grey_discrete() +
-  ggplot2::ggtitle("Random NLM with discrete grey color scale",
-                   subtitle = "75x75 cells") +
-  ggplot2::labs(caption = "Random map simulated with the R package NLMR.")
+  ggplot2::ggtitle("Example map",
+                   subtitle = "with discrete grey color scale") +
+  ggplot2::labs(caption = "Random map simulated with the R package nlmr.")
 # nolint end
 }
 

@@ -24,9 +24,8 @@ problems. If you have altered the coordinates or otherwise played with the
 data, be careful while using this function.
 }
 \examples{
-rndMap <- nlmr::nlm_random(16, 9)
-maptib <- util_raster2tibble(rndMap)
+maptib <- util_raster2tibble(rndmap)
 mapras <- util_tibble2raster(maptib)
-all.equal(rndMap, mapras)
+all.equal(rndmap, mapras)
 
 }
