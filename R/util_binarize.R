@@ -13,9 +13,8 @@
 #' @return RasterLayer / RasterBrick
 #'
 #' @examples
-#' rndMap <- nlmr::nlm_random(10, 10)
 #' breaks <- c(0.3, 0.5)
-#' (rnd_bin <- util_binarize(rndMap, breaks))
+#' (binary_maps <- util_binarize(fbmmap, breaks))
 #'
 #' @aliases util_binarize
 #' @rdname util_binarize

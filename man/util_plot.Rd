@@ -6,12 +6,17 @@
 \alias{util_plot_grey}
 \title{util_plot}
 \usage{
-util_plot(x, discrete = FALSE, ...)
+util_plot(x, xlab = "Easting", ylab = "Northing", discrete = FALSE, ...)
 
-util_plot_grey(x, discrete = FALSE, ...)
+util_plot_grey(x, xlab = "Easting", ylab = "Northing", discrete = FALSE,
+  ...)
 }
 \arguments{
 \item{x}{Raster* object}
+
+\item{xlab}{x axis label, default "Easting"}
+
+\item{ylab}{y axis label, default "Northing"}
 
 \item{discrete}{If TRUE, the function plots a raster with
 a discrete legend.}
@@ -26,9 +31,7 @@ Plot a Raster* object with the NLMR default theme (as ggplot).
 }
 \examples{
 \dontrun{
-# simulate NLM
-x <- nlmr::nlm_random(ncol = 25,
-                      nrow = 75)
+x <- grdmap
 # classify
 y <- c(0.5, 0.15, 0.25)
 y <- util_classify(x, y, c("1", "2", "3"))
@@ -38,7 +41,6 @@ util_plot(y, discrete = TRUE)
 
 util_plot_grey(x)
 util_plot_grey(y, discrete = TRUE)
-
 }
 
 }

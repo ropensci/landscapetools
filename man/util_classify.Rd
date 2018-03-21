@@ -29,9 +29,9 @@ If the numerical vector of weightings does not sum up to 1, the sum of the
 weightings is divided by the number of elements in the weightings vector and this is then used for the classification.
 }
 \examples{
-x <- nlmr::nlm_random(10, 10)
-y <- c(0.5, 0.25, 0.25)
-util_classify(x, y, level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
+weight <- c(0.5, 0.25, 0.25)
+util_classify(fbmmap, weight,
+              level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
 
 
 }

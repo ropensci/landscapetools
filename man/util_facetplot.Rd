@@ -28,19 +28,12 @@ a file. This will help with compressing and rendering the image.
 }
 \examples{
 \dontrun{
-l1 <- nlmr::nlm_fBm(64, 64)
-l2 <- nlmr::nlm_planargradient(64, 64)
-l3 <- nlmr::nlm_randomrectangularcluster(ncol = 60, nrow = 60, minl = 5, maxl = 10)
-l4 <- nlmr::nlm_random(64, 64)
+breaks <- c(0.3, 0.5, 0.7)
+binary_maps <- util_binarize(fbmmap, breaks)
+util_facetplot(binary_maps, nrow = 1)
 
-bri1 <- raster::brick(l1, l2)
-util_facetplot(bri1)
-
-lst1 <- list(layer1 = l1,
-             layer2 = l2,
-             layer3 = l3,
-             layer4 = l4)
-util_facetplot(lst1)
+lst <- list(fbmmap, grdmap, rndmap)
+util_facetplot(lst)
 }
 
 }

@@ -20,11 +20,11 @@ You will loose any resolution, extent or reference system.
 The output is raw tiles.
 }
 \examples{
+maptib <- util_raster2tibble(fbmmap)
+\dontrun{
 library(ggplot2)
-rndMap <- nlmr::nlm_random(16, 9)
-maptib <- util_raster2tibble(rndMap)
 ggplot(maptib, aes(x,y)) +
-  coord_fixed() +
-  geom_raster(aes(fill = z))
-
+    coord_fixed() +
+    geom_raster(aes(fill = z))
+}
 }
