@@ -20,11 +20,11 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Marco Sciaini \email{sciaini.marco@gmail.com}
+\strong{Maintainer}: Matthias Fritsch \email{matthias.fritsch@forst.uni-goettingen.de}
 
 Authors:
 \itemize{
-  \item Matthias Fritsch \email{matthias.fritsch@forst.uni-goettingen.de}
+  \item Marco Sciaini \email{sciaini.marco@gmail.com}
 }
 
 Other contributors:

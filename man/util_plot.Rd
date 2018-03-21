@@ -6,12 +6,17 @@
 \alias{util_plot_grey}
 \title{util_plot}
 \usage{
-util_plot(x, discrete = FALSE, ...)
+util_plot(x, xlab = "Easting", ylab = "Northing", discrete = FALSE, ...)
 
-util_plot_grey(x, discrete = FALSE, ...)
+util_plot_grey(x, xlab = "Easting", ylab = "Northing", discrete = FALSE,
+  ...)
 }
 \arguments{
 \item{x}{Raster* object}
+
+\item{xlab}{x axis label, default "Easting"}
+
+\item{ylab}{y axis label, default "Northing"}
 
 \item{discrete}{If TRUE, the function plots a raster with
 a discrete legend.}
