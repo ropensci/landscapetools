@@ -11,7 +11,7 @@ landscapetools
 
 #### Themes:
 
-`theme_nlm`, `theme_nlm_grey`: Opinionated ggplot2 theme to visualize raster (continous data).<br/> `theme_nlm_discrete`,`theme_nlm_grey_discrete`: Opinionated ggplot2 theme to visualize raster (discrete data).<br/> `util_import_roboto_condensed`: Import Roboto Condensed font for `theme_nlm`.<br/>
+`theme_nlm`, `theme_nlm_grey`: Opinionated ggplot2 theme to visualize raster (continuous data).<br/> `theme_nlm_discrete`,`theme_nlm_grey_discrete`: Opinionated ggplot2 theme to visualize raster (discrete data).<br/> `util_import_roboto_condensed`: Import Roboto Condensed font for `theme_nlm`.<br/>
 
 #### Utilities:
 
