@@ -3,6 +3,8 @@
 #' Plot a Raster* object with the NLMR default theme (as ggplot).
 #'
 #' @param x Raster* object
+#' @param xlab x axis label, default "Easting"
+#' @param ylab y axis label, default "Northing"
 #' @param discrete If TRUE, the function plots a raster with
 #' a discrete legend.
 #' @param ... Arguments for  \code{\link{theme_nlm}}
@@ -32,6 +34,8 @@ NULL
 #' @rdname util_plot
 #' @export
 util_plot <- function(x,
+                      xlab = "Easting",
+                      ylab = "Northing",
                       discrete = FALSE,
                       ...) {
   # derive ratio for plot, cells should be a square and axis equal in length
@@ -55,15 +59,15 @@ util_plot <- function(x,
 
       rasterVis::gplot(x) +
         ggplot2::geom_raster(ggplot2::aes(fill = factor(value))) +
-        ggplot2::labs(x = "Easting",
-                      y = "Northing")  +
+        ggplot2::labs(x = xlab,
+                      y = ylab)  +
         theme_nlm_discrete(..., legend_labels = legend_labels, ratio = ratio)
 
     } else {
       rasterVis::gplot(x) +
         ggplot2::geom_raster(ggplot2::aes(fill = value)) +
-        ggplot2::labs(x = "Easting",
-                      y = "Northing") +
+        ggplot2::labs(x = xlab,
+                      y = ylab) +
         theme_nlm(..., ratio = ratio)
     }
   } else {
@@ -75,6 +79,8 @@ util_plot <- function(x,
 #' @rdname util_plot
 #' @export
 util_plot_grey <- function(x,
+                           xlab = "Easting",
+                           ylab = "Northing",
                            discrete = FALSE,
                            ...) {
   # derive ratio for plot, cells should be a square and axis equal in length
@@ -100,8 +106,8 @@ util_plot_grey <- function(x,
 
       rasterVis::gplot(x) +
         ggplot2::geom_raster(ggplot2::aes(fill = factor(value))) +
-        ggplot2::labs(x = "Easting",
-                      y = "Northing")  +
+        ggplot2::labs(x = xlab,
+                      y = ylab)  +
         theme_nlm_grey_discrete(...,
                                 legend_labels = legend_labels,
                                 ratio = ratio)
@@ -109,8 +115,8 @@ util_plot_grey <- function(x,
     } else {
       rasterVis::gplot(x) +
         ggplot2::geom_raster(ggplot2::aes(fill = value)) +
-        ggplot2::labs(x = "Easting",
-                      y = "Northing") +
+        ggplot2::labs(x = xlab,
+                      y = ylab) +
         theme_nlm_grey(..., ratio = ratio)
     }
   } else {
