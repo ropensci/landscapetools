@@ -2,8 +2,8 @@ Package: landscapetools
 Version: 0.1
 Title: What the Package Does (One Line, Title Case)
 Description: What the package does (one paragraph).
-Authors@R: c(person("Marco", "Sciaini", email = "sciaini.marco@gmail.com", role = c("aut", "cre")), 
-             person("Matthias", "Fritsch", email = "matthias.fritsch@forst.uni-goettingen.de", role =  c("aut")),
+Authors@R: c(person("Matthias", "Fritsch", email = "matthias.fritsch@forst.uni-goettingen.de", role =  c("aut", "cre")),
+             person("Marco", "Sciaini", email = "sciaini.marco@gmail.com", role = c("aut")), 
              person("Google", comment = "Roboto Condensed Font", role = c("cph")))
 License: GPL-3
 Encoding: UTF-8
@@ -12,7 +12,6 @@ ByteCompile: true
 Suggests: 
     testthat,
     covr,
-    nlmr
 URL: https://github.com/marcosci/landscapetools
 BugReports: https://github.com/marcosci/landscapetools/issues
 Roxygen: list(markdown = TRUE)
@@ -29,4 +28,3 @@ Imports:
     tibble,
     tidyr,
     viridis
-Remotes: marcosci/nlmr@c268434f6b4000b7d6bc87a848cbf3562cd05163
