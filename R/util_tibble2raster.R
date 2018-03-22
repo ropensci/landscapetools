@@ -15,10 +15,9 @@
 #' @return Raster* object
 #'
 #' @examples
-#' rndMap <- nlmr::nlm_random(16, 9)
-#' maptib <- util_raster2tibble(rndMap)
+#' maptib <- util_raster2tibble(rndmap)
 #' mapras <- util_tibble2raster(maptib)
-#' all.equal(rndMap, mapras)
+#' all.equal(rndmap, mapras)
 #'
 #' @aliases util_tibble2raster
 #' @rdname util_tibble2raster

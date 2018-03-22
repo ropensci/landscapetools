@@ -1,17 +1,30 @@
 Package: landscapetools
-Version: 0.1
-Title: What the Package Does (One Line, Title Case)
-Description: What the package does (one paragraph).
-Authors@R: c(person("Matthias", "Fritsch", email = "matthias.fritsch@forst.uni-goettingen.de", role =  c("aut", "cre")),
-             person("Marco", "Sciaini", email = "sciaini.marco@gmail.com", role = c("aut")), 
-             person("Google", comment = "Roboto Condensed Font", role = c("cph")))
+Version: 0.3.0
+Title: Landscape Analysis Toolbox
+Description: This package is a designed to support some of the less-glamorous 
+    tasks involved in most landscape analysis. It includes functions to coerce
+    raster data to the common tibble format and vice versa, it helps with flexible
+    reclassification tasks and merge raster. Furthermore, landscapetools helps 
+    landscape scientist to visualize their data by providing opionated themes 
+    and utility functions to plot rasterstacks, -bricks and lists of rasters.
+Authors@R: c(person("Matthias", "Fritsch",
+                email = "matthias.fritsch@forst.uni-goettingen.de",
+                role =  c("aut", "cre")),
+    person("Marco", "Sciaini", email = "sciaini.marco@gmail.com",
+       role = c("aut"), comment = c(ORCID = '0000-0002-3042-5435')), 
+    person("Google", comment = "Roboto Condensed Font", role = c("cph")), 
+    person("Laura", "Graham", role = "rev",
+       comment = "Laura reviewed the package for rOpenSci, see 
+                  https://github.com/ropensci/onboarding/issues/188"),
+    person("Jeffrey", "Hollister", role = "rev",
+       comment = "Jeffrey reviewed the package for rOpenSci, see 
+                  https://github.com/ropensci/onboarding/issues/188"))
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
-Suggests: 
-    testthat,
-    covr,
+Depends:
+    R (>= 3.1.0)
 URL: https://github.com/marcosci/landscapetools
 BugReports: https://github.com/marcosci/landscapetools/issues
 Roxygen: list(markdown = TRUE)
@@ -28,3 +41,6 @@ Imports:
     tibble,
     tidyr,
     viridis
+Suggests: 
+    testthat,
+    covr,

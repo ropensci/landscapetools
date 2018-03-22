@@ -17,9 +17,9 @@
 #' @return RasterLayer
 #'
 #' @examples
-#' x <- nlmr::nlm_random(10, 10)
-#' y <- c(0.5, 0.25, 0.25)
-#' util_classify(x, y, level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
+#' weight <- c(0.5, 0.25, 0.25)
+#' util_classify(fbmmap, weight,
+#'               level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
 #'
 #'
 #' @aliases util_classify

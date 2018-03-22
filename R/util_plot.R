@@ -13,9 +13,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' # simulate NLM
-#' x <- nlmr::nlm_random(ncol = 25,
-#'                       nrow = 75)
+#' x <- grdmap
 #' # classify
 #' y <- c(0.5, 0.15, 0.25)
 #' y <- util_classify(x, y, c("1", "2", "3"))
@@ -25,7 +23,6 @@
 #'
 #' util_plot_grey(x)
 #' util_plot_grey(y, discrete = TRUE)
-#'
 #' }
 #'
 #' @aliases util_plot
