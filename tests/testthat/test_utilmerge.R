@@ -2,13 +2,13 @@
 context("util_merge")
 
 set.seed(5)
-pL <- nlmr::nlm_percolation(50, 50)
-sL <- nlmr::nlm_random(50, 50)
+pL <- rndmap
+sL <- grdmap
 mL <- util_merge(pL, sL)
 
 test_that("basic functionality", {
-  expect_error(util_merge(nlmr::nlm_percolation(50, 50),
-                          nlmr::nlm_random(50, 50)),
+  expect_error(util_merge(rndmap,
+                          grdmap),
                NA)
 })
 

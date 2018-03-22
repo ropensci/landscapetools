@@ -1,10 +1,18 @@
 Package: landscapetools
 Version: 0.3.0
 Title: Landscape Analysis Toolbox
-Description: What the package does (one paragraph).
-Authors@R: c(person("Matthias", "Fritsch", email = "matthias.fritsch@forst.uni-goettingen.de", role =  c("aut", "cre")),
-             person("Marco", "Sciaini", email = "sciaini.marco@gmail.com", role = c("aut"), comment = c(ORCID = '0000-0002-3042-5435')), 
-             person("Google", comment = "Roboto Condensed Font", role = c("cph")), 
+Description: This package is a designed to support some of the less-glamorous 
+    tasks involved in most landscape analysis. It includes functions to coerce
+    raster data to the common tibble format and vice versa, it helps with flexible
+    reclassification tasks and merge raster. Furthermore, landscapetools helps 
+    landscape scientist to visualize their data by providing opionated themes 
+    and utility functions to plot rasterstacks, -bricks and lists of rasters.
+Authors@R: c(person("Matthias", "Fritsch",
+                email = "matthias.fritsch@forst.uni-goettingen.de",
+                role =  c("aut", "cre")),
+    person("Marco", "Sciaini", email = "sciaini.marco@gmail.com",
+       role = c("aut"), comment = c(ORCID = '0000-0002-3042-5435')), 
+    person("Google", comment = "Roboto Condensed Font", role = c("cph")), 
     person("Laura", "Graham", role = "rev",
        comment = "Laura reviewed the package for rOpenSci, see 
                   https://github.com/ropensci/onboarding/issues/188"),

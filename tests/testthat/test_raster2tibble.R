@@ -1,11 +1,10 @@
 # nolint start
 context("util_raster2tibble")
 
-rndMap <- nlmr::nlm_random(16, 9)
-maptib <- util_raster2tibble(rndMap)
+maptib <- util_raster2tibble(fbmmap)
 
 test_that("basic functionality", {
-  expect_error(util_raster2tibble(rndMap), NA)
+  expect_error(util_raster2tibble(fbmmap), NA)
 })
 
 test_that("util_plot behaves like it should", {

@@ -1,28 +1,25 @@
 # nolint start
 context("theme_nlm")
 
-x <- nlmr::nlm_random(ncol = 75,
-                      nrow = 75)
-
-p1 <- rasterVis::gplot(x) +
+p1 <- rasterVis::gplot(fbmmap) +
   ggplot2::geom_tile(ggplot2::aes(fill = value)) +
   ggplot2::labs(x = "Easting",
                 y = "Northing") +
   theme_nlm()
 
-p2 <- rasterVis::gplot(x) +
+p2 <- rasterVis::gplot(fbmmap) +
   ggplot2::geom_tile(ggplot2::aes(fill = value)) +
   ggplot2::labs(x = "Easting",
                 y = "Northing") +
   theme_nlm_discrete()
 
-p3 <- rasterVis::gplot(x) +
+p3 <- rasterVis::gplot(fbmmap) +
   ggplot2::geom_tile(ggplot2::aes(fill = value)) +
   ggplot2::labs(x = "Easting",
                 y = "Northing") +
   theme_nlm_grey()
 
-p4 <- rasterVis::gplot(x) +
+p4 <- rasterVis::gplot(fbmmap) +
   ggplot2::geom_tile(ggplot2::aes(fill = value)) +
   ggplot2::labs(x = "Easting",
                 y = "Northing") +
