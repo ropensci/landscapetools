@@ -1,7 +1,7 @@
 ---
 output:
   github_document:
-    html_preview: FALSE
+    html_preview: false
 ---
 [![Travis build status](https://travis-ci.org/marcosci/landscapetools.svg?branch=master)](https://travis-ci.org/marcosci/landscapetools)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/marcosci/landscapetools?branch=master&svg=true)](https://ci.appveyor.com/project/marcosci/landscapetools)
