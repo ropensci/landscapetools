@@ -1,11 +1,12 @@
 Package: landscapetools
 Version: 0.3.0
-Title: Landscape Analysis Toolbox
-Description: This package is a designed to support some of the less-glamorous 
+Title: Landscape Utility Toolbox
+Description: This package is designed to support some of the less-glamorous 
     tasks involved in most landscape analysis. It includes functions to coerce
-    raster data to the common tibble format and vice versa, it helps with flexible
-    reclassification tasks and merge raster. Furthermore, landscapetools helps 
-    landscape scientist to visualize their data by providing opionated themes 
+    raster data to the common tibble format and vice versa, it helps with 
+    flexible reclassification tasks of raster data and provides a function to 
+    merge multiple raster. Furthermore, landscapetools helps landscape 
+    scientist to visualize their data by providing opionated themes 
     and utility functions to plot rasterstacks, -bricks and lists of rasters.
 Authors@R: c(person("Matthias", "Fritsch",
                 email = "matthias.fritsch@forst.uni-goettingen.de",
@@ -43,4 +44,4 @@ Imports:
     viridis
 Suggests: 
     testthat,
-    covr,
+    covr
