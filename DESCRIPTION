@@ -1,6 +1,7 @@
 Package: landscapetools
-Version: 0.3.0
+Type: Package
 Title: Landscape Utility Toolbox
+Version: 0.3.0
 Description: Toolbox designed to support some of the less-glamorous 
     tasks involved in most landscape analysis. It includes functions to coerce
     raster data to the common tibble format and vice versa, it helps with 
