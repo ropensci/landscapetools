@@ -12,8 +12,8 @@
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/marcosci/landscapetools}
-  \item Report bugs at \url{https://github.com/marcosci/landscapetools/issues}
+  \item \url{https://ropensci.github.io/landscapetools/}
+  \item Report bugs at \url{https://github.com/ropensci/landscapetools/issues}
 }
 
 }

@@ -59,7 +59,11 @@ util_facetplot <- function(x, nrow = NULL, ncol = NULL) {
         ggplot2::coord_fixed() +
         ggplot2::geom_raster(ggplot2::aes_string(fill = "z")) +
         ggplot2::facet_wrap(~id, nrow = nrow, ncol = ncol) +
-        theme_nlm()
+        ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0,max(maptibb$x))) +
+        ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0,max(maptibb$y))) +
+        ggplot2::guides(fill = FALSE) +
+        ggplot2::labs(titel = NULL, x = NULL, y = NULL) +
+        theme_facetplot()
 
   return(p)
 }
