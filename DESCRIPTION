@@ -1,7 +1,7 @@
 Package: landscapetools
 Version: 0.3.0
 Title: Landscape Utility Toolbox
-Description: This package is designed to support some of the less-glamorous 
+Description: Toolbox designed to support some of the less-glamorous 
     tasks involved in most landscape analysis. It includes functions to coerce
     raster data to the common tibble format and vice versa, it helps with 
     flexible reclassification tasks of raster data and provides a function to 
@@ -26,8 +26,8 @@ LazyData: true
 ByteCompile: true
 Depends:
     R (>= 3.1.0)
-URL: https://github.com/marcosci/landscapetools
-BugReports: https://github.com/marcosci/landscapetools/issues
+URL: https://ropensci.github.io/landscapetools/
+BugReports: https://github.com/ropensci/landscapetools/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.0.1
 Imports: 

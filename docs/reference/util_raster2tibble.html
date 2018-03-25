@@ -76,12 +76,7 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/marcosci/landscapetools">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -94,7 +89,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Converts raster data into tibble</h1>
-    <small>Source: <a href='https://github.com/marcosci/landscapetools/blob/master/R/util_raster2tibble.R'><code>R/util_raster2tibble.R</code></a></small>
+    
     </div>
 
     
@@ -123,12 +118,10 @@ The output is raw tiles.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>maptib</span> <span class='kw'>&lt;-</span> <span class='fu'>util_raster2tibble</span>(<span class='no'>fbmmap</span>)</div><span class='co'># NOT RUN {</span>
-<span class='fu'>library</span>(<span class='no'>ggplot2</span>)
+    <pre class="examples"><div class='input'><span class='no'>maptib</span> <span class='kw'>&lt;-</span> <span class='fu'>util_raster2tibble</span>(<span class='no'>fbmmap</span>)</div><div class='input'><span class='fu'>library</span>(<span class='no'>ggplot2</span>)
 <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/ggplot'>ggplot</a></span>(<span class='no'>maptib</span>, <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/aes'>aes</a></span>(<span class='no'>x</span>,<span class='no'>y</span>)) +
     <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/coord_fixed'>coord_fixed</a></span>() +
-    <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/geom_tile'>geom_raster</a></span>(<span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/aes'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>z</span>))
-<span class='co'># }</span></pre>
+    <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/geom_tile'>geom_raster</a></span>(<span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/aes'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>z</span>))</div><div class='img'><img src='util_raster2tibble-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
