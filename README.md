@@ -1,5 +1,5 @@
 
-[![Travis build status](https://travis-ci.org/ropensci/landscapetools.svg?branch=master)](https://travis-ci.org/ropensci/landscapetools) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/ropensci/landscapetools?branch=master&svg=true)](https://ci.appveyor.com/project/ropensci/landscapetools) [![Coverage status](https://codecov.io/gh/ropensci/landscapetools/branch/master/graph/badge.svg)](https://codecov.io/github/ropensci/landscapetools?branch=master) [![](https://badges.ropensci.org/188_status.svg)](https://github.com/ropensci/onboarding/issues/188)
+[![Travis build status](https://travis-ci.org/ropensci/landscapetools.svg?branch=master)](https://travis-ci.org/ropensci/landscapetools) [![Build status](https://ci.appveyor.com/api/projects/status/aehfkxfb5r4vjlm9?svg=true)](https://ci.appveyor.com/project/ropensci/landscapetools) [![Coverage status](https://codecov.io/gh/ropensci/landscapetools/branch/master/graph/badge.svg)](https://codecov.io/github/ropensci/landscapetools?branch=master) [![](https://badges.ropensci.org/188_status.svg)](https://github.com/ropensci/onboarding/issues/188)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 landscapetools
@@ -100,7 +100,7 @@ Meta
 -   Please [report any issues or bugs](https://github.com/ropensci/landscapetools/issues/new/).
 -   License: GPL3
 -   Get citation information for `landscapetools` in R doing `citation(package = 'landscapetools')`
--   We are very open to contributions - if you are interested check [Contributor Code of Conduct](CONTRIBUTING.md).
+-   We are very open to contributions - if you are interested check [Contributing](CONTRIBUTING.md).
     -   Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 [![ropensci\_footer](https://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
