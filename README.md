@@ -44,7 +44,8 @@ util_plot(nlm_raster)
 
 <img src="man/figures/README-unnamed-chunk-1-1.png" width="100%" />
 
-### Utilities
+Utilities
+---------
 
 ### Binarize
 
@@ -94,6 +95,11 @@ util_facetplot(merge_vis)
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
 
+See also
+--------
+
+In the examples above we make heavy use of the `nlmr` package. Both packages were developed together until we split them into pure landscape functionality and utility tools. If you are interested in generating neutral landscapes via a multitude of available algorithms take a closer look at the [nlmr](https://github.com/ropensci/nlmr/) package.
+
 Meta
 ----
 
@@ -101,6 +107,6 @@ Meta
 -   License: GPL3
 -   Get citation information for `landscapetools` in R doing `citation(package = 'landscapetools')`
 -   We are very open to contributions - if you are interested check [Contributing](CONTRIBUTING.md).
-    -   Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+    -   Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 [![ropensci\_footer](https://ropensci.org/public_images/github_footer.png)](http://ropensci.org)

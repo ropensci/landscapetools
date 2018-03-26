@@ -109,18 +109,18 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="kw">library</span>(landscapetools)
 <span class="co"># Create an artificial landscape</span>
 nlm_raster &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/nlmr/topics/nlm_fBm">nlm_fbm</a></span>(<span class="dt">ncol =</span> <span class="dv">200</span>, <span class="dt">nrow =</span> <span class="dv">200</span>, <span class="dt">fract_dim =</span> <span class="fl">0.8</span>)
-<span class="kw">util_plot</span>(nlm_raster)</code></pre></div>
+<span class="kw"><a href="http://www.rdocumentation.org/packages/landscapetools/topics/util_plot">util_plot</a></span>(nlm_raster)</code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-1-1.png" width="100%"></p>
-<div id="utilities-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#utilities-1" class="anchor"></a>Utilities</h3>
 </div>
+<div id="utilities-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#utilities-1" class="anchor"></a>Utilities</h2>
 <div id="binarize" class="section level3">
 <h3 class="hasAnchor">
 <a href="#binarize" class="anchor"></a>Binarize</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Binarize the map into habitat and matrix</span>
 binarized_raster &lt;-<span class="st"> </span><span class="kw"><a href="reference/util_binarize.html">util_binarize</a></span>(nlm_raster, <span class="dt">breaks =</span> <span class="fl">0.31415</span>)
-<span class="kw">util_plot</span>(binarized_raster, <span class="dt">discrete =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<span class="kw"><a href="http://www.rdocumentation.org/packages/landscapetools/topics/util_plot">util_plot</a></span>(binarized_raster, <span class="dt">discrete =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"></p>
 </div>
 <div id="classify" class="section level3">
@@ -130,7 +130,7 @@ binarized_raster &lt;-<span class="st"> </span><span class="kw"><a href="referen
 classified_raster &lt;-<span class="st"> </span><span class="kw"><a href="reference/util_classify.html">util_classify</a></span>(nlm_raster,
                                    <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.25</span>, <span class="fl">0.25</span>),
                                    <span class="dt">level_names =</span> <span class="kw">c</span>(<span class="st">"Land Use 1"</span>, <span class="st">"Land Use 2"</span>, <span class="st">"Land Use 3"</span>))
-<span class="kw">util_plot</span>(classified_raster, <span class="dt">discrete =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<span class="kw"><a href="http://www.rdocumentation.org/packages/landscapetools/topics/util_plot">util_plot</a></span>(classified_raster, <span class="dt">discrete =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%"></p>
 </div>
 <div id="merge" class="section level3">
@@ -158,6 +158,11 @@ merge_vis &lt;-<span class="st"> </span><span class="kw">list</span>(
 <p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="100%"></p>
 </div>
 </div>
+<div id="see-also" class="section level2">
+<h2 class="hasAnchor">
+<a href="#see-also" class="anchor"></a>See also</h2>
+<p>In the examples above we make heavy use of the <code>nlmr</code> package. Both packages were developed together until we split them into pure landscape functionality and utility tools. If you are interested in generating neutral landscapes via a multitude of available algorithms take a closer look at the <a href="https://github.com/ropensci/nlmr/">nlmr</a> package.</p>
+</div>
 <div id="meta" class="section level2">
 <h2 class="hasAnchor">
 <a href="#meta" class="anchor"></a>Meta</h2>
@@ -168,7 +173,7 @@ merge_vis &lt;-<span class="st"> </span><span class="kw">list</span>(
 </li>
 <li>We are very open to contributions - if you are interested check <a href="CONTRIBUTING.html">Contributing</a>.
 <ul>
-<li>Please note that this project is released with a <a href="CONDUCT.html">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</li>
+<li>Please note that this project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</li>
 </ul>
 </li>
 </ul>
