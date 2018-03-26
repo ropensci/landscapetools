@@ -26,6 +26,8 @@
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
 <meta property="og:title" content="Function reference" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -48,8 +50,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">landscapetools</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">landscapetools</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.3.0</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -62,17 +68,12 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/marcosci/landscapetools">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -84,10 +85,7 @@
       <div class="row">
   <div class="col-md-9">
     <div class="page-header">
-      <h1>
-        Reference
-        <small>version&nbsp;0.1</small>
-      </h1>
+      <h1>Reference</h1>
     </div>
 
     <div class="contents">
@@ -101,82 +99,86 @@
       <tbody>
         <tr>
           <th colspan="2">
-            <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
+            <h2 id="section-utilities" class="hasAnchor"><a href="#section-utilities" class="anchor"></a>Utilities</h2>
             <p class="section-desc"></p>
           </th>
         </tr>
         <tr>
           <!--  -->
           <td>
-            <p><code><a href="RobotoCondensed.html">font_rc</a></code> <code><a href="RobotoCondensed.html">font_rc_light</a></code> </p>
-          </td>
-          <td><p>Roboto Condensed font name R variable aliases</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="landscapetools-package.html">landscapetools-package</a></code> </p>
-          </td>
-          <td><p>landscapetools</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="theme_nlm.html">theme_nlm</a></code> <code><a href="theme_nlm.html">theme_nlm_discrete</a></code> <code><a href="theme_nlm.html">theme_nlm_grey</a></code> <code><a href="theme_nlm.html">theme_nlm_grey_discrete</a></code> </p>
-          </td>
-          <td><p>theme_nlm</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="util_binarize.html">util_binarize</a></code> </p>
+            <p><code><a href="util_binarize.html">util_binarize()</a></code> </p>
           </td>
           <td><p>Binarize continuous raster values</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="util_classify.html">util_classify</a></code> </p>
+            <p><code><a href="util_classify.html">util_classify()</a></code> </p>
           </td>
           <td><p>util_classify</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="util_facetplot.html">util_facetplot</a></code> </p>
-          </td>
-          <td><p>util_facetplot() for visual overview</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="util_import_roboto_condensed.html">util_import_roboto_condensed</a></code> </p>
-          </td>
-          <td><p>Import Roboto Condensed font for use in charts</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="util_merge.html">util_merge</a></code> </p>
+            <p><code><a href="util_merge.html">util_merge()</a></code> </p>
           </td>
           <td><p>util_merge</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="util_plot.html">util_plot</a></code> <code><a href="util_plot.html">util_plot_grey</a></code> </p>
-          </td>
-          <td><p>util_plot</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="util_raster2tibble.html">util_raster2tibble</a></code> </p>
+            <p><code><a href="util_raster2tibble.html">util_raster2tibble()</a></code> </p>
           </td>
           <td><p>Converts raster data into tibble</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="util_rescale.html">util_rescale</a></code> </p>
+            <p><code><a href="util_tibble2raster.html">util_tibble2raster()</a></code> </p>
           </td>
-          <td><p>util_rescale</p></td>
+          <td><p>Converts tibble data into a raster</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="util_tibble2raster.html">util_tibble2raster</a></code> </p>
+            <p><code><a href="util_rescale.html">util_rescale()</a></code> </p>
           </td>
-          <td><p>Converts tibble data into a raster</p></td>
+          <td><p>util_rescale</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-visualization" class="hasAnchor"><a href="#section-visualization" class="anchor"></a>Visualization</h2>
+            <p class="section-desc"></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="util_plot.html">util_plot()</a></code> <code><a href="util_plot.html">util_plot_grey()</a></code> </p>
+          </td>
+          <td><p>util_plot</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="util_facetplot.html">util_facetplot()</a></code> </p>
+          </td>
+          <td><p>util_facetplot() for visual overview</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-themes" class="hasAnchor"><a href="#section-themes" class="anchor"></a>Themes</h2>
+            <p class="section-desc"></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="theme_nlm.html">theme_nlm()</a></code> <code><a href="theme_nlm.html">theme_nlm_discrete()</a></code> <code><a href="theme_nlm.html">theme_nlm_grey()</a></code> <code><a href="theme_nlm.html">theme_nlm_grey_discrete()</a></code> <code><a href="theme_nlm.html">theme_facetplot()</a></code> </p>
+          </td>
+          <td><p>theme_nlm</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="util_import_roboto_condensed.html">util_import_roboto_condensed()</a></code> </p>
+          </td>
+          <td><p>Import Roboto Condensed font for use in charts</p></td>
         </tr>
       </tbody>
       </table>
@@ -186,14 +188,16 @@
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#section-utilities">Utilities</a></li>
+      <li><a href="#section-visualization">Visualization</a></li>
+      <li><a href="#section-themes">Themes</a></li>
     </ul>
   </div>
 </div>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Marco Sciaini, Matthias Fritsch.</p>
+  <p>Developed by Matthias Fritsch, Marco Sciaini.</p>
 </div>
 
 <div class="pkgdown">

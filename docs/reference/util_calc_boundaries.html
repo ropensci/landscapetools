@@ -27,9 +27,11 @@
 <script src="../pkgdown.js"></script>
 <meta property="og:title" content="util_calc_boundaries — util_calc_boundaries" />
 
-<meta property="og:description" content="Determine upper class boundaries for classification of a matrix with values ranging 0-1 based upon an
+<meta property="og:description" content="Determine upper class boundaries for classification of a vector with values ranging 0-1 based upon an
 vector of cumulative proportions." />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -52,8 +54,12 @@ vector of cumulative proportions." />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">landscapetools</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">landscapetools</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.3.0</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -66,17 +72,12 @@ vector of cumulative proportions." />
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/marcosci/landscapetools">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -89,21 +90,22 @@ vector of cumulative proportions." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>util_calc_boundaries</h1>
+    
     </div>
 
     
-    <p>Determine upper class boundaries for classification of a matrix with values ranging 0-1 based upon an
+    <p>Determine upper class boundaries for classification of a vector with values ranging 0-1 based upon an
 vector of cumulative proportions.</p>
     
 
     <pre class="usage"><span class='fu'>util_calc_boundaries</span>(<span class='no'>x</span>, <span class='no'>cumulative_proportions</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>2D matrix of data values.</p></td>
+      <td><p>vector of data values.</p></td>
     </tr>
     <tr>
       <th>cumulative_proportions</th>
@@ -119,7 +121,7 @@ vector of cumulative proportions.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>matrix</span>(<span class='fu'>runif</span>(<span class='fl'>100</span>,<span class='fl'>0</span>,<span class='fl'>1</span>),<span class='fl'>10</span>,<span class='fl'>10</span>)
 <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='util_w2cp.html'>util_w2cp</a></span>(<span class='fu'>c</span>(<span class='fl'>0.5</span>, <span class='fl'>0.25</span>, <span class='fl'>0.25</span>)) <span class='co'>#cumulative proportion</span>
-<span class='fu'>util_calc_boundaries</span>(<span class='no'>x</span>,<span class='no'>y</span>)</div><div class='output co'>#&gt; [1] 0.5189211 0.6974291 0.9996459</div><div class='input'>
+<span class='fu'>util_calc_boundaries</span>(<span class='no'>x</span>,<span class='no'>y</span>)</div><div class='output co'>#&gt; [1] 0.4663935 0.6885560 0.9970691</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -137,7 +139,7 @@ vector of cumulative proportions.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Marco Sciaini, Matthias Fritsch.</p>
+  <p>Developed by Matthias Fritsch, Marco Sciaini.</p>
 </div>
 
 <div class="pkgdown">

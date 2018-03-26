@@ -23,8 +23,7 @@ Breaks are considered to be habitat percentages (\code{p}). If more than
 one percentage is given multiple layers are written in the same brick.
 }
 \examples{
-rndMap <- nlmr::nlm_random(10, 10)
 breaks <- c(0.3, 0.5)
-(rnd_bin <- util_binarize(rndMap, breaks))
+(binary_maps <- util_binarize(fbmmap, breaks))
 
 }

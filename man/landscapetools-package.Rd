@@ -6,30 +6,32 @@
 \alias{landscapetools-package}
 \title{landscapetools}
 \description{
-\emph{landscapetools} is
-}
-\details{
-...
+\emph{landscapetools} provides utility functions to work with landscape data
+(raster* Objects).
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/marcosci/landscapetools}
-  \item Report bugs at \url{https://github.com/marcosci/landscapetools/issues}
+  \item \url{https://ropensci.github.io/landscapetools/}
+  \item Report bugs at \url{https://github.com/ropensci/landscapetools/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Marco Sciaini \email{sciaini.marco@gmail.com}
+\strong{Maintainer}: Matthias Fritsch \email{matthias.fritsch@forst.uni-goettingen.de}
 
 Authors:
 \itemize{
-  \item Matthias Fritsch \email{matthias.fritsch@forst.uni-goettingen.de}
+  \item Marco Sciaini \email{sciaini.marco@gmail.com} (0000-0002-3042-5435)
 }
 
 Other contributors:
 \itemize{
   \item Google (Roboto Condensed Font) [copyright holder]
+  \item Laura Graham (Laura reviewed the package for rOpenSci, see 
+                  https://github.com/ropensci/onboarding/issues/188) [NA]
+  \item Jeffrey Hollister (Jeffrey reviewed the package for rOpenSci, see 
+                  https://github.com/ropensci/onboarding/issues/188) [NA]
 }
 
 }

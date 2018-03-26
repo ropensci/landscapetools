@@ -1,8 +1,7 @@
 # nolint start
 context("util_tibble2raster")
 
-rndMap <- nlmr::nlm_random(16, 9)
-maptib <- util_raster2tibble(rndMap)
+maptib <- util_raster2tibble(fbmmap)
 mapras <- util_tibble2raster(maptib)
 
 test_that("basic functionality", {

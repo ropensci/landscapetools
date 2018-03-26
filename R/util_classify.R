@@ -17,9 +17,9 @@
 #' @return RasterLayer
 #'
 #' @examples
-#' x <- nlmr::nlm_random(10, 10)
-#' y <- c(0.5, 0.25, 0.25)
-#' util_classify(x, y, level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
+#' weight <- c(0.5, 0.25, 0.25)
+#' util_classify(fbmmap, weight,
+#'               level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
 #'
 #'
 #' @aliases util_classify
@@ -34,23 +34,15 @@ util_classify <- function(x, weighting, level_names = NULL) {
   checkmate::assert_class(x, "RasterLayer")
   checkmate::assert_numeric(weighting)
 
-  # transform raster to matrix
-  x_mat <- raster::as.matrix(x)
-
   # Calculate cum. proportions and boundary values ----
   cumulative_proportions <- util_w2cp(weighting)
-  boundary_values <- util_calc_boundaries(x_mat, cumulative_proportions)
+  boundary_values <- util_calc_boundaries(raster::values(x),
+                                          cumulative_proportions)
 
   # Classify the matrix based on the boundary values ----
-  classified_matrix <-
-    matrix(
-      findInterval(x_mat, boundary_values, rightmost.closed = TRUE),
-      dim(x_mat)[1],
-      dim(x_mat)[2]
-    )
-
-  # Transform matrix to raster and let categories start with 1 ----
-  x@data@values <- as.vector(classified_matrix)
+  raster::values(x) <- findInterval(raster::values(x),
+                                    boundary_values,
+                                    rightmost.closed = TRUE)
 
   # If level_names are not NULL, add them as specified ----
   if (!is.null(level_names)) {

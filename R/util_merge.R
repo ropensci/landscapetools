@@ -10,7 +10,7 @@
 #' @return Rectangular matrix with values ranging from 0-1
 #'
 #' @examples
-#' util_merge(nlmr::nlm_percolation(50, 50), nlmr::nlm_random(50, 50))
+#' (util_merge(grdmap, rndmap))
 #'
 #' @export
 #'

@@ -11,3 +11,7 @@
 ^codecov\.yml$
 ^_pkgdown\.yml$
 ^docs$
+^data-raw$
+^\.github$
+^codemeta\.json$
+^cran\-comments\.md$

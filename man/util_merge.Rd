@@ -22,6 +22,6 @@ Rectangular matrix with values ranging from 0-1
 Merge a primary raster with other rasters weighted by scaling factors.
 }
 \examples{
-util_merge(nlmr::nlm_percolation(50, 50), nlmr::nlm_random(50, 50))
+(util_merge(grdmap, rndmap))
 
 }

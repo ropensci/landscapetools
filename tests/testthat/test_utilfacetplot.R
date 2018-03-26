@@ -1,17 +1,16 @@
 # nolint start
 context("util_facetplot")
 
-l1 <- nlmr::nlm_random(32, 32)
-l2 <- nlmr::nlm_random(32, 32)
-l3 <- nlmr::nlm_random(16, 16)
+l2 <- grdmap
+l3 <- rndmap
 
-bri1 <- raster::brick(l1, l2)
+bri1 <- raster::brick(l2, l3)
 p1 <- util_facetplot(bri1)
 
-lst1 <- list(lay1 = l1,
-             lay2 = l2,
-             lay3 = l3,
-             lay4 = nlmr::nlm_random(42, 42))
+lst1 <- list(lay1 = l2,
+             lay2 = l3,
+             lay3 = l2,
+             lay4 = l3)
 p2 <- util_facetplot(lst1)
 
 test_that("basic functionality", {

@@ -1,0 +1,23 @@
+title: landscapetools
+
+reference:
+  - title: Utilities
+    contents:
+    - util_binarize
+    - util_classify
+    - util_merge
+    - util_raster2tibble
+    - util_tibble2raster
+    - util_rescale
+  - title: Visualization
+    contents:
+    - util_plot
+    - util_facetplot
+  - title: Themes
+    contents:
+    - theme_facetplot
+    - theme_nlm
+    - theme_nlm_grey
+    - theme_nlm_discrete
+    - theme_nlm_grey_discrete
+    - util_import_roboto_condensed
