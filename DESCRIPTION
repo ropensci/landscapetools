@@ -2,13 +2,13 @@ Package: landscapetools
 Type: Package
 Title: Landscape Utility Toolbox
 Version: 0.3.0
-Description: Toolbox designed to support some of the less-glamorous 
-    tasks involved in most landscape analysis. It includes functions to coerce
-    raster data to the common tibble format and vice versa, it helps with 
-    flexible reclassification tasks of raster data and provides a function to 
-    merge multiple raster. Furthermore, landscapetools helps landscape 
-    scientist to visualize their data by providing opionated themes 
-    and utility functions to plot rasterstacks, -bricks and lists of rasters.
+Description: Provides utility functions to complete tasks involved in most
+    landscape analysis. It includes functions to coerce raster data to the
+    common tibble format and vice versa, it helps with flexible reclassification
+    tasks of raster data and it provides a function to merge multiple raster.
+    Furthermore, landscapetools helps landscape scientist to visualize their
+    data by providing optional themes and utility functions to plot single
+    landscapes, rasterstacks, -bricks and lists of raster.
 Authors@R: c(person("Matthias", "Fritsch",
                 email = "matthias.fritsch@forst.uni-goettingen.de",
                 role =  c("aut", "cre")),
