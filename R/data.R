@@ -4,7 +4,7 @@
 #' generated with the nlm_fbm() algorithm.
 #'
 #' @format A raster layer object.
-#' @source Simulated neutral landscape models with R. \url{https://github.com/marcosci/nlmr/}
+#' @source Simulated neutral landscape models with R. \url{https://github.com/ropensci/nlmr/}
 "fbmmap"
 
 #' Example map (planar gradient).
@@ -13,7 +13,7 @@
 #' generated with the nlm_planargradient() algorithm.
 #'
 #' @format A raster layer object.
-#' @source Simulated neutral landscape models with R. \url{https://github.com/marcosci/nlmr/}
+#' @source Simulated neutral landscape models with R. \url{https://github.com/ropensci/nlmr/}
 "grdmap"
 
 #' Example map (random).
@@ -22,5 +22,5 @@
 #' generated with the nlm_random() algorithm.
 #'
 #' @format A raster layer object.
-#' @source Simulated neutral landscape models with R. \url{https://github.com/marcosci/nlmr/}
+#' @source Simulated neutral landscape models with R. \url{https://github.com/ropensci/nlmr/}
 "rndmap"
