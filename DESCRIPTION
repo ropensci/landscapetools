@@ -6,7 +6,7 @@ Description: Provides utility functions to complete tasks involved in most
     landscape analysis. It includes functions to coerce raster data to the
     common tibble format and vice versa, it helps with flexible reclassification
     tasks of raster data and it provides a function to merge multiple raster.
-    Furthermore, landscapetools helps landscape scientist to visualize their
+    Furthermore, 'landscapetools' helps landscape scientists to visualize their
     data by providing optional themes and utility functions to plot single
     landscapes, rasterstacks, -bricks and lists of raster.
 Authors@R: c(person("Matthias", "Fritsch",

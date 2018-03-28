@@ -1,6 +1,7 @@
-## First release
+## Resubmission
 
-This is the first standalone release of landscapetools. We submitted the origin package NLMR into peer reviewing by rOpenSci. We followed their suggestions to split the package into landscape functionality (nlmr) and this utility toolbox (landscapetools).
+As suggested by CRAN we put package names and software names in the description
+in single quotes. This affected only the package name landscapetools.
 
 ## Test environments
 
