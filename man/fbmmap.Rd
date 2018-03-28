@@ -6,7 +6,7 @@
 \title{Example map (fractional brownian motion).}
 \format{A raster layer object.}
 \source{
-Simulated neutral landscape models with R. \url{https://github.com/marcosci/nlmr/}
+Simulated neutral landscape models with R. \url{https://github.com/ropensci/nlmr/}
 }
 \usage{
 fbmmap
