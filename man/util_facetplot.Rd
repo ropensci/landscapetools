@@ -28,10 +28,10 @@ a file. This will help with compressing and rendering the image.
 }
 \examples{
 \dontrun{
-l1 <- nlmr::nlm_fBm(64, 64)
-l2 <- nlmr::nlm_planargradient(64, 64)
-l3 <- nlmr::nlm_randomrectangularcluster(ncol = 60, nrow = 60, minl = 5, maxl = 10)
-l4 <- nlmr::nlm_random(64, 64)
+l1 <- NLMR::nlm_fBm(64, 64)
+l2 <- NLMR::nlm_planargradient(64, 64)
+l3 <- NLMR::nlm_randomrectangularcluster(ncol = 60, nrow = 60, minl = 5, maxl = 10)
+l4 <- NLMR::nlm_random(64, 64)
 
 bri1 <- raster::brick(l1, l2)
 util_facetplot(bri1)
