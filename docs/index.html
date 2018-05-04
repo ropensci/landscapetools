@@ -105,10 +105,10 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(nlmr)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(NLMR)
 <span class="kw">library</span>(landscapetools)
 <span class="co"># Create an artificial landscape</span>
-nlm_raster &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/nlmr/topics/nlm_fBm">nlm_fbm</a></span>(<span class="dt">ncol =</span> <span class="dv">200</span>, <span class="dt">nrow =</span> <span class="dv">200</span>, <span class="dt">fract_dim =</span> <span class="fl">0.8</span>)
+nlm_raster &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/NLMR/topics/nlm_fbm">nlm_fbm</a></span>(<span class="dt">ncol =</span> <span class="dv">200</span>, <span class="dt">nrow =</span> <span class="dv">200</span>, <span class="dt">fract_dim =</span> <span class="fl">0.8</span>)
 <span class="kw">util_plot</span>(nlm_raster)</code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-1-1.png" width="100%"></p>
 </div>
@@ -137,12 +137,12 @@ classified_raster &lt;-<span class="st"> </span><span class="kw"><a href="refere
 <h3 class="hasAnchor">
 <a href="#merge" class="anchor"></a>Merge</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a primary and two secondary maps</span>
-prim &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/nlmr/topics/nlm_edgegradient">nlm_edgegradient</a></span>(<span class="dt">ncol =</span> <span class="dv">100</span>, <span class="dt">nrow =</span> <span class="dv">100</span>)
+prim &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/NLMR/topics/nlm_edgegradient">nlm_edgegradient</a></span>(<span class="dt">ncol =</span> <span class="dv">100</span>, <span class="dt">nrow =</span> <span class="dv">100</span>)
 
-sec1 &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/nlmr/topics/nlm_distancegradient">nlm_distancegradient</a></span>(<span class="dt">ncol =</span> <span class="dv">100</span>, <span class="dt">nrow =</span> <span class="dv">100</span>,
+sec1 &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/NLMR/topics/nlm_distancegradient">nlm_distancegradient</a></span>(<span class="dt">ncol =</span> <span class="dv">100</span>, <span class="dt">nrow =</span> <span class="dv">100</span>,
                              <span class="dt">origin =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>))
 
-sec2 &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/nlmr/topics/nlm_random">nlm_random</a></span>(<span class="dt">ncol =</span> <span class="dv">100</span>, <span class="dt">nrow =</span> <span class="dv">100</span>)
+sec2 &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/NLMR/topics/nlm_random">nlm_random</a></span>(<span class="dt">ncol =</span> <span class="dv">100</span>, <span class="dt">nrow =</span> <span class="dv">100</span>)
 
 <span class="co"># Merge all maps into one</span>
 merg &lt;-<span class="st"> </span><span class="kw"><a href="reference/util_merge.html">util_merge</a></span>(prim, <span class="kw">c</span>(sec1, sec2), <span class="dt">scalingfactor =</span> <span class="dv">1</span>)
@@ -161,7 +161,7 @@ merge_vis &lt;-<span class="st"> </span><span class="kw">list</span>(
 <div id="see-also" class="section level2">
 <h2 class="hasAnchor">
 <a href="#see-also" class="anchor"></a>See also</h2>
-<p>In the examples above we make heavy use of the <code>nlmr</code> package. Both packages were developed together until we split them into pure landscape functionality and utility tools. If you are interested in generating neutral landscapes via a multitude of available algorithms take a closer look at the <a href="https://github.com/ropensci/nlmr/">nlmr</a> package.</p>
+<p>In the examples above we make heavy use of the <code>NLMR</code> package. Both packages were developed together until we split them into pure landscape functionality and utility tools. If you are interested in generating neutral landscapes via a multitude of available algorithms take a closer look at the <a href="https://github.com/ropensci/NLMR/">NLMR</a> package.</p>
 </div>
 <div id="meta" class="section level2">
 <h2 class="hasAnchor">

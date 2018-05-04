@@ -35,7 +35,7 @@ Usage
 -----
 
 ``` r
-library(nlmr)
+library(NLMR)
 library(landscapetools)
 # Create an artificial landscape
 nlm_raster <- nlm_fbm(ncol = 200, nrow = 200, fract_dim = 0.8)
@@ -98,7 +98,7 @@ util_facetplot(merge_vis)
 See also
 --------
 
-In the examples above we make heavy use of the `nlmr` package. Both packages were developed together until we split them into pure landscape functionality and utility tools. If you are interested in generating neutral landscapes via a multitude of available algorithms take a closer look at the [nlmr](https://github.com/ropensci/nlmr/) package.
+In the examples above we make heavy use of the `NLMR` package. Both packages were developed together until we split them into pure landscape functionality and utility tools. If you are interested in generating neutral landscapes via a multitude of available algorithms take a closer look at the [NLMR](https://github.com/ropensci/NLMR/) package.
 
 Meta
 ----

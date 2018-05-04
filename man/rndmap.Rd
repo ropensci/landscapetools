@@ -6,7 +6,7 @@
 \title{Example map (random).}
 \format{A raster layer object.}
 \source{
-Simulated neutral landscape models with R. \url{https://github.com/ropensci/nlmr/}
+Simulated neutral landscape models with R. \url{https://github.com/ropensci/NLMR/}
 }
 \usage{
 rndmap

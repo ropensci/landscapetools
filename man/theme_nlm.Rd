@@ -200,7 +200,7 @@ rasterVis::gplot(x) +
   theme_nlm() +
   ggplot2::ggtitle("Example map",
                    subtitle = "with continuous viridis color scale") +
-  ggplot2::labs(caption = "Example map simulated with the R package nlmr.")
+  ggplot2::labs(caption = "Example map simulated with the R package NLMR.")
 
 # grey + continuous
 rasterVis::gplot(x) +
@@ -210,7 +210,7 @@ rasterVis::gplot(x) +
   theme_nlm_grey() +
   ggplot2::ggtitle("Example map",
                    subtitle = "with continuous grey color scale") +
-  ggplot2::labs(caption = "Example map simulated with the R package nlmr.")
+  ggplot2::labs(caption = "Example map simulated with the R package NLMR.")
 
 # color + discrete
 rasterVis::gplot(y) +
@@ -220,7 +220,7 @@ rasterVis::gplot(y) +
   theme_nlm_discrete() +
   ggplot2::ggtitle("Example map",
                    subtitle = "with discrete viridis color scale") +
-  ggplot2::labs(caption = "Random map simulated with the R package nlmr.")
+  ggplot2::labs(caption = "Random map simulated with the R package NLMR.")
 
 # grey + discrete
 rasterVis::gplot(y) +
@@ -230,7 +230,7 @@ rasterVis::gplot(y) +
   theme_nlm_grey_discrete() +
   ggplot2::ggtitle("Example map",
                    subtitle = "with discrete grey color scale") +
-  ggplot2::labs(caption = "Random map simulated with the R package nlmr.")
+  ggplot2::labs(caption = "Random map simulated with the R package NLMR.")
 
 # have a look at theme_facetplot
 binary_maps <- util_binarize(x, c(0.3, 0.5, 0.7, 0.9))
