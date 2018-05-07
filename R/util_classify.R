@@ -10,9 +10,16 @@
 #' If the numerical vector of weightings does not sum up to 1, the sum of the
 #' weightings is divided by the number of elements in the weightings vector and this is then used for the classification.
 #'
+#' For a given 'real' landscape the number of classes and the weightings are
+#' extracted and used to classify the given nlm landscape (any given weighting parameter is
+#' overwritten in this case!). If an optional mask value is given the corresponding
+#' class from the 'real' landscape is cut from the nlm landscape beforehand.
+#'
 #' @param x 2D matrix
 #' @param weighting Vector of numeric values.
 #' @param level_names Vector of names for the factor levels.
+#' @param real_land Raster with real landscape
+#' @param mask_val Value to mask (refers to real_land)
 #'
 #' @return RasterLayer
 #'
@@ -21,6 +28,22 @@
 #' util_classify(fbmmap, weight,
 #'               level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
 #'
+#' \dontrun{
+#' rland <- util_classify(NLMR::nlm_planargradient(200,200),
+#'                          c(.4,.2,.4),
+#'                          c("Land use 1", "Water", "Land use 2"))
+#'
+#' resu <- util_classify(fbmmap, real_land = rland)
+#' resu_mask <- util_classify(fbmmap, real_land = rland, mask_val = 1)
+#'
+#' visu <- list(
+#' '1 nlm' = fbmmap,
+#' '2 real' = rland,
+#' '3 result' = resu,
+#' '4 result with mask' = resu_mask
+#' )
+#' util_facetplot(visu)
+#' }
 #'
 #' @aliases util_classify
 #' @rdname util_classify
@@ -28,11 +51,22 @@
 #' @export
 #'
 
-util_classify <- function(x, weighting, level_names = NULL) {
+util_classify <- function(x, weighting, level_names = NULL,
+                          real_land = NULL, mask_val = NULL) {
 
   # Check function arguments ----
   checkmate::assert_class(x, "RasterLayer")
-  checkmate::assert_numeric(weighting)
+  if (is.null(real_land)) {
+      checkmate::assert_numeric(weighting)
+  }else{
+      checkmate::assert_class(real_land, "RasterLayer")
+      frq <- tibble::as_tibble(raster::freq(real_land))
+      if (!is.null(mask_val)) {
+          frq <- dplyr::filter(frq, value != mask_val)
+          x <- raster::mask(x, real_land, maskvalue = mask_val)
+      }
+      weighting <- frq$count / sum(frq$count)
+  }
 
   # Calculate cum. proportions and boundary values ----
   cumulative_proportions <- util_w2cp(weighting)
