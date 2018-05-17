@@ -27,7 +27,7 @@ weightings.
 }
 \details{
 The number of elements in the weighting vector determines the number of classes
-in the resulting matrix. The classes start with the value 1.
+in the resulting matrix. The classes start with the value 0.
 If non-numerical levels are required, the user can specify a vector to turn the
 numerical factors into other data types, for example into character strings (i.e. class labels).
 If the numerical vector of weightings does not sum up to 1, the sum of the
