@@ -23,7 +23,6 @@ Useful links:
 Authors:
 \itemize{
   \item Marco Sciaini \email{sciaini.marco@gmail.com} (0000-0002-3042-5435)
-  \item Maximillian Hesselbarth (0000-0003-1125-9918)
 }
 
 Other contributors:
