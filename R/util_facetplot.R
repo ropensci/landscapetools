@@ -53,8 +53,9 @@ util_facetplot <- function(mpdta, nrow = NULL, ncol = NULL) {
 
   maptibb <- tibble::enframe(mpdta, "id", "maps") %>%
              dplyr::mutate(maps = purrr::map(.$maps, util_raster2tibble)) %>%
-             tidyr::unnest() %>%
-             dplyr::mutate(id = factor(id, levels = names(mpdta)))
+             tidyr::unnest()
+  # %>%
+  #            dplyr::mutate(id = factor(id, levels = names(mpdta)))
 
   p <- ggplot2::ggplot(maptibb, ggplot2::aes_string("x", "y")) +
         ggplot2::coord_fixed() +
