@@ -23,6 +23,7 @@
 #' l4 <- NLMR::nlm_random(64, 64)
 #'
 #' bri1 <- raster::brick(l1, l2)
+#' names(bri1) <- c("FBM", "GRADIENT")
 #' util_facetplot(bri1)
 #'
 #' lst1 <- list(layer1 = l1,

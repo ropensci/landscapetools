@@ -2,18 +2,19 @@ Package: landscapetools
 Type: Package
 Title: Landscape Utility Toolbox
 Version: 0.3.0
-Description: Provides utility functions to complete tasks involved in most
-    landscape analysis. It includes functions to coerce raster data to the
+Description: Provides utility functions for some of the less-glamorous tasks involved
+    in landscape analysis. It includes functions to coerce raster data to the
     common tibble format and vice versa, it helps with flexible reclassification
     tasks of raster data and it provides a function to merge multiple raster.
     Furthermore, 'landscapetools' helps landscape scientists to visualize their
     data by providing optional themes and utility functions to plot single
     landscapes, rasterstacks, -bricks and lists of raster.
-Authors@R: c(person("Matthias", "Fritsch",
-                email = "matthias.fritsch@forst.uni-goettingen.de",
-                role =  c("aut", "cre")),
+Authors@R: c(
     person("Marco", "Sciaini", email = "sciaini.marco@gmail.com",
-       role = c("aut"), comment = c(ORCID = '0000-0002-3042-5435')), 
+       role = c("aut", "cre"), comment = c(ORCID = '0000-0002-3042-5435')), 
+    person("Matthias", "Fritsch",
+                email = "matthias.fritsch@forst.uni-goettingen.de",
+                role =  c("aut")),
     person("Google", comment = "Roboto Condensed Font", role = c("cph")), 
     person("Laura", "Graham", role = "rev",
        comment = "Laura reviewed the package for rOpenSci, see 
@@ -30,7 +31,7 @@ Depends:
 URL: https://ropensci.github.io/landscapetools/
 BugReports: https://github.com/ropensci/landscapetools/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
 Imports: 
     magrittr,
     checkmate,

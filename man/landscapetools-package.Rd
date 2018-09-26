@@ -29,9 +29,9 @@ Other contributors:
 \itemize{
   \item Google (Roboto Condensed Font) [copyright holder]
   \item Laura Graham (Laura reviewed the package for rOpenSci, see 
-                  https://github.com/ropensci/onboarding/issues/188) [NA]
+                  https://github.com/ropensci/onboarding/issues/188) [reviewer]
   \item Jeffrey Hollister (Jeffrey reviewed the package for rOpenSci, see 
-                  https://github.com/ropensci/onboarding/issues/188) [NA]
+                  https://github.com/ropensci/onboarding/issues/188) [reviewer]
 }
 
 }
