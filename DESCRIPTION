@@ -33,6 +33,7 @@ BugReports: https://github.com/ropensci/landscapetools/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.0
 Imports: 
+    classInt,
     magrittr,
     checkmate,
     dplyr,

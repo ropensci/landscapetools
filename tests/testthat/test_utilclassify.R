@@ -3,16 +3,23 @@ context("util_classify")
 
 x <- fbmmap
 y <- c(0.5, 0.25, 0.25)
-classified_x <- util_classify(x, y, level_names = c("Land Use 1",
+classified_x <- util_classify(x, weighting = y, level_names = c("Land Use 1",
                                                     "Land Use 2",
                                                     "Land Use 3"))
 
+
+classified_y <- util_classify(fbmmap,
+                              n = 5,
+                              style = "fisher")
+
 test_that("util_classify behaves like it should", {
-  expect_that(classified_x, is_a("RasterLayer"))
+    expect_that(classified_x, is_a("RasterLayer"))
+    expect_that(classified_y, is_a("RasterLayer"))
 })
 
 test_that("util_classify classifies correct", {
   expect_equal(length(raster::unique(classified_x)), 3)
+    expect_equal(length(raster::unique(classified_x)), 5)
 })
 
 # nolint end

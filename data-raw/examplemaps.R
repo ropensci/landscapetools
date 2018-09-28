@@ -1,6 +1,6 @@
 # Example maps from NLMR -------
 
-fbmmap <- NLMR::nlm_fbm(ncol = 200, nrow = 200, fract_dim = 0.8)
+fbmmap <- NLMR::nlm_fbm(ncol = 150, nrow = 150, fract_dim = 0.8)
 devtools::use_data(fbmmap, overwrite = TRUE)
 
 grdmap <- NLMR::nlm_planargradient(150, 150)

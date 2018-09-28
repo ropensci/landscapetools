@@ -1,3 +1,11 @@
+# landscapetools 0.5.0
+
+- new interface for util_classify
+    - now takes argument n to specify number of classes
+    - style
+
+
+
 # landscapetools 0.4.0
 
 * minor bug fixes

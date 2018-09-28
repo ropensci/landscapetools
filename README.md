@@ -84,7 +84,7 @@ util_plot(binarized_raster, discrete = TRUE)
 ``` r
 # Classify the map into land uses
 classified_raster <- util_classify(nlm_raster,
-                                   c(0.5, 0.25, 0.25),
+                                   n = 3,
                                    level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
 util_plot(classified_raster, discrete = TRUE)
 ```
