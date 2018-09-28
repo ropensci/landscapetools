@@ -10,7 +10,7 @@
 #' size of the maps it is advisable to store the plot in an object and print it to
 #' a file. This will help with compressing and rendering the image.
 #'
-#' @param mpdta Raster* Layer, Stack, Brick or a list of rasterLayers.
+#' @param x Raster* Layer, Stack, Brick or a list of rasterLayers.
 #' @param nrow,ncol Number of rows and columns.
 #'
 #' @return ggplot
@@ -39,34 +39,70 @@
 #' @export
 #'
 
-util_facetplot <- function(mpdta, nrow = NULL, ncol = NULL) {
+util_facetplot <- function(x,
+                           nrow = NULL,
+                           ncol = NULL,
+                           div_scales = FALSE) {
 
-  if (checkmate::testClass(mpdta, "RasterLayer") ||
-      checkmate::testClass(mpdta, "RasterStack") ||
-      checkmate::testClass(mpdta, "RasterBrick")) {
+  if (checkmate::testClass(x, "RasterLayer") ||
+      checkmate::testClass(x, "RasterStack") ||
+      checkmate::testClass(x, "RasterBrick")) {
 
     maplist <- list()
-    for (i in seq_len(raster::nlayers(mpdta))) {
-      maplist <- append(maplist, list(raster::raster(mpdta, layer = i)))
+    for (i in seq_len(raster::nlayers(x))) {
+      maplist <- append(maplist, list(raster::raster(x, layer = i)))
     }
-    mpdta <- magrittr::set_names(maplist, names(mpdta))
+    x <- magrittr::set_names(maplist, names(x))
   }
 
-  maptibb <- tibble::enframe(mpdta, "id", "maps") %>%
-             dplyr::mutate(maps = purrr::map(.$maps, util_raster2tibble)) %>%
-             tidyr::unnest()
-  # %>%
-  #            dplyr::mutate(id = factor(id, levels = names(mpdta)))
+  if (!isTRUE(div_scales)){
+    x_tibble <- tibble::enframe(x, "id", "maps") %>%
+      dplyr::mutate(maps = purrr::map(.$maps, util_raster2tibble)) %>%
+      tidyr::unnest()
 
-  p <- ggplot2::ggplot(maptibb, ggplot2::aes_string("x", "y")) +
+    p <- ggplot2::ggplot(x_tibble, ggplot2::aes_string("x", "y")) +
+      ggplot2::coord_fixed() +
+      ggplot2::geom_raster(ggplot2::aes_string(fill = "z")) +
+      ggplot2::facet_wrap(~id, nrow = nrow, ncol = ncol) +
+      ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$x))) +
+      ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$y))) +
+      ggplot2::guides(fill = FALSE) +
+      ggplot2::labs(titel = NULL, x = NULL, y = NULL) +
+      theme_facetplot()
+  }
+
+  if (isTRUE(div_scales)){
+
+    landscape_plots <- purrr::map(seq_along(x), function(id){
+
+      x_tibble <- tibble::enframe(x[id], "id", "maps") %>%
+        dplyr::mutate(maps = purrr::map(.$maps, util_raster2tibble)) %>%
+        tidyr::unnest()
+
+      x_tibble$id = names(x[[id]])
+
+     p <- ggplot2::ggplot(x_tibble, ggplot2::aes_string("x", "y")) +
         ggplot2::coord_fixed() +
         ggplot2::geom_raster(ggplot2::aes_string(fill = "z")) +
-        ggplot2::facet_wrap(~id, nrow = nrow, ncol = ncol) +
-        ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0,max(maptibb$x))) +
-        ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0,max(maptibb$y))) +
+        ggplot2::facet_wrap(~id, nrow = 1, ncol = 1) +
+        ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$x))) +
+        ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$y))) +
         ggplot2::guides(fill = FALSE) +
         ggplot2::labs(titel = NULL, x = NULL, y = NULL) +
-        theme_facetplot()
+        theme_facetplot() +
+        ggplot2::theme(plot.margin = ggplot2::unit(c(0, 0, 0, 0), "cm"))
+
+    })
+
+    p <- cowplot::plot_grid(plotlist = landscape_plots,
+                            nrow = nrow,
+                            ncol = ncol,
+                            align = "hv"
+                            )
+  }
+
 
   return(p)
 }
+
+

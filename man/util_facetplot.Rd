@@ -4,10 +4,10 @@
 \alias{util_facetplot}
 \title{util_facetplot() for visual overview}
 \usage{
-util_facetplot(mpdta, nrow = NULL, ncol = NULL)
+util_facetplot(x, nrow = NULL, ncol = NULL, div_scales = FALSE)
 }
 \arguments{
-\item{mpdta}{Raster* Layer, Stack, Brick or a list of rasterLayers.}
+\item{x}{Raster* Layer, Stack, Brick or a list of rasterLayers.}
 
 \item{nrow, ncol}{Number of rows and columns.}
 }

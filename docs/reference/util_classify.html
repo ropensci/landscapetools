@@ -32,8 +32,7 @@
 
 <meta property="og:title" content="util_classify — util_classify" />
 
-<meta property="og:description" content="Classify a raster into proportions based upon a vector of class
-weightings." />
+<meta property="og:description" content="Classify continuous landscapes into landscapes with discrete classes" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -104,8 +103,7 @@ weightings." />
 
     <div class="ref-description">
     
-    <p>Classify a raster into proportions based upon a vector of class
-weightings.</p>
+    <p>Classify continuous landscapes into landscapes with discrete classes</p>
     
     </div>
 
@@ -151,16 +149,17 @@ weightings.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The number of elements in the weighting vector determines the number of classes
-in the resulting matrix. The classes start with the value 0.
+    <p>Mode 1: Convienient interface to classInt::classIntervals to classify landscapes.</p>
+<p>Mode 2: The number of elements in the weighting vector determines the number of classes
+in the resulting matrix. The classes start with the value 1.
 If non-numerical levels are required, the user can specify a vector to turn the
 numerical factors into other data types, for example into character strings (i.e. class labels).
 If the numerical vector of weightings does not sum up to 1, the sum of the
 weightings is divided by the number of elements in the weightings vector and this is then used for the classification.</p>
-<p>For a given 'real' landscape the number of classes and the weightings are
-extracted and used to classify the given nlm landscape (any given weighting parameter is
+<p>Mode 3: For a given 'real' landscape the number of classes and the weightings are
+extracted and used to classify the given landscape (any given weighting parameter is
 overwritten in this case!). If an optional mask value is given the corresponding
-class from the 'real' landscape is cut from the nlm landscape beforehand.</p>
+class from the 'real' landscape is cut from the landscape beforehand.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -212,7 +211,7 @@ class from the 'real' landscape is cut from the nlm landscape beforehand.</p>
 <span class='st'>'4 result with mask'</span> <span class='kw'>=</span> <span class='no'>fbmmap_mask</span>
 )
 
-<span class='fu'><a href='util_facetplot.html'>util_facetplot</a></span>(<span class='no'>landscapes</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='img'><img src='util_classify-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='util_facetplot.html'>util_facetplot</a></span>(<span class='no'>landscapes</span>, <span class='kw'>div_scales</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='output co'>#&gt; <span class='warning'>Warning: font family 'Roboto Condensed' not found in PostScript font database</span></div><div class='img'><img src='util_classify-1.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

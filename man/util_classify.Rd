@@ -71,7 +71,7 @@ landscapes <- list(
 '4 result with mask' = fbmmap_mask
 )
 
-util_facetplot(landscapes)
+util_facetplot(landscapes, div_scales = TRUE, nrow = 1)
 }
 
 }
