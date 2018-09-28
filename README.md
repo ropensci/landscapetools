@@ -51,7 +51,7 @@ You can install the development version from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("ropensci/landscapetools", ref = "develop")
+devtools::install_github("ropensci/landscapetools")
 ```
 
 ## Usage
