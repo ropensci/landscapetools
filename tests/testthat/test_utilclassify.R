@@ -19,7 +19,7 @@ test_that("util_classify behaves like it should", {
 
 test_that("util_classify classifies correct", {
   expect_equal(length(raster::unique(classified_x)), 3)
-    expect_equal(length(raster::unique(classified_x)), 5)
+    expect_equal(length(raster::unique(classified_y)), 5)
 })
 
 # nolint end
