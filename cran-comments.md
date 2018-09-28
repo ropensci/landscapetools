@@ -1,7 +1,6 @@
-## Resubmission
+## Submission
 
-As suggested by CRAN we put package names and software names in the description
-in single quotes. This affected only the package name landscapetools.
+New version includes some new features and minor bug fixes.
 
 ## Test environments
 
@@ -18,9 +17,7 @@ in single quotes. This affected only the package name landscapetools.
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
-
-1 Note about rev as author role. Here we credit both reviewers from rOpenSci.
+0 errors | 0 warnings | 0 note
 
 ## Reverse dependencies
 

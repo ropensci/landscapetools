@@ -35,7 +35,7 @@ util_binarize <- function(x, breaks) {
         map.stack,
         util_classify(
           x,
-          c(1 - breaks[i], breaks[i]),
+          weighting = c(1 - breaks[i], breaks[i]),
           c("Matrix", "Habitat")
         )
       )
@@ -45,7 +45,7 @@ util_binarize <- function(x, breaks) {
   } else {
     r <- util_classify(
       x,
-      c(1 - breaks, breaks),
+      weighting = c(1 - breaks, breaks),
       c("Matrix", "Habitat")
     )
   }

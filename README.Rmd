@@ -10,8 +10,7 @@ output:
 [![CRAN status](https://www.r-pkg.org/badges/version/landscapetools)](https://cran.r-project.org/package=landscapetools)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/landscapetools)](http://cran.rstudio.com/web/packages/landscapetools/index.html)
 [![](https://badges.ropensci.org/188_status.svg)](https://github.com/ropensci/onboarding/issues/188)
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+[![DOI:10.1111/2041-210X.13076](https://zenodo.org/badge/DOI/10.1111/2041-210X.13076.svg)](https://doi.org/10.1111/2041-210X.13076)
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
@@ -55,7 +54,7 @@ You can install the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("ropensci/landscapetools")
+devtools::install_github("ropensci/landscapetools", ref = "develop")
 ```
 
 ## Usage
@@ -84,7 +83,7 @@ util_plot(binarized_raster, discrete = TRUE)
 ```{r fig.retina=2}
 # Classify the map into land uses
 classified_raster <- util_classify(nlm_raster,
-                                   c(0.5, 0.25, 0.25),
+                                   n = 3,
                                    level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
 util_plot(classified_raster, discrete = TRUE)
 ```

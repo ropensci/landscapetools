@@ -17,12 +17,13 @@
 #'
 #' @examples
 #' \dontrun{
-#' l1 <- NLMR::nlm_fBm(64, 64)
+#' l1 <- NLMR::nlm_fbm(64, 64)
 #' l2 <- NLMR::nlm_planargradient(64, 64)
 #' l3 <- NLMR::nlm_randomrectangularcluster(ncol = 60, nrow = 60, minl = 5, maxl = 10)
 #' l4 <- NLMR::nlm_random(64, 64)
 #'
 #' bri1 <- raster::brick(l1, l2)
+#' names(bri1) <- c("FBM", "GRADIENT")
 #' util_facetplot(bri1)
 #'
 #' lst1 <- list(layer1 = l1,
@@ -38,7 +39,10 @@
 #' @export
 #'
 
-util_facetplot <- function(x, nrow = NULL, ncol = NULL) {
+util_facetplot <- function(x,
+                           nrow = NULL,
+                           ncol = NULL,
+                           div_scales = FALSE) {
 
   if (checkmate::testClass(x, "RasterLayer") ||
       checkmate::testClass(x, "RasterStack") ||
@@ -51,19 +55,54 @@ util_facetplot <- function(x, nrow = NULL, ncol = NULL) {
     x <- magrittr::set_names(maplist, names(x))
   }
 
-  maptibb <- tibble::enframe(x, "id", "maps") %>%
-             dplyr::mutate(maps = purrr::map(.$maps, util_raster2tibble)) %>%
-             tidyr::unnest()
+  if (!isTRUE(div_scales)){
+    x_tibble <- tibble::enframe(x, "id", "maps") %>%
+      dplyr::mutate(maps = purrr::map(.$maps, util_raster2tibble)) %>%
+      tidyr::unnest()
 
-  p <- ggplot2::ggplot(maptibb, ggplot2::aes_string("x", "y")) +
+    p <- ggplot2::ggplot(x_tibble, ggplot2::aes_string("x", "y")) +
+      ggplot2::coord_fixed() +
+      ggplot2::geom_raster(ggplot2::aes_string(fill = "z")) +
+      ggplot2::facet_wrap(~id, nrow = nrow, ncol = ncol) +
+      ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$x))) +
+      ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$y))) +
+      ggplot2::guides(fill = FALSE) +
+      ggplot2::labs(titel = NULL, x = NULL, y = NULL) +
+      theme_facetplot()
+  }
+
+  if (isTRUE(div_scales)){
+
+    landscape_plots <- purrr::map(seq_along(x), function(id){
+
+      x_tibble <- tibble::enframe(x[id], "id", "maps") %>%
+        dplyr::mutate(maps = purrr::map(.$maps, util_raster2tibble)) %>%
+        tidyr::unnest()
+
+      x_tibble$id = names(x[[id]])
+
+     p <- ggplot2::ggplot(x_tibble, ggplot2::aes_string("x", "y")) +
         ggplot2::coord_fixed() +
         ggplot2::geom_raster(ggplot2::aes_string(fill = "z")) +
-        ggplot2::facet_wrap(~id, nrow = nrow, ncol = ncol) +
-        ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0,max(maptibb$x))) +
-        ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0,max(maptibb$y))) +
+        ggplot2::facet_wrap(~id, nrow = 1, ncol = 1) +
+        ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$x))) +
+        ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$y))) +
         ggplot2::guides(fill = FALSE) +
         ggplot2::labs(titel = NULL, x = NULL, y = NULL) +
-        theme_facetplot()
+        theme_facetplot() +
+        ggplot2::theme(plot.margin = ggplot2::unit(c(0, 0, 0, 0), "cm"))
+
+    })
+
+    p <- cowplot::plot_grid(plotlist = landscape_plots,
+                            nrow = nrow,
+                            ncol = ncol,
+                            align = "hv"
+                            )
+  }
+
 
   return(p)
 }
+
+

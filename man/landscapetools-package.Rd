@@ -18,20 +18,20 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Matthias Fritsch \email{matthias.fritsch@forst.uni-goettingen.de}
+\strong{Maintainer}: Marco Sciaini \email{sciaini.marco@gmail.com} (0000-0002-3042-5435)
 
 Authors:
 \itemize{
-  \item Marco Sciaini \email{sciaini.marco@gmail.com} (0000-0002-3042-5435)
+  \item Matthias Fritsch \email{matthias.fritsch@forst.uni-goettingen.de}
 }
 
 Other contributors:
 \itemize{
   \item Google (Roboto Condensed Font) [copyright holder]
   \item Laura Graham (Laura reviewed the package for rOpenSci, see 
-                  https://github.com/ropensci/onboarding/issues/188) [NA]
+                  https://github.com/ropensci/onboarding/issues/188) [reviewer]
   \item Jeffrey Hollister (Jeffrey reviewed the package for rOpenSci, see 
-                  https://github.com/ropensci/onboarding/issues/188) [NA]
+                  https://github.com/ropensci/onboarding/issues/188) [reviewer]
 }
 
 }

@@ -2,14 +2,14 @@
 % Please edit documentation in R/util_plot.R
 \name{util_plot}
 \alias{util_plot}
-\alias{util_plot}
 \alias{util_plot_grey}
 \title{util_plot}
 \usage{
-util_plot(x, xlab = "Easting", ylab = "Northing", discrete = FALSE, ...)
-
-util_plot_grey(x, xlab = "Easting", ylab = "Northing", discrete = FALSE,
+util_plot(x, xlab = "Easting", ylab = "Northing", discrete = FALSE,
   ...)
+
+util_plot_grey(x, xlab = "Easting", ylab = "Northing",
+  discrete = FALSE, ...)
 }
 \arguments{
 \item{x}{Raster* object}
