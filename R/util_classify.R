@@ -86,17 +86,12 @@ util_classify <- function(x,
 
       x <- .classify(x, weighting)
 
-  }
-
-  if(is.null(real_land)){
-
+  } else {
 
     if (is.null(weighting)){
       breaks <- classInt::classIntervals(raster::getValues(x), n = n, style= style)
       x <-  raster::cut(x, breaks=breaks$brks, include.lowest=T)
-    }
-
-    if (!is.null(weighting)){
+    } else {
       x <- .classify(x, weighting)
     }
 
