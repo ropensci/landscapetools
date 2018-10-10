@@ -15,6 +15,11 @@
 #' @export
 
 util_w2cp <- function(weighting) {
+  
+  na <- sum(is.na(weighting))
+  na_replace <- (1 - sum(weighting, na.rm = TRUE)) / na
+  weighting[is.na(weighting)] <- na_replace
+  
   w <- weighting
   proportions <- w / sum(w)
   cumulative_proportions <- cumsum(proportions)
