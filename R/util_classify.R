@@ -119,6 +119,12 @@ util_classify <- function(x,
   boundary_values <- util_calc_boundaries(raster::values(x),
                                           cumulative_proportions)
 
+  # If there is just one boundary value, all categories are set to one ----
+  if (length(unique(boundary_values)) == 1) {
+    raster::values(x) <- 1
+    return(x)
+  }
+
   # Classify the matrix based on the boundary values ----
   raster::values(x) <- findInterval(raster::values(x),
                                     boundary_values,
