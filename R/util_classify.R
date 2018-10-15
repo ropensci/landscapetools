@@ -104,7 +104,7 @@ util_classify <- function(x,
     x <- raster::as.factor(x)
 
     c_r_levels <- raster::levels(x)[[1]]
-    c_r_levels[["Categories"]] <- level_names
+    c_r_levels[["Categories"]] <- level_names[c_r_levels$ID]
     levels(x) <- c_r_levels
   }
 
