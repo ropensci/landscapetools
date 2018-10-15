@@ -104,7 +104,7 @@ util_classify <- function(x,
     x <- raster::as.factor(x)
 
     c_r_levels <- raster::levels(x)[[1]]
-    c_r_levels[["Categories"]] <- level_names
+    c_r_levels[["Categories"]] <- level_names[c_r_levels$ID]
     levels(x) <- c_r_levels
   }
 
@@ -118,6 +118,12 @@ util_classify <- function(x,
   cumulative_proportions <- util_w2cp(weighting)
   boundary_values <- util_calc_boundaries(raster::values(x),
                                           cumulative_proportions)
+
+  # If there is just one boundary value, all categories are set to one ----
+  if (length(unique(boundary_values)) == 1) {
+    raster::values(x) <- 1
+    return(x)
+  }
 
   # Classify the matrix based on the boundary values ----
   raster::values(x) <- findInterval(raster::values(x),
