@@ -57,14 +57,14 @@ util_plot <- function(x,
         x@data@attributes[[1]][, 2] <- levels
       })
 
-      rasterVis::gplot(x) +
+      rasterVis::gplot(x, maxpixel = raster::ncell(x)) +
         ggplot2::geom_raster(ggplot2::aes(fill = factor(value))) +
         ggplot2::labs(x = xlab,
                       y = ylab)  +
         theme_nlm_discrete(..., legend_labels = legend_labels, ratio = ratio)
 
     } else {
-      rasterVis::gplot(x) +
+      rasterVis::gplot(x, maxpixel = raster::ncell(x)) +
         ggplot2::geom_raster(ggplot2::aes(fill = value)) +
         ggplot2::labs(x = xlab,
                       y = ylab) +
@@ -104,7 +104,7 @@ util_plot_grey <- function(x,
         x@data@attributes[[1]][, 2] <- levels
       })
 
-      rasterVis::gplot(x) +
+      rasterVis::gplot(x, maxpixel = raster::ncell(x)) +
         ggplot2::geom_raster(ggplot2::aes(fill = factor(value))) +
         ggplot2::labs(x = xlab,
                       y = ylab)  +
