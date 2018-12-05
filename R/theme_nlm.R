@@ -51,17 +51,10 @@
 #' A focused theme to visualize raster data that sets a lot of defaults for the
 #' \code{ggplot2::theme}.
 #'
-#' The theme can make use of the Roboto Condensed font (Open Source font from
-#' Google).
-#' If your local font library does not contain Roboto as a font, you can
-#' import it via \code{\link{util_import_roboto_condensed}} (highly recommended).
-#'
 #' The functions are setup in such a way that you can customize your own one by
 #' just wrapping the call and changing the parameters.
 #' The theme itself is heavily influenced by hrbrmstr and his package
 #' hrbrthemes (\url{https://github.com/hrbrmstr/hrbrthemes/}).
-#'
-#' @seealso \code{\link{util_import_roboto_condensed}}
 #'
 #' @examples
 #' # nolint start
@@ -69,8 +62,7 @@
 #' # provided example map
 #' x <- fbmmap
 #' # classify
-#' y <- c(0.5, 0.15, 0.25)
-#' y <- util_classify(x, y, c("1", "2", "3"))
+#' y <- util_classify(x, n = 3)
 #'
 #' # color + continuous
 #' rasterVis::gplot(x) +
@@ -113,7 +105,7 @@
 #'   ggplot2::labs(caption = "Random map simulated with the R package NLMR.")
 #'
 #' # have a look at theme_facetplot
-#' binary_maps <- util_binarize(x, c(0.3, 0.5, 0.7, 0.9))
+#' binary_maps <- util_binarize(x, c(0.3, 0.5, 0.7, 0.1))
 #' util_facetplot(binary_maps)
 #'
 #' # nolint end
@@ -127,13 +119,13 @@ NULL
 
 #' @rdname theme_nlm
 #' @export
-theme_nlm <- function(base_family = "Roboto Condensed",
+theme_nlm <- function(base_family = NA,
                       base_size = 11.5,
                       plot_title_family = base_family,
                       plot_title_size = 18,
                       plot_title_face = "bold",
                       plot_title_margin = 10,
-                      subtitle_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
+                      subtitle_family =NA,
                       subtitle_size = 13,
                       subtitle_face = "plain",
                       subtitle_margin = 15,
@@ -141,7 +133,7 @@ theme_nlm <- function(base_family = "Roboto Condensed",
                       strip_text_size = 12,
                       strip_text_face = "plain",
                       strip.background = "grey80",
-                      caption_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
+                      caption_family =NA,
                       caption_size = 9,
                       caption_face = "plain",
                       caption_margin = 10,
@@ -244,13 +236,13 @@ theme_nlm <- function(base_family = "Roboto Condensed",
 
 #' @rdname theme_nlm
 #' @export
-theme_nlm_discrete <- function(base_family = "Roboto Condensed",
+theme_nlm_discrete <- function(base_family = NA,
                                base_size = 11.5,
                                plot_title_family = base_family,
                                plot_title_size = 18,
                                plot_title_face = "bold",
                                plot_title_margin = 10,
-                               subtitle_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
+                               subtitle_family =NA,
                                subtitle_size = 13,
                                subtitle_face = "plain",
                                subtitle_margin = 15,
@@ -258,7 +250,7 @@ theme_nlm_discrete <- function(base_family = "Roboto Condensed",
                                strip_text_size = 12,
                                strip_text_face = "plain",
                                strip.background = "grey80",
-                               caption_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
+                               caption_family =NA,
                                caption_size = 9,
                                caption_face = "plain",
                                caption_margin = 10,
@@ -367,13 +359,13 @@ theme_nlm_discrete <- function(base_family = "Roboto Condensed",
 
 #' @rdname theme_nlm
 #' @export
-theme_nlm_grey <- function(base_family = "Roboto Condensed",
+theme_nlm_grey <- function(base_family = NA,
                            base_size = 11.5,
                            plot_title_family = base_family,
                            plot_title_size = 18,
                            plot_title_face = "bold",
                            plot_title_margin = 10,
-                           subtitle_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
+                           subtitle_family =NA,
                            subtitle_size = 13,
                            subtitle_face = "plain",
                            subtitle_margin = 15,
@@ -381,7 +373,7 @@ theme_nlm_grey <- function(base_family = "Roboto Condensed",
                            strip_text_size = 12,
                            strip_text_face = "plain",
                            strip.background = "grey80",
-                           caption_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
+                           caption_family =NA,
                            caption_size = 9,
                            caption_face = "plain",
                            caption_margin = 10,
@@ -484,13 +476,13 @@ theme_nlm_grey <- function(base_family = "Roboto Condensed",
 #' @rdname theme_nlm
 #' @export
 theme_nlm_grey_discrete <-
-    function(base_family = "Roboto Condensed",
+    function(base_family = NA,
              base_size = 11.5,
              plot_title_family = base_family,
              plot_title_size = 18,
              plot_title_face = "bold",
              plot_title_margin = 10,
-             subtitle_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
+             subtitle_family =NA,
              subtitle_size = 13,
              subtitle_face = "plain",
              subtitle_margin = 15,
@@ -498,7 +490,7 @@ theme_nlm_grey_discrete <-
              strip_text_size = 12,
              strip_text_face = "plain",
              strip.background = "grey80",
-             caption_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
+             caption_family =NA,
              caption_size = 9,
              caption_face = "plain",
              caption_margin = 10,
@@ -604,18 +596,18 @@ theme_nlm_grey_discrete <-
 #' @rdname theme_nlm
 #' @export
 theme_facetplot <-
-    function(base_family = "Roboto Condensed",
+    function(base_family = NA,
              base_size = 11.5,
              plot_title_family = base_family,
              plot_title_size = 18,
              plot_title_face = "bold",
              plot_title_margin = 10,
-             subtitle_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
+             subtitle_family =NA,
              subtitle_size = 13,
              subtitle_face = "plain",
              subtitle_margin = 15,
              strip.background = "grey80",
-             caption_family = if (.Platform$OS.type == "windows") "Roboto Condensed" else "Roboto Condensed Light",
+             caption_family =NA,
              caption_size = 9,
              caption_face = "plain",
              caption_margin = 10,

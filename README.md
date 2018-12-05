@@ -41,8 +41,7 @@ theme (as ggplot).<br/> `util_facetplot`: Plot multiple raster
 raster (continuous data).<br/> `theme_nlm_discrete`,
 `theme_nlm_grey_discrete`: Opinionated ggplot2 theme to visualize raster
 (discrete data).<br/> `theme_faceplot`: Opinionated ggplot2 theme to
-visualize raster in a facet wrap.<br/> `util_import_roboto_condensed`:
-Import Roboto Condensed font for `theme_nlm`.<br/>
+visualize raster in a facet wrap.<br/>
 
 ## Installation
 

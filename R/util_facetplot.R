@@ -12,6 +12,7 @@
 #'
 #' @param x Raster* Layer, Stack, Brick or a list of rasterLayers.
 #' @param nrow,ncol Number of rows and columns.
+#' @param div_scales Logical indicating if facets should have diverging scales.
 #'
 #' @return ggplot
 #'

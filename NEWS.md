@@ -3,7 +3,7 @@
 - new interface for util_classify
     - now takes argument n to specify number of classes
     - style
-
+- Removed Roboto font and `util_import_roboto`
 
 
 # landscapetools 0.4.0

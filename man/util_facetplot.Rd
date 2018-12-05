@@ -10,6 +10,8 @@ util_facetplot(x, nrow = NULL, ncol = NULL, div_scales = FALSE)
 \item{x}{Raster* Layer, Stack, Brick or a list of rasterLayers.}
 
 \item{nrow, ncol}{Number of rows and columns.}
+
+\item{div_scales}{Logical indicating if facets should have diverging scales.}
 }
 \value{
 ggplot

@@ -15,7 +15,6 @@ Authors@R: c(
     person("Matthias", "Fritsch",
                 email = "matthias.fritsch@forst.uni-goettingen.de",
                 role =  c("aut")),
-    person("Google", comment = "Roboto Condensed Font", role = c("cph")), 
     person("Laura", "Graham", role = "rev",
        comment = "Laura reviewed the package for rOpenSci, see 
                   https://github.com/ropensci/onboarding/issues/188"),
@@ -31,7 +30,7 @@ Depends:
 URL: https://ropensci.github.io/landscapetools/
 BugReports: https://github.com/ropensci/landscapetools/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 Imports: 
     classInt,
     cowplot,
