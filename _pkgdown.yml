@@ -11,8 +11,7 @@ reference:
     - util_rescale
   - title: Visualization
     contents:
-    - util_plot
-    - util_facetplot
+    - show_landscape
   - title: Themes
     contents:
     - theme_facetplot

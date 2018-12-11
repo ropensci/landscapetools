@@ -31,9 +31,9 @@ Linearly rescale element values in a raster to a range between 0 and
 
 #### Visualization
 
-`util_plot`: Plot a Raster\* object with the landscapetools default
-theme (as ggplot).<br/> `util_facetplot`: Plot multiple raster
-(RasterStack, -brick or list of raster) side by side as facets.<br/>
+`show_landscape`: Plot a Raster\* object with the landscapetools default
+theme (as ggplot) or multiple raster (RasterStack, -brick or list of
+raster) side by side as facets.<br/>
 
 #### Themes:
 
@@ -60,7 +60,7 @@ library(NLMR)
 library(landscapetools)
 # Create an artificial landscape
 nlm_raster <- nlm_fbm(ncol = 200, nrow = 200, fract_dim = 0.8)
-util_plot(nlm_raster)
+show_landscape(nlm_raster)
 ```
 
 <img src="man/figures/README-unnamed-chunk-1-1.png" width="100%" />
@@ -72,7 +72,7 @@ util_plot(nlm_raster)
 ``` r
 # Binarize the map into habitat and matrix
 binarized_raster <- util_binarize(nlm_raster, breaks = 0.31415)
-util_plot(binarized_raster, discrete = TRUE)
+show_landscape(binarized_raster)
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
@@ -84,7 +84,7 @@ util_plot(binarized_raster, discrete = TRUE)
 classified_raster <- util_classify(nlm_raster,
                                    n = 3,
                                    level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
-util_plot(classified_raster, discrete = TRUE)
+show_landscape(classified_raster, discrete = TRUE)
 ```
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
@@ -110,7 +110,7 @@ merge_vis <- list(
     "3) Secondary 2" = sec2,
     "4) Result" = merg
 )
-util_facetplot(merge_vis)
+show_landscape(merge_vis)
 ```
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />

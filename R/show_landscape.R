@@ -6,9 +6,7 @@
 #' @param xlab x axis label, default "Easting"
 #' @param ylab y axis label, default "Northing"
 #' @param discrete If TRUE, the function plots a raster with
-#' @param div_scales multiple scales for facets
-#' @param n_col number of cols if list, stack or brick ...
-#' @param n_row number of rows if list, stack or brick ...
+#' a discrete legend.
 #' @param ... Arguments for  \code{\link{theme_nlm}}
 #'
 #' @return ggplot2 Object
@@ -144,37 +142,18 @@ show_landscape.list <- function(x,
 #' @name show_landscape
 #' @export
 show_landscape.RasterStack <- function(x,
-                                       xlab = "Easting",
-                                       ylab = "Northing",
-                                       discrete = FALSE,
-                                       div_scales = FALSE,
-                                       n_col = NULL,
-                                       n_row = NULL,
-                                       ...) {
+                                xlab = "Easting",
+                                ylab = "Northing",
+                                discrete = FALSE,
+                                div_scales = FALSE,
+                                n_col = NULL,
+                                n_row = NULL,
+                                ...) {
 
   maplist <- list()
   for (i in seq_len(raster::nlayers(x))) {
     maplist <- append(maplist, list(raster::raster(x, layer = i)))
   }
   x <- magrittr::set_names(maplist, names(x))
-  show_landscape.list(x,xlab,ylab, discrete, div_scales, n_col, n_row, ...)
-}
-
-#' @name show_landscape
-#' @export
-show_landscape.RasterBrick <- function(x,
-                                       xlab = "Easting",
-                                       ylab = "Northing",
-                                       discrete = FALSE,
-                                       div_scales = FALSE,
-                                       n_col = NULL,
-                                       n_row = NULL,
-                                       ...) {
-
-  maplist <- list()
-  for (i in seq_len(raster::nlayers(x))) {
-    maplist <- append(maplist, list(raster::raster(x, layer = i)))
-  }
-  x <- magrittr::set_names(maplist, names(x))
-  show_landscape.list(x,xlab,ylab, discrete, div_scales, n_col, n_row, ...)
+  show_landscape.list(x,xlab,ylab, discrete, div_scales,, n_col, n_row, ...)
 }

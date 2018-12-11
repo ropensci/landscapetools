@@ -34,7 +34,7 @@
 #' @param ticks ticks TRUE/FALSE
 #' @param legend_title Title of the legend (default `"Z"`)
 #' @param legend_labels Labels for the legend ticks, if
-#' used with \code{\link{util_plot}} they are automatically derived.
+#' used with \code{\link{show_landscape}} they are automatically derived.
 #' @param legend_text_size legend text size, default 8
 #' @param legend_title_size legend text size, default 10
 #' @param ratio
@@ -106,7 +106,7 @@
 #'
 #' # have a look at theme_facetplot
 #' binary_maps <- util_binarize(x, c(0.3, 0.5, 0.7, 0.1))
-#' util_facetplot(binary_maps)
+#' show_landscape(binary_maps)
 #'
 #' # nolint end
 #' }

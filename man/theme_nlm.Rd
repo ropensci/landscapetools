@@ -142,7 +142,7 @@ theme_facetplot(base_family = NA, base_size = 11.5,
 \item{legend_title}{Title of the legend (default \code{"Z"})}
 
 \item{legend_labels}{Labels for the legend ticks, if
-used with \code{\link{util_plot}} they are automatically derived.}
+used with \code{\link{show_landscape}} they are automatically derived.}
 
 \item{legend_text_size}{legend text size, default 8}
 
@@ -221,7 +221,7 @@ rasterVis::gplot(y) +
 
 # have a look at theme_facetplot
 binary_maps <- util_binarize(x, c(0.3, 0.5, 0.7, 0.1))
-util_facetplot(binary_maps)
+show_landscape(binary_maps)
 
 # nolint end
 }
