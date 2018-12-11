@@ -37,7 +37,6 @@ Imports:
     magrittr,
     checkmate,
     dplyr,
-    extrafont,
     ggplot2,
     purrr,
     raster,

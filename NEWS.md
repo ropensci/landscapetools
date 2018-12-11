@@ -1,10 +1,12 @@
 # landscapetools 0.5.0
 
-- new interface for util_classify
+- new interface for `util_classify`
     - now takes argument n to specify number of classes
     - style
 - Removed Roboto font and `util_import_roboto`
-
+- Removed `util_plo_grey`
+- Renamed:
+    - `util_plot` to `show_landscape`
 
 # landscapetools 0.4.0
 

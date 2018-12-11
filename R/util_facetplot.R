@@ -56,7 +56,7 @@ util_facetplot <- function(x,
     x <- magrittr::set_names(maplist, names(x))
   }
 
-  if (!isTRUE(div_scales)){
+  if (!div_scales){
     x_tibble <- tibble::enframe(x, "id", "maps") %>%
       dplyr::mutate(maps = purrr::map(.$maps, util_raster2tibble)) %>%
       tidyr::unnest()
@@ -72,7 +72,7 @@ util_facetplot <- function(x,
       theme_facetplot()
   }
 
-  if (isTRUE(div_scales)){
+  if (div_scales){
 
     landscape_plots <- purrr::map(seq_along(x), function(id){
 
