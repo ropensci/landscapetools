@@ -24,7 +24,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-home">
+    <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -65,7 +65,11 @@
 
       
       </header><div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
+    
+
+    
+    
 
 <div id="landscapetools" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
@@ -82,7 +86,7 @@
 <div id="visualization" class="section level4">
 <h4 class="hasAnchor">
 <a href="#visualization" class="anchor"></a>Visualization</h4>
-<p><code>util_plot</code>: Plot a Raster* object with the landscapetools default theme (as ggplot).<br><code>util_facetplot</code>: Plot multiple raster (RasterStack, -brick or list of raster) side by side as facets.<br></p>
+<p><code>show_landscape</code>: Plot a Raster* object with the landscapetools default theme (as ggplot) or multiple raster (RasterStack, -brick or list of raster) side by side as facets.<br></p>
 </div>
 <div id="themes" class="section level4">
 <h4 class="hasAnchor">
@@ -104,7 +108,7 @@
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(landscapetools)</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co"># Create an artificial landscape</span></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">nlm_raster &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/NLMR/topics/nlm_fbm">nlm_fbm</a></span>(<span class="dt">ncol =</span> <span class="dv">200</span>, <span class="dt">nrow =</span> <span class="dv">200</span>, <span class="dt">fract_dim =</span> <span class="fl">0.8</span>)</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="kw"><a href="reference/util_plot.html">util_plot</a></span>(nlm_raster)</a></code></pre></div>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="kw"><a href="reference/show_landscape.html">show_landscape</a></span>(nlm_raster)</a></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-1-1.png" width="100%"></p>
 </div>
 <div id="utilities-1" class="section level2">
@@ -115,7 +119,7 @@
 <a href="#binarize" class="anchor"></a>Binarize</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Binarize the map into habitat and matrix</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">binarized_raster &lt;-<span class="st"> </span><span class="kw"><a href="reference/util_binarize.html">util_binarize</a></span>(nlm_raster, <span class="dt">breaks =</span> <span class="fl">0.31415</span>)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="reference/util_plot.html">util_plot</a></span>(binarized_raster, <span class="dt">discrete =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="reference/show_landscape.html">show_landscape</a></span>(binarized_raster)</a></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"></p>
 </div>
 <div id="classify" class="section level3">
@@ -125,7 +129,7 @@
 <a class="sourceLine" id="cb4-2" data-line-number="2">classified_raster &lt;-<span class="st"> </span><span class="kw"><a href="reference/util_classify.html">util_classify</a></span>(nlm_raster,</a>
 <a class="sourceLine" id="cb4-3" data-line-number="3">                                   <span class="dt">n =</span> <span class="dv">3</span>,</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4">                                   <span class="dt">level_names =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Land Use 1"</span>, <span class="st">"Land Use 2"</span>, <span class="st">"Land Use 3"</span>))</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="kw"><a href="reference/util_plot.html">util_plot</a></span>(classified_raster, <span class="dt">discrete =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="kw"><a href="reference/show_landscape.html">show_landscape</a></span>(classified_raster, <span class="dt">discrete =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%"></p>
 </div>
 <div id="merge" class="section level3">
@@ -149,7 +153,7 @@
 <a class="sourceLine" id="cb5-16" data-line-number="16">    <span class="st">"3) Secondary 2"</span> =<span class="st"> </span>sec2,</a>
 <a class="sourceLine" id="cb5-17" data-line-number="17">    <span class="st">"4) Result"</span> =<span class="st"> </span>merg</a>
 <a class="sourceLine" id="cb5-18" data-line-number="18">)</a>
-<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="kw"><a href="reference/util_facetplot.html">util_facetplot</a></span>(merge_vis)</a></code></pre></div>
+<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="kw"><a href="reference/show_landscape.html">show_landscape</a></span>(merge_vis)</a></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="100%"></p>
 </div>
 </div>
@@ -177,7 +181,7 @@
 </div>
   </div>
 
-  <div class="col-md-3" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
@@ -209,7 +213,7 @@
 </ul>
 </div>
 
-  <div class="dev-status">
+      <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://travis-ci.org/ropensci/landscapetools"><img src="https://travis-ci.org/ropensci/landscapetools.svg?branch=master" alt="Travis build status"></a></li>
@@ -223,6 +227,7 @@
 </ul>
 </div>
 </div>
+
 </div>
 
 
@@ -231,7 +236,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9000.</p>
 </div>
       </footer>
 </div>

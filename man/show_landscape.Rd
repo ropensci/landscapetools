@@ -5,6 +5,7 @@
 \alias{show_landscape.RasterLayer}
 \alias{show_landscape.list}
 \alias{show_landscape.RasterStack}
+\alias{show_landscape.RasterBrick}
 \title{show_landscape}
 \usage{
 show_landscape(x, xlab, ylab, discrete, div_scales, n_col, n_row, ...)
@@ -24,6 +25,18 @@ show_landscape(x, xlab, ylab, discrete, div_scales, n_col, n_row, ...)
 
 \method{show_landscape}{RasterLayer}(x, xlab = "Easting",
   ylab = "Northing", discrete = FALSE, ...)
+
+\method{show_landscape}{list}(x, xlab = "Easting", ylab = "Northing",
+  discrete = FALSE, div_scales = FALSE, n_col = NULL, n_row = NULL,
+  ...)
+
+\method{show_landscape}{RasterStack}(x, xlab = "Easting",
+  ylab = "Northing", discrete = FALSE, div_scales = FALSE,
+  n_col = NULL, n_row = NULL, ...)
+
+\method{show_landscape}{RasterBrick}(x, xlab = "Easting",
+  ylab = "Northing", discrete = FALSE, div_scales = FALSE,
+  n_col = NULL, n_row = NULL, ...)
 }
 \arguments{
 \item{x}{Raster* object}

@@ -29,8 +29,7 @@
 #'
 #' @aliases show_landscape
 #' @rdname show_landscape
-#' @name show_landscape
-#'
+#' @export
 show_landscape <- function(x,
                            xlab,
                            ylab,
