@@ -12,13 +12,15 @@
 #' unscmap <- util_merge(grdmap, rndmap, rescale = FALSE)
 #' util_rescale(unscmap)
 #'
-#'
 #' @aliases util_rescale
 #' @rdname util_rescale
 #'
 #' @export
 #'
+util_rescale <- function(x) UseMethod("util_rescale")
 
+#' @aliases util_rescale
+#' @rdname util_rescale
 util_rescale <- function(x) {
   rescaled_NLM <-
     (x - raster::cellStats(x, "min")) /

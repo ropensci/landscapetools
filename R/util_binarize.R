@@ -14,19 +14,20 @@
 #'
 #' @examples
 #' breaks <- c(0.3, 0.5)
-#' (binary_maps <- util_binarize(fbmmap, breaks))
+#' binary_maps <- util_binarize(fbmmap, breaks)
 #'
 #' @aliases util_binarize
 #' @rdname util_binarize
 #'
 #' @export
-#'
+util_binarize <- function(x, breaks) UseMethod("util_binarize")
 
-util_binarize <- function(x, breaks) {
+#' @aliases util_binarize
+#' @rdname util_binarize
+util_binarize.RasterLayer <- function(x, breaks) {
 
   # Check function arguments ----
-  checkmate::assert_class(x, "RasterLayer")
-  checkmate::assert_atomic_vector(breaks)
+  if(is.numeric(breaks) == FALSE) stop("breaks must be a numeric vector")
 
   if (length(breaks) > 1) {
     map.stack <- raster::stack()

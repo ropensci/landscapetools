@@ -30,8 +30,8 @@
 #'
 #' @aliases show_landscape
 #' @rdname show_landscape
-#' @name show_landscape
 #'
+#' @export
 show_landscape <- function(x,
                            xlab,
                            ylab,
@@ -99,7 +99,7 @@ show_landscape.list <- function(x,
   if (!unique_scales){
     x_tibble <- tibble::enframe(x, "id", "maps")
     x_tibble <- dplyr::mutate(x_tibble,
-                              maps = purrr::map(x_tibble$maps, util_raster2tibble))
+                              maps = lapply(x_tibble$maps, util_raster2tibble))
     x_tibble <- tidyr::unnest(x_tibble)
 
     p <- ggplot2::ggplot(x_tibble, ggplot2::aes_string("x", "y")) +
@@ -115,11 +115,11 @@ show_landscape.list <- function(x,
 
   if (unique_scales){
 
-    landscape_plots <- purrr::map(seq_along(x), function(id){
+    landscape_plots <- lapply(seq_along(x), function(id){
 
       x_tibble <- tibble::enframe(x, "id", "maps")
       x_tibble <- dplyr::mutate(x_tibble,
-                                maps = purrr::map(x_tibble$maps, util_raster2tibble))
+                                maps = lapply(x_tibble$maps, util_raster2tibble))
       x_tibble <- tidyr::unnest(x_tibble)
 
       x_tibble$id = names(x[[id]])

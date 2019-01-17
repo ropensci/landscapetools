@@ -42,7 +42,6 @@ RoxygenNote: 6.1.1
 Imports: 
     classInt,
     gridExtra,
-    checkmate,
     dplyr,
     ggplot2,
     purrr,

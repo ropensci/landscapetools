@@ -21,8 +21,6 @@
 
 util_calc_boundaries <- function(x, cumulative_proportions) {
 
-  # Check function arguments ----
-  checkmate::assert_numeric(cumulative_proportions)
   # remove na (e.g. if cells are masked from classify)
   if (any(is.na(x))) {
       x <- x[!is.na(x)]

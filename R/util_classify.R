@@ -62,8 +62,18 @@
 #' @rdname util_classify
 #'
 #' @export
-#'
+
 util_classify <- function(x,
+                          n,
+                          style,
+                          weighting,
+                          level_names,
+                          real_land,
+                          mask_val) UseMethod("util_classify")
+
+#' @aliases util_classify
+#' @rdname util_classify
+util_classify.RasterLayer <- function(x,
                           n,
                           style = "fisher",
                           weighting = NULL,
@@ -71,12 +81,11 @@ util_classify <- function(x,
                           real_land = NULL,
                           mask_val = NULL) {
 
-  # Check function arguments ----
-  checkmate::assert_class(x, "RasterLayer")
-
   # Classify based on real landscape ----
   if (!is.null(real_land)) {
-      checkmate::assert_class(real_land, "RasterLayer")
+
+      if(class(real_land) != "RasterLayer") stop("real_land muste be a RasterLayer object.")
+
       frq <- tibble::as_tibble(raster::freq(real_land))
       if (!is.null(mask_val)) {
           frq <- dplyr::filter(frq, value != mask_val)
@@ -110,7 +119,6 @@ util_classify <- function(x,
 
   return(x)
 }
-
 
 .classify <- function(x, weighting){
 

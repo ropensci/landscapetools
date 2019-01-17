@@ -2,10 +2,14 @@
 % Please edit documentation in R/util_classify.R
 \name{util_classify}
 \alias{util_classify}
+\alias{util_classify.RasterLayer}
 \title{util_classify}
 \usage{
-util_classify(x, n, style = "fisher", weighting = NULL,
-  level_names = NULL, real_land = NULL, mask_val = NULL)
+util_classify(x, n, style, weighting, level_names, real_land, mask_val)
+
+\method{util_classify}{RasterLayer}(x, n, style = "fisher",
+  weighting = NULL, level_names = NULL, real_land = NULL,
+  mask_val = NULL)
 }
 \arguments{
 \item{x}{raster}

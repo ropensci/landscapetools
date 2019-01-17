@@ -22,11 +22,11 @@
 #'
 #' @export
 #'
+util_raster2tibble <- function(x) UseMethod("util_raster2tibble")
 
+#' @aliases util_raster2tibble
+#' @rdname util_raster2tibble
 util_raster2tibble <- function(x) {
-
-  # Check function arguments ----
-  checkmate::assert_class(x, "RasterLayer")
 
   # Create empty tibble with the same dimension as the raster ----
   grd <- tibble::as_tibble(expand.grid(x = seq(1, raster::ncol(x)),

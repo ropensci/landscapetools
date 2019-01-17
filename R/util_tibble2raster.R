@@ -24,7 +24,10 @@
 #'
 #' @export
 #'
+util_tibble2raster <- function(x) UseMethod("util_tibble2raster")
 
+#' @aliases util_tibble2raster
+#' @rdname util_tibble2raster
 util_tibble2raster <- function(x) {
 
   # Create raster with values from tibble ----

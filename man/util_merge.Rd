@@ -2,10 +2,13 @@
 % Please edit documentation in R/util_merge.R
 \name{util_merge}
 \alias{util_merge}
+\alias{util_merge.RasterLayer}
 \title{util_merge}
 \usage{
-util_merge(primary_nlm, secondary_nlm, scalingfactor = 1,
-  rescale = TRUE)
+util_merge(primary_nlm, secondary_nlm, scalingfactor = 1, rescale)
+
+\method{util_merge}{RasterLayer}(primary_nlm, secondary_nlm,
+  scalingfactor = 1, rescale = TRUE)
 }
 \arguments{
 \item{primary_nlm}{Primary \code{Raster* object}}
@@ -23,6 +26,7 @@ Rectangular matrix with values ranging from 0-1
 Merge a primary raster with other rasters weighted by scaling factors.
 }
 \examples{
-(util_merge(grdmap, rndmap))
+x <- util_merge(grdmap, rndmap)
+show_landscape(x)
 
 }

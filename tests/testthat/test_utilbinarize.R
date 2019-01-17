@@ -1,5 +1,5 @@
 # nolint start
-context("theme_nlm")
+context("util_binarize")
 
 rnd_bin <- util_binarize(fbmmap, c(0.3, 0.5, 0.7, 0.9))
 
@@ -25,6 +25,4 @@ test_that("right number of layers in the brick", {
   expect_equal(raster::nlayers(util_binarize(fbmmap,
                                c(0.3))), 1)
 })
-
-
 # nolint end

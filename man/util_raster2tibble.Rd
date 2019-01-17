@@ -5,6 +5,8 @@
 \title{Converts raster data into tibble}
 \usage{
 util_raster2tibble(x)
+
+util_raster2tibble(x)
 }
 \arguments{
 \item{x}{Raster* object}

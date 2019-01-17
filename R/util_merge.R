@@ -10,20 +10,28 @@
 #' @return Rectangular matrix with values ranging from 0-1
 #'
 #' @examples
-#' (util_merge(grdmap, rndmap))
+#' x <- util_merge(grdmap, rndmap)
+#' show_landscape(x)
+#'
+#' @aliases util_merge
+#' @rdname util_merge
 #'
 #' @export
-#'
-
-
 util_merge <- function(primary_nlm,
+                       secondary_nlm,
+                       scalingfactor = 1,
+                       rescale) UseMethod("util_merge")
+
+#' @aliases util_merge
+#' @rdname util_merge
+util_merge.RasterLayer <- function(primary_nlm,
                        secondary_nlm,
                        scalingfactor = 1,
                        rescale = TRUE) {
 
   # Check function arguments ----
-  checkmate::assert_number(scalingfactor)
-  checkmate::assert_logical(rescale)
+  if(is.numeric(scalingfactor) == FALSE) stop("scalingfactor must be numeric")
+  if(is.logical(rescale) == FALSE) stop("rescale most be logical")
 
   if (class(secondary_nlm) != "RasterStack") {
     secondary_nlm <- raster::stack(secondary_nlm)

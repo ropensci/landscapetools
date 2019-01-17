@@ -2,9 +2,12 @@
 % Please edit documentation in R/util_binarize.R
 \name{util_binarize}
 \alias{util_binarize}
+\alias{util_binarize.RasterLayer}
 \title{Binarize continuous raster values}
 \usage{
 util_binarize(x, breaks)
+
+\method{util_binarize}{RasterLayer}(x, breaks)
 }
 \arguments{
 \item{x}{Raster* object}
@@ -24,6 +27,6 @@ one percentage is given multiple layers are written in the same brick.
 }
 \examples{
 breaks <- c(0.3, 0.5)
-(binary_maps <- util_binarize(fbmmap, breaks))
+binary_maps <- util_binarize(fbmmap, breaks)
 
 }
