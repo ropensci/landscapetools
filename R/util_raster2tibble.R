@@ -24,8 +24,8 @@
 #'
 util_raster2tibble <- function(x) UseMethod("util_raster2tibble")
 
-#' @aliases util_raster2tibble
-#' @rdname util_raster2tibble
+#' @name util_raster2tibble
+#' @export
 util_raster2tibble <- function(x) {
 
   # Create empty tibble with the same dimension as the raster ----

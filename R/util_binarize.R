@@ -7,14 +7,13 @@
 #' one percentage is given multiple layers are written in the same brick.
 #'
 #' @param x Raster* object
-#'
 #' @param breaks Vector with one or more break percentages
 #'
 #' @return RasterLayer / RasterBrick
 #'
 #' @examples
 #' breaks <- c(0.3, 0.5)
-#' binary_maps <- util_binarize(fbmmap, breaks)
+#' binary_maps <- util_binarize(grdmap, breaks)
 #'
 #' @aliases util_binarize
 #' @rdname util_binarize
@@ -22,8 +21,8 @@
 #' @export
 util_binarize <- function(x, breaks) UseMethod("util_binarize")
 
-#' @aliases util_binarize
-#' @rdname util_binarize
+#' @name util_binarize
+#' @export
 util_binarize.RasterLayer <- function(x, breaks) {
 
   # Check function arguments ----

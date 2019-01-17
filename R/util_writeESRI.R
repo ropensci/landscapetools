@@ -30,7 +30,6 @@
 util_writeESRI <- function(x,
                            filepath) UseMethod("util_writeESRI")
 
-
 #' @name util_writeESRI
 #' @export
 util_writeESRI.RasterLayer <- function(x, filepath) {

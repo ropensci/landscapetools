@@ -71,8 +71,8 @@ util_classify <- function(x,
                           real_land,
                           mask_val) UseMethod("util_classify")
 
-#' @aliases util_classify
-#' @rdname util_classify
+#' @name util_classify
+#' @export
 util_classify.RasterLayer <- function(x,
                           n,
                           style = "fisher",

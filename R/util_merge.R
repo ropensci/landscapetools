@@ -22,8 +22,8 @@ util_merge <- function(primary_nlm,
                        scalingfactor = 1,
                        rescale) UseMethod("util_merge")
 
-#' @aliases util_merge
-#' @rdname util_merge
+#' @name util_merge
+#' @export
 util_merge.RasterLayer <- function(primary_nlm,
                        secondary_nlm,
                        scalingfactor = 1,
