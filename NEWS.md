@@ -7,6 +7,7 @@
 - Removed `util_plo_grey`
 - Renamed:
     - `util_plot` to `show_landscape`
+- new function `util_writeESRI` that produces a replica of esris ascii file format
 
 # landscapetools 0.4.0
 

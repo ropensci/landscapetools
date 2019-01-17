@@ -23,6 +23,8 @@ Useful links:
 Authors:
 \itemize{
   \item Matthias Fritsch \email{matthias.fritsch@forst.uni-goettingen.de}
+  \item Maximillian H.K. Hesselbarth \email{maximilian.hesselbarth@uni-goettingen.de} (0000-0003-1125-9918)
+  \item Jakub Nowosad \email{nowosad.jakub@gmail.com} (0000-0002-1057-3721)
 }
 
 Other contributors:

@@ -5,8 +5,11 @@
 #' @param x Raster* object
 #' @param xlab x axis label, default "Easting"
 #' @param ylab y axis label, default "Northing"
+#' @param n_col If multiple rasters are to be visualized, n_col controls the number of columns for the facet
+#' @param n_row If multiple rasters are to be visualized, n_row controls the number of rows for the facet
 #' @param discrete If TRUE, the function plots a raster with
 #' a discrete legend.
+#' @param unique_scales If TRUE and multiple raster are to be visualized, each facet can have a unique color scale for its fill
 #' @param ... Arguments for  \code{\link{theme_nlm}}
 #'
 #' @return ggplot2 Object
@@ -33,7 +36,7 @@ show_landscape <- function(x,
                            xlab,
                            ylab,
                            discrete,
-                           div_scales,
+                           unique_scales,
                            n_col,
                            n_row,
                            ...) UseMethod("show_landscape")
@@ -88,15 +91,16 @@ show_landscape.list <- function(x,
                                 xlab = "Easting",
                                 ylab = "Northing",
                                 discrete = FALSE,
-                                div_scales = FALSE,
+                                unique_scales = FALSE,
                                 n_col = NULL,
                                 n_row = NULL,
                                 ...) {
 
-  if (!div_scales){
-    x_tibble <- tibble::enframe(x, "id", "maps") %>%
-      dplyr::mutate(maps = purrr::map(.$maps, util_raster2tibble)) %>%
-      tidyr::unnest()
+  if (!unique_scales){
+    x_tibble <- tibble::enframe(x, "id", "maps")
+    x_tibble <- dplyr::mutate(x_tibble,
+                              maps = purrr::map(x_tibble$maps, util_raster2tibble))
+    x_tibble <- tidyr::unnest(x_tibble)
 
     p <- ggplot2::ggplot(x_tibble, ggplot2::aes_string("x", "y")) +
       ggplot2::coord_fixed() +
@@ -109,13 +113,14 @@ show_landscape.list <- function(x,
       theme_facetplot()
   }
 
-  if (div_scales){
+  if (unique_scales){
 
     landscape_plots <- purrr::map(seq_along(x), function(id){
 
-      x_tibble <- tibble::enframe(x[id], "id", "maps") %>%
-        dplyr::mutate(maps = purrr::map(.$maps, util_raster2tibble)) %>%
-        tidyr::unnest()
+      x_tibble <- tibble::enframe(x, "id", "maps")
+      x_tibble <- dplyr::mutate(x_tibble,
+                                maps = purrr::map(x_tibble$maps, util_raster2tibble))
+      x_tibble <- tidyr::unnest(x_tibble)
 
       x_tibble$id = names(x[[id]])
 
@@ -142,18 +147,37 @@ show_landscape.list <- function(x,
 #' @name show_landscape
 #' @export
 show_landscape.RasterStack <- function(x,
-                                xlab = "Easting",
-                                ylab = "Northing",
-                                discrete = FALSE,
-                                div_scales = FALSE,
-                                n_col = NULL,
-                                n_row = NULL,
-                                ...) {
+                                       xlab = "Easting",
+                                       ylab = "Northing",
+                                       discrete = FALSE,
+                                       unique_scales = FALSE,
+                                       n_col = NULL,
+                                       n_row = NULL,
+                                       ...) {
 
   maplist <- list()
   for (i in seq_len(raster::nlayers(x))) {
     maplist <- append(maplist, list(raster::raster(x, layer = i)))
   }
-  x <- magrittr::set_names(maplist, names(x))
-  show_landscape.list(x,xlab,ylab, discrete, div_scales,, n_col, n_row, ...)
+  names(maplist) <- names(x)
+  show_landscape.list(maplist, xlab, ylab, discrete, unique_scales, n_col, n_row, ...)
+}
+
+#' @name show_landscape
+#' @export
+show_landscape.RasterBrick <- function(x,
+                                       xlab = "Easting",
+                                       ylab = "Northing",
+                                       discrete = FALSE,
+                                       unique_scales = FALSE,
+                                       n_col = NULL,
+                                       n_row = NULL,
+                                       ...) {
+
+  maplist <- list()
+  for (i in seq_len(raster::nlayers(x))) {
+    maplist <- append(maplist, list(raster::raster(x, layer = i)))
+  }
+  names(maplist) <- names(x)
+  show_landscape.list(maplist, xlab, ylab, discrete, unique_scales, n_col, n_row, ...)
 }

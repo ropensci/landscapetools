@@ -15,6 +15,14 @@ Authors@R: c(
     person("Matthias", "Fritsch",
                 email = "matthias.fritsch@forst.uni-goettingen.de",
                 role =  c("aut")),
+    person("Maximillian H.K.", "Hesselbarth",
+             role = c("aut"),
+             email = "maximilian.hesselbarth@uni-goettingen.de",
+             comment = c(ORCID = "0000-0003-1125-9918")),
+    person("Jakub", "Nowosad", 
+             role = "aut",
+             email = "nowosad.jakub@gmail.com", 
+             comment = c(ORCID = "0000-0002-1057-3721")),
     person("Laura", "Graham", role = "rev",
        comment = "Laura reviewed the package for rOpenSci, see 
                   https://github.com/ropensci/onboarding/issues/188"),
@@ -34,7 +42,6 @@ RoxygenNote: 6.1.1
 Imports: 
     classInt,
     gridExtra,
-    magrittr,
     checkmate,
     dplyr,
     ggplot2,

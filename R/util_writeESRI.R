@@ -28,8 +28,7 @@
 #' @rdname util_writeESRI
 #' @export
 util_writeESRI <- function(x,
-                           filepath,
-                           ...) UseMethod("util_writeESRI")
+                           filepath) UseMethod("util_writeESRI")
 
 
 #' @name util_writeESRI
@@ -39,11 +38,11 @@ util_writeESRI.RasterLayer <- function(x, filepath) {
     zz <- file(filepath, "w")
 
     #write the header info
-    cat("ncols         ",nrow(x),'\r\n',sep = "",file=zz)
-    cat("nrows         ",ncol(x),'\r\n',sep = "",file=zz)
-    cat("xllcorner     ",as.character(xmin(x)),'\r\n',sep = "",file=zz)
-    cat("yllcorner     ",as.character(ymin(x)),'\r\n',sep = "",file=zz)
-    cat("cellsize      ",as.character(xres(x)),'\r\n',sep = "",file=zz)
+    cat("ncols         ",raster::nrow(x),'\r\n',sep = "",file=zz)
+    cat("nrows         ",raster::ncol(x),'\r\n',sep = "",file=zz)
+    cat("xllcorner     ",as.character(raster::xmin(x)),'\r\n',sep = "",file=zz)
+    cat("yllcorner     ",as.character(raster::ymin(x)),'\r\n',sep = "",file=zz)
+    cat("cellsize      ",as.character(raster::xres(x)),'\r\n',sep = "",file=zz)
     cat("NODATA_value  ", -9999,'\r\n',sep = "",file=zz)
 
     #prep and write the data
