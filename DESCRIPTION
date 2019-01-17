@@ -46,10 +46,8 @@ Imports:
     ggplot2,
     purrr,
     raster,
-    rasterVis,
     tibble,
-    tidyr,
-    viridis
+    tidyr
 Suggests: 
     testthat,
     covr

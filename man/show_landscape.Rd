@@ -61,6 +61,9 @@ show_landscape(y, discrete = TRUE)
 
 show_landscape(list(grdmap, rndmap))
 show_landscape(raster::stack(grdmap, rndmap))
+
+show_landscape(list(y, y), discrete = TRUE)
+
 }
 
 }

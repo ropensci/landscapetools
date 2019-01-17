@@ -1,28 +1,16 @@
 # nolint start
 context("theme_nlm")
 
-p1 <- rasterVis::gplot(fbmmap) +
-  ggplot2::geom_tile(ggplot2::aes(fill = value)) +
-  ggplot2::labs(x = "Easting",
-                y = "Northing") +
+p1 <- show_landscape(fbmmap) +
   theme_nlm()
 
-p2 <- rasterVis::gplot(fbmmap) +
-  ggplot2::geom_tile(ggplot2::aes(fill = value)) +
-  ggplot2::labs(x = "Easting",
-                y = "Northing") +
+p2 <- show_landscape(util_binarize(fbmmap, 0.3)) +
   theme_nlm_discrete()
 
-p3 <- rasterVis::gplot(fbmmap) +
-  ggplot2::geom_tile(ggplot2::aes(fill = value)) +
-  ggplot2::labs(x = "Easting",
-                y = "Northing") +
+p3 <- show_landscape(fbmmap) +
   theme_nlm_grey()
 
-p4 <- rasterVis::gplot(fbmmap) +
-  ggplot2::geom_tile(ggplot2::aes(fill = value)) +
-  ggplot2::labs(x = "Easting",
-                y = "Northing") +
+p4 <- show_landscape(util_binarize(fbmmap, 0.3)) +
   theme_nlm_grey_discrete()
 
 test_that("basic functionality", {

@@ -8,7 +8,7 @@
 # nolint start
 "_PACKAGE"
 
-globalVariables(c("value", ".", "id", "y"))
+globalVariables(c("value", ".", "id", "y", "z"))
 
 # nolint end
 # nocov end
