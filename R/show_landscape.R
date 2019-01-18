@@ -27,7 +27,7 @@
 #' show_landscape(list(grdmap, rndmap))
 #' show_landscape(raster::stack(grdmap, rndmap))
 #'
-#' show_landscape(list(y, y), discrete = TRUE)
+#' show_landscape(list(grdmap, y), unique_scales = TRUE)
 #'
 #' }
 #'
@@ -134,41 +134,15 @@ show_landscape.list <- function(x,
 
     landscape_plots <- lapply(seq_along(x), function(id){
 
-      x_tibble <- tibble::enframe(x, "id", "maps")
-      x_tibble <- dplyr::mutate(x_tibble,
-                                maps = lapply(x_tibble$maps, util_raster2tibble))
-      x_tibble <- tidyr::unnest(x_tibble)
+      x_tibble <- raster::as.data.frame(x[[id]], xy = TRUE)
+      names(x_tibble)[3] <- "z"
+      x_tibble$id <-  names(x[[id]])
 
-      x_tibble$id = names(x[[id]])
-      if (!discrete) {
-      p <- ggplot2::ggplot(x_tibble, ggplot2::aes_string("x", "y")) +
-        ggplot2::coord_fixed() +
-        ggplot2::geom_raster(ggplot2::aes_string(fill = "z")) +
-        ggplot2::facet_wrap(~id, nrow = 1, ncol = 1) +
-        ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$x))) +
-        ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$y))) +
-        ggplot2::guides(fill = FALSE) +
-        ggplot2::labs(titel = NULL, x = NULL, y = NULL) +
-        theme_facetplot() +
-        ggplot2::theme(plot.margin = ggplot2::unit(c(0, 0, 0, 0), "cm")) +
-        theme_nlm(..., ratio = 1)
-      }
 
-      if (discrete) {
-
-        # get rasterlabels
-        legend_labels <- tryCatch({
-          x@data@attributes[[1]][, 2]
-        },
-        error = function(e) {
-          x <- raster::as.factor(x)
-          levels <- raster::unique(x)
-          x@data@attributes[[1]][, 2] <- levels
-        })
-
+      p <- tryCatch({
         p <- ggplot2::ggplot(x_tibble, ggplot2::aes_string("x", "y")) +
           ggplot2::coord_fixed() +
-          ggplot2::geom_raster(ggplot2::aes(fill = factor(z))) +
+          ggplot2::geom_raster(ggplot2::aes_string(fill = "z")) +
           ggplot2::facet_wrap(~id, nrow = 1, ncol = 1) +
           ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$x))) +
           ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$y))) +
@@ -176,8 +150,24 @@ show_landscape.list <- function(x,
           ggplot2::labs(titel = NULL, x = NULL, y = NULL) +
           theme_facetplot() +
           ggplot2::theme(plot.margin = ggplot2::unit(c(0, 0, 0, 0), "cm")) +
-          theme_nlm_discrete(..., legend_labels = legend_labels, ratio = 1)
-      }
+          theme_facetplot()
+        print(p)
+      },
+      error = function(e) {
+        ggplot2::ggplot(x_tibble, ggplot2::aes_string("x", "y")) +
+          ggplot2::coord_fixed() +
+          ggplot2::geom_raster(ggplot2::aes_string(fill = "z")) +
+          ggplot2::facet_wrap(~id, nrow = 1, ncol = 1) +
+          ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$x))) +
+          ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$y))) +
+          ggplot2::guides(fill = FALSE) +
+          ggplot2::labs(titel = NULL, x = NULL, y = NULL) +
+          theme_facetplot() +
+          ggplot2::theme(plot.margin = ggplot2::unit(c(0, 0, 0, 0), "cm")) +
+          theme_facetplot_discrete()
+      })
+
+      p
 
     })
 

@@ -525,7 +525,6 @@ theme_facetplot <-
              caption_margin = 10,
              ratio = 1,
              viridis_scale = "D",
-             legend_title = "Z",
              ...) {
         # start with minimal theme
         theme_base <- ggplot2::theme(
@@ -567,8 +566,7 @@ theme_facetplot <-
         theme_color <-  ggplot2::scale_fill_viridis_c(
           option = viridis_scale,
           direction = 1,
-          na.value = "transparent",
-          name = legend_title
+          na.value = "transparent"
         )
 
         # return as list
@@ -597,10 +595,6 @@ theme_facetplot_discrete <-
            caption_margin = 10,
            ratio = 1,
            viridis_scale = "D",
-           legend_title = "Z",
-           legend_labels = NULL,
-           legend_text_size  = 8,
-           legend_title_size = 10,
            ...) {
     # start with minimal theme
     theme_base <- ggplot2::theme(
@@ -642,13 +636,7 @@ theme_facetplot_discrete <-
     theme_color <- ggplot2::scale_fill_viridis_d(
       option = viridis_scale,
       direction = 1,
-      na.value = "transparent",
-      labels = if (is.null(legend_labels)) {
-        ggplot2::waiver()
-      } else {
-        legend_labels
-      },
-      name = legend_title
+      na.value = "transparent"
     )
 
     # return as list
