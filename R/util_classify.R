@@ -86,12 +86,12 @@ util_classify.RasterLayer <- function(x,
 
       if(class(real_land) != "RasterLayer") stop("real_land muste be a RasterLayer object.")
 
-      frq <- tibble::as_tibble(raster::freq(real_land))
+      frq <- raster::freq(real_land)
       if (!is.null(mask_val)) {
-          frq <- dplyr::filter(frq, value != mask_val)
-          x <- raster::mask(x, real_land, maskvalue = mask_val)
+        frq <- frq[frq[,1] != mask_val, ]
+        x <- raster::mask(x, real_land, maskvalue = mask_val)
       }
-      weighting <- frq$count / sum(frq$count)
+      weighting <- frq[,2] / sum(frq[,2])
 
       x <- .classify(x, weighting)
 

@@ -19,7 +19,9 @@
 #' x <- gradient_landscape
 #'
 #' # classify
-#' y <- util_classify(gradient_landscape,  n = 3, level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
+#' y <- util_classify(gradient_landscape,
+#'                    n = 3,
+#'                    level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
 #'
 #' show_landscape(x)
 #' show_landscape(y, discrete = TRUE)
@@ -98,16 +100,15 @@ show_landscape.list <- function(x,
                                 n_row = NULL,
                                 ...) {
 
-  x_tibble <- tibble::enframe(x, "id", "maps")
-  x_tibble <- dplyr::mutate(x_tibble,
-                            maps = lapply(x_tibble$maps, function(x){
+  x_list <-  lapply(seq_along(x), function(id) {
+    y <- x[[id]]
+    if (unique_scales) y <- util_rescale(y)
+    raster_tibble <- util_raster2tibble(y)
+    raster_tibble$id <- id
+    raster_tibble
+  })
 
-                              if(unique_scales) x <- util_rescale(x)
-                              util_raster2tibble(x)
-
-                            })
-                            )
-  x_tibble <- tidyr::unnest(x_tibble)
+  x_tibble <- do.call(rbind, x_list)
 
   if (!discrete) {
     p <- ggplot2::ggplot(x_tibble, ggplot2::aes_string("x", "y")) +

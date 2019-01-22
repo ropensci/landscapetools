@@ -33,7 +33,7 @@ util_raster2tibble <- function(x) {
                                        y = seq(raster::nrow(x), 1)))
 
   # Fill with raster values ----
-  grd <- dplyr::bind_cols(grd, z = raster::values(x))
+  grd$z <- raster::values(x)
 
   return(grd)
 }
