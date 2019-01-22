@@ -19,7 +19,9 @@
 #' x <- gradient_landscape
 #'
 #' # classify
-#' y <- util_classify(gradient_landscape,  n = 3, level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
+#' y <- util_classify(gradient_landscape,
+#'                    n = 3,
+#'                    level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
 #'
 #' show_landscape(x)
 #' show_landscape(y, discrete = TRUE)

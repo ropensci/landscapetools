@@ -13,4 +13,7 @@ if (Sys.getenv("id_rsa") != "") {
         add_code_step(rmarkdown::render("README.Rmd")) %>%
         add_step(step_build_pkgdown()) %>%
         add_step(step_push_deploy())
+
+    get_stage("after_success") %>%
+        step_run_code(covr::codecov(quiet = FALSE))
 }
