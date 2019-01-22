@@ -41,11 +41,9 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
 Imports: 
     classInt,
-    dplyr,
     ggplot2,
     raster,
-    tibble,
-    tidyr
+    tibble
 Suggests: 
     testthat,
     covr,

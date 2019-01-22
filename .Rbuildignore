@@ -15,3 +15,4 @@
 ^\.github$
 ^codemeta\.json$
 ^cran\-comments\.md$
+^tic\.R$
