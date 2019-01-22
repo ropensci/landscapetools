@@ -1,7 +1,7 @@
 # nolint start
 context("util_tibble2raster")
 
-maptib <- util_raster2tibble(fbmmap)
+maptib <- util_raster2tibble(fractal_landscape)
 mapras <- util_tibble2raster(maptib)
 
 test_that("basic functionality", {

@@ -1,10 +1,10 @@
 # nolint start
 context("util_raster2tibble")
 
-maptib <- util_raster2tibble(fbmmap)
+maptib <- util_raster2tibble(fractal_landscape)
 
 test_that("basic functionality", {
-  expect_error(util_raster2tibble(fbmmap), NA)
+  expect_error(util_raster2tibble(fractal_landscape), NA)
 })
 
 test_that("util_plot behaves like it should", {

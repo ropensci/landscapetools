@@ -26,7 +26,7 @@ Rectangular matrix with values ranging from 0-1
 Merge a primary raster with other rasters weighted by scaling factors.
 }
 \examples{
-x <- util_merge(grdmap, rndmap)
+x <- util_merge(gradient_landscape, random_landscape)
 show_landscape(x)
 
 }

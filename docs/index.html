@@ -51,6 +51,18 @@
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/overview.html">Short walkthrough and overview of landscapetools</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="news/index.html">Changelog</a>
 </li>
@@ -81,17 +93,40 @@
 <div id="utilities" class="section level4">
 <h4 class="hasAnchor">
 <a href="#utilities" class="anchor"></a>Utilities:</h4>
-<p><code>util_binarize</code>: Binarize continuous raster values, if &gt; 1 breaks are given, return a RasterBrick.<br><code>util_classify</code>: Classify a raster into proportions based upon a vector of class weightings.<br><code>util_merge</code>: Merge a primary raster with other rasters weighted by scaling factors.<br><code>util_raster2tibble</code>, <code>util_tibble2raster</code>: Coerce raster* objects to tibbles and vice versa.<br><code>util_rescale</code>: Linearly rescale element values in a raster to a range between 0 and 1.<br></p>
+<ul>
+<li>
+<code>util_binarize</code>: Binarize continuous raster values, if &gt; 1 breaks are given, return a RasterBrick.</li>
+<li>
+<code>util_classify</code>: Classify a raster into proportions based upon a vector of class weightings.</li>
+<li>
+<code>util_merge</code>: Merge a primary raster with other rasters weighted by scaling factors.</li>
+<li>
+<code>util_raster2tibble</code>, <code>util_tibble2raster</code>: Coerce raster* objects to tibbles and vice versa.</li>
+<li>
+<code>util_rescale</code>: Linearly rescale element values in a raster to a range between 0 and 1.</li>
+<li>
+<code>util_writeESRI</code>: Export raster objects as ESRI asciis (with Windows linebreaks).</li>
+</ul>
 </div>
 <div id="visualization" class="section level4">
 <h4 class="hasAnchor">
 <a href="#visualization" class="anchor"></a>Visualization</h4>
-<p><code>show_landscape</code>: Plot a Raster* object with the landscapetools default theme (as ggplot) or multiple raster (RasterStack, -brick or list of raster) side by side as facets.<br></p>
+<ul>
+<li>
+<code>show_landscape</code>: Plot a Raster* object with the landscapetools default theme (as ggplot) or multiple raster (RasterStack, -brick or list of raster) side by side as facets.</li>
+</ul>
 </div>
 <div id="themes" class="section level4">
 <h4 class="hasAnchor">
 <a href="#themes" class="anchor"></a>Themes:</h4>
-<p><code>theme_nlm</code>, <code>theme_nlm_grey</code>: Opinionated ggplot2 theme to visualize raster (continuous data).<br><code>theme_nlm_discrete</code>, <code>theme_nlm_grey_discrete</code>: Opinionated ggplot2 theme to visualize raster (discrete data).<br><code>theme_faceplot</code>: Opinionated ggplot2 theme to visualize raster in a facet wrap.<br></p>
+<ul>
+<li>
+<code>theme_nlm</code>, <code>theme_nlm_grey</code>: Opinionated ggplot2 theme to visualize raster (continuous data).</li>
+<li>
+<code>theme_nlm_discrete</code>, <code>theme_nlm_grey_discrete</code>: Opinionated ggplot2 theme to visualize raster (discrete data).</li>
+<li>
+<code>theme_faceplot</code>: Opinionated ggplot2 theme to visualize raster in a facet wrap.</li>
+</ul>
 </div>
 </div>
 <div id="installation" class="section level2">
@@ -117,7 +152,7 @@
 <div id="binarize" class="section level3">
 <h3 class="hasAnchor">
 <a href="#binarize" class="anchor"></a>Binarize</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Binarize the map into habitat and matrix</span></a>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Binarize the landscape into habitat and matrix</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">binarized_raster &lt;-<span class="st"> </span><span class="kw"><a href="reference/util_binarize.html">util_binarize</a></span>(nlm_raster, <span class="dt">breaks =</span> <span class="fl">0.31415</span>)</a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="reference/show_landscape.html">show_landscape</a></span>(binarized_raster)</a></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"></p>
@@ -125,7 +160,7 @@
 <div id="classify" class="section level3">
 <h3 class="hasAnchor">
 <a href="#classify" class="anchor"></a>Classify</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Classify the map into land uses</span></a>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Classify the landscape into land uses</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2">classified_raster &lt;-<span class="st"> </span><span class="kw"><a href="reference/util_classify.html">util_classify</a></span>(nlm_raster,</a>
 <a class="sourceLine" id="cb4-3" data-line-number="3">                                   <span class="dt">n =</span> <span class="dv">3</span>,</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4">                                   <span class="dt">level_names =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Land Use 1"</span>, <span class="st">"Land Use 2"</span>, <span class="st">"Land Use 3"</span>))</a>
@@ -135,7 +170,7 @@
 <div id="merge" class="section level3">
 <h3 class="hasAnchor">
 <a href="#merge" class="anchor"></a>Merge</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># Create a primary and two secondary maps</span></a>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># Create a primary and two secondary landscapes</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2">prim &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/NLMR/topics/nlm_edgegradient">nlm_edgegradient</a></span>(<span class="dt">ncol =</span> <span class="dv">100</span>, <span class="dt">nrow =</span> <span class="dv">100</span>)</a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4">sec1 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/NLMR/topics/nlm_distancegradient">nlm_distancegradient</a></span>(<span class="dt">ncol =</span> <span class="dv">100</span>, <span class="dt">nrow =</span> <span class="dv">100</span>,</a>
@@ -143,7 +178,7 @@
 <a class="sourceLine" id="cb5-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb5-7" data-line-number="7">sec2 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/NLMR/topics/nlm_random">nlm_random</a></span>(<span class="dt">ncol =</span> <span class="dv">100</span>, <span class="dt">nrow =</span> <span class="dv">100</span>)</a>
 <a class="sourceLine" id="cb5-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co"># Merge all maps into one</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co"># Merge all landscapes into one</span></a>
 <a class="sourceLine" id="cb5-10" data-line-number="10">merg &lt;-<span class="st"> </span><span class="kw"><a href="reference/util_merge.html">util_merge</a></span>(prim, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(sec1, sec2), <span class="dt">scalingfactor =</span> <span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb5-11" data-line-number="11"></a>
 <a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co"># Plot an overview</span></a>
@@ -209,6 +244,8 @@
 <ul class="list-unstyled">
 <li>Marco Sciaini <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-3042-5435" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID" height="16"></a> </li>
 <li>Matthias Fritsch <br><small class="roles"> Author </small>  </li>
+<li>Maximillian H.K. Hesselbarth <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-1125-9918" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID" height="16"></a> </li>
+<li>Jakub Nowosad <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-1057-3721" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID" height="16"></a> </li>
 <li><a href="authors.html">All authors...</a></li>
 </ul>
 </div>
@@ -232,7 +269,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Marco Sciaini, Matthias Fritsch.</p>
+  <p>Developed by Marco Sciaini, Matthias Fritsch, Maximillian H.K. Hesselbarth, Jakub Nowosad.</p>
 </div>
 
 <div class="pkgdown">

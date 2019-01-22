@@ -16,7 +16,7 @@ util_classify(x, n, style, weighting, level_names, real_land, mask_val)
 
 \item{n}{Number of classes}
 
-\item{style}{Style of breaks (see classInt::classInvervals() for more details)}
+\item{style}{chosen style: one of "fixed", "sd", "equal", "pretty", "quantile", "kmeans", "hclust", "bclust", "fisher", or "jenks" (see classInt::classInvervals() for more details)}
 
 \item{weighting}{Vector of numeric values that are considered to be habitat percentages (see details)}
 
@@ -49,33 +49,33 @@ class from the 'real' landscape is cut from the landscape beforehand.
 }
 \examples{
 # Mode 1
-util_classify(fbmmap,
+util_classify(fractal_landscape,
               n = 3,
               style = "fisher",
               level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
 
 # Mode 2
-util_classify(fbmmap,
+util_classify(fractal_landscape,
               weighting = c(0.5, 0.25, 0.25),
               level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
 
 # Mode 3
-real_land <- util_classify(grdmap,
+real_land <- util_classify(gradient_landscape,
               n = 3,
               level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
 
-fbmmap_real <- util_classify(fbmmap, real_land = real_land)
-fbmmap_mask <- util_classify(fbmmap, real_land = real_land, mask_val = 1)
+fractal_landscape_real <- util_classify(fractal_landscape, real_land = real_land)
+fractal_landscape_mask <- util_classify(fractal_landscape, real_land = real_land, mask_val = 1)
 
 \dontrun{
 landscapes <- list(
-'1 nlm' = fbmmap,
+'1 nlm' = fractal_landscape,
 '2 real' = real_land,
-'3 result' = fbmmap_real,
-'4 result with mask' = fbmmap_mask
+'3 result' = fractal_landscape_real,
+'4 result with mask' = fractal_landscape_mask
 )
 
-util_facetplot(landscapes, div_scales = TRUE, nrow = 1)
+show_landscape(landscapes, unique_scales = TRUE, nrow = 1)
 }
 
 }

@@ -9,6 +9,7 @@ reference:
     - util_raster2tibble
     - util_tibble2raster
     - util_rescale
+    - util_writeESRI
   - title: Visualization
     contents:
     - show_landscape

@@ -30,7 +30,7 @@ raster data in R.
 }
 \examples{
 \dontrun{
-util_writeESRI(grdmap, "grdmap.asc")
+util_writeESRI(gradient_landscape, "gradient_landscape.asc")
 }
 
 }

@@ -1,8 +1,8 @@
 # nolint start
 context("show_landscape")
 
-x <- rndmap
-y <- util_classify(grdmap,  n = 3, level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
+x <- random_landscape
+y <- util_classify(gradient_landscape,  n = 3, level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
 
 p <- show_landscape(x)
 p_discrete <- show_landscape(y, discrete = TRUE)
@@ -17,8 +17,8 @@ test_that("show_landscape behaves like it should", {
   expect_equal(class(p_discrete), c("gg","ggplot"))
 })
 
-l2 <- grdmap
-l3 <- rndmap
+l2 <- gradient_landscape
+l3 <- random_landscape
 
 bri1 <- raster::brick(l2, l3)
 p1 <- show_landscape(bri1)

@@ -10,7 +10,7 @@
 #' @return Rectangular matrix with values ranging from 0-1
 #'
 #' @examples
-#' x <- util_merge(grdmap, rndmap)
+#' x <- util_merge(gradient_landscape, random_landscape)
 #' show_landscape(x)
 #'
 #' @aliases util_merge

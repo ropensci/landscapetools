@@ -1,10 +1,10 @@
 # nolint start
 context("util_binarize")
 
-rnd_bin <- util_binarize(fbmmap, c(0.3, 0.5, 0.7, 0.9))
+rnd_bin <- util_binarize(fractal_landscape, c(0.3, 0.5, 0.7, 0.9))
 
 test_that("basic functionality", {
-  expect_error(util_binarize(fbmmap,
+  expect_error(util_binarize(fractal_landscape,
                              c(0.3, 0.5, 0.7, 0.9)),
                NA)
 })
@@ -22,7 +22,7 @@ test_that("binary maps in every layer", {
 })
 
 test_that("right number of layers in the brick", {
-  expect_equal(raster::nlayers(util_binarize(fbmmap,
+  expect_equal(raster::nlayers(util_binarize(fractal_landscape,
                                c(0.3))), 1)
 })
 # nolint end

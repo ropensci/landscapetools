@@ -2,13 +2,13 @@
 context("util_merge")
 
 set.seed(5)
-pL <- rndmap
-sL <- grdmap
+pL <- random_landscape
+sL <- gradient_landscape
 mL <- util_merge(pL, sL)
 
 test_that("basic functionality", {
-  expect_error(util_merge(rndmap,
-                          grdmap),
+  expect_error(util_merge(random_landscape,
+                          gradient_landscape),
                NA)
 })
 

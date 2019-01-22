@@ -10,7 +10,7 @@
 #' @return a tibble
 #'
 #' @examples
-#' maptib <- util_raster2tibble(fbmmap)
+#' maptib <- util_raster2tibble(fractal_landscape)
 #' \dontrun{
 #' library(ggplot2)
 #' ggplot(maptib, aes(x,y)) +

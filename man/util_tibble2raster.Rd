@@ -26,8 +26,8 @@ problems. If you have altered the coordinates or otherwise played with the
 data, be careful while using this function.
 }
 \examples{
-maptib <- util_raster2tibble(rndmap)
+maptib <- util_raster2tibble(random_landscape)
 mapras <- util_tibble2raster(maptib)
-all.equal(rndmap, mapras)
+all.equal(random_landscape, mapras)
 
 }

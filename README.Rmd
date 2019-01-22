@@ -30,21 +30,22 @@ Objects).
 
 #### Utilities:
 
-`util_binarize`: Binarize continuous raster values, if > 1 breaks are given, return a RasterBrick.<br/>
-`util_classify`: Classify a raster into proportions based upon a vector of class weightings.<br/>
-`util_merge`: Merge a primary raster with other rasters weighted by scaling factors.<br/>
-`util_raster2tibble`, `util_tibble2raster`: Coerce raster* objects to tibbles and vice versa.<br/>
-`util_rescale`: Linearly rescale element values in a raster to a range between 0 and 1.<br/>
+- `util_binarize`: Binarize continuous raster values, if > 1 breaks are given, return a RasterBrick.
+- `util_classify`: Classify a raster into proportions based upon a vector of class weightings.
+- `util_merge`: Merge a primary raster with other rasters weighted by scaling factors.
+- `util_raster2tibble`, `util_tibble2raster`: Coerce raster* objects to tibbles and vice versa.
+- `util_rescale`: Linearly rescale element values in a raster to a range between 0 and 1.
+- `util_writeESRI`: Export raster objects as ESRI asciis (with Windows linebreaks).
 
 #### Visualization
 
-`show_landscape`: Plot a Raster* object with the landscapetools default theme (as ggplot) or multiple raster (RasterStack, -brick or list of raster) side by side as facets.<br/>
+- `show_landscape`: Plot a Raster* object with the landscapetools default theme (as ggplot) or multiple raster (RasterStack, -brick or list of raster) side by side as facets.
 
 #### Themes:
 
-`theme_nlm`, `theme_nlm_grey`: Opinionated ggplot2 theme to visualize raster (continuous data).<br/>
-`theme_nlm_discrete`, `theme_nlm_grey_discrete`: Opinionated ggplot2 theme to visualize raster (discrete data).<br/>
-`theme_faceplot`: Opinionated ggplot2 theme to visualize raster in a facet wrap.<br/>
+- `theme_nlm`, `theme_nlm_grey`: Opinionated ggplot2 theme to visualize raster (continuous data).
+- `theme_nlm_discrete`, `theme_nlm_grey_discrete`: Opinionated ggplot2 theme to visualize raster (discrete data).
+- `theme_faceplot`: Opinionated ggplot2 theme to visualize raster in a facet wrap.
 
 ## Installation
 
@@ -71,7 +72,7 @@ show_landscape(nlm_raster)
 ### Binarize
 
 ```{r fig.retina=2}
-# Binarize the map into habitat and matrix
+# Binarize the landscape into habitat and matrix
 binarized_raster <- util_binarize(nlm_raster, breaks = 0.31415)
 show_landscape(binarized_raster)
 ```
@@ -79,7 +80,7 @@ show_landscape(binarized_raster)
 ### Classify
 
 ```{r fig.retina=2}
-# Classify the map into land uses
+# Classify the landscape into land uses
 classified_raster <- util_classify(nlm_raster,
                                    n = 3,
                                    level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
@@ -89,7 +90,7 @@ show_landscape(classified_raster, discrete = TRUE)
 ### Merge
 
 ```{r fig.retina=2}
-# Create a primary and two secondary maps
+# Create a primary and two secondary landscapes
 prim <- nlm_edgegradient(ncol = 100, nrow = 100)
 
 sec1 <- nlm_distancegradient(ncol = 100, nrow = 100,
@@ -97,7 +98,7 @@ sec1 <- nlm_distancegradient(ncol = 100, nrow = 100,
 
 sec2 <- nlm_random(ncol = 100, nrow = 100)
 
-# Merge all maps into one
+# Merge all landscapes into one
 merg <- util_merge(prim, c(sec1, sec2), scalingfactor = 1)
 
 # Plot an overview

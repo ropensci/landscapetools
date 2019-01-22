@@ -51,18 +51,18 @@ Plot a Raster* object with the NLMR default theme (as ggplot).
 }
 \examples{
 \dontrun{
-x <- grdmap
+x <- gradient_landscape
 
 # classify
-y <- util_classify(grdmap,  n = 3, level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
+y <- util_classify(gradient_landscape,  n = 3, level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
 
 show_landscape(x)
 show_landscape(y, discrete = TRUE)
 
-show_landscape(list(grdmap, rndmap))
-show_landscape(raster::stack(grdmap, rndmap))
+show_landscape(list(gradient_landscape, random_landscape))
+show_landscape(raster::stack(gradient_landscape, random_landscape))
 
-show_landscape(list(y, y), discrete = TRUE)
+show_landscape(list(gradient_landscape, y), unique_scales = TRUE)
 
 }
 

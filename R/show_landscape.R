@@ -16,18 +16,18 @@
 #'
 #' @examples
 #' \dontrun{
-#' x <- grdmap
+#' x <- gradient_landscape
 #'
 #' # classify
-#' y <- util_classify(grdmap,  n = 3, level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
+#' y <- util_classify(gradient_landscape,  n = 3, level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
 #'
 #' show_landscape(x)
 #' show_landscape(y, discrete = TRUE)
 #'
-#' show_landscape(list(grdmap, rndmap))
-#' show_landscape(raster::stack(grdmap, rndmap))
+#' show_landscape(list(gradient_landscape, random_landscape))
+#' show_landscape(raster::stack(gradient_landscape, random_landscape))
 #'
-#' show_landscape(list(grdmap, y), unique_scales = TRUE)
+#' show_landscape(list(gradient_landscape, y), unique_scales = TRUE)
 #'
 #' }
 #'
@@ -98,82 +98,41 @@ show_landscape.list <- function(x,
                                 n_row = NULL,
                                 ...) {
 
-  if (!unique_scales){
-    x_tibble <- tibble::enframe(x, "id", "maps")
-    x_tibble <- dplyr::mutate(x_tibble,
-                              maps = lapply(x_tibble$maps, util_raster2tibble))
-    x_tibble <- tidyr::unnest(x_tibble)
+  x_tibble <- tibble::enframe(x, "id", "maps")
+  x_tibble <- dplyr::mutate(x_tibble,
+                            maps = lapply(x_tibble$maps, function(x){
 
-    if(!discrete){
-      p <- ggplot2::ggplot(x_tibble, ggplot2::aes_string("x", "y")) +
-        ggplot2::coord_fixed() +
-        ggplot2::geom_raster(ggplot2::aes_string(fill = "z")) +
-        ggplot2::facet_wrap(~id, nrow = n_row, ncol = n_col) +
-        ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$x))) +
-        ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$y))) +
-        ggplot2::guides(fill = FALSE) +
-        ggplot2::labs(titel = NULL, x = NULL, y = NULL) +
-        theme_facetplot()
-    }
+                              if(unique_scales) x <- util_rescale(x)
+                              util_raster2tibble(x)
 
-    if(discrete){
-      p <- ggplot2::ggplot(x_tibble, ggplot2::aes_string("x", "y")) +
-        ggplot2::coord_fixed() +
-        ggplot2::geom_raster(ggplot2::aes(fill = factor(z))) +
-        ggplot2::facet_wrap(~id, nrow = n_row, ncol = n_col) +
-        ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$x))) +
-        ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$y))) +
-        ggplot2::guides(fill = FALSE) +
-        ggplot2::labs(titel = NULL, x = NULL, y = NULL) +
-        theme_facetplot_discrete()
-    }
+                            })
+                            )
+  x_tibble <- tidyr::unnest(x_tibble)
 
+  if (!discrete) {
+    p <- ggplot2::ggplot(x_tibble, ggplot2::aes_string("x", "y")) +
+      ggplot2::coord_fixed() +
+      ggplot2::geom_raster(ggplot2::aes_string(fill = "z")) +
+      ggplot2::facet_wrap( ~ id, nrow = n_row, ncol = n_col) +
+      ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0, max(x_tibble$x))) +
+      ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0, max(x_tibble$y))) +
+      ggplot2::guides(fill = FALSE) +
+      ggplot2::labs(titel = NULL, x = NULL, y = NULL) +
+      theme_facetplot()
   }
 
-  if (unique_scales){
-
-    landscape_plots <- lapply(seq_along(x), function(id){
-
-      x_tibble <- raster::as.data.frame(x[[id]], xy = TRUE)
-      names(x_tibble)[3] <- "z"
-      x_tibble$id <-  names(x[[id]])
-
-
-      p <- tryCatch({
-        p <- ggplot2::ggplot(x_tibble, ggplot2::aes_string("x", "y")) +
-          ggplot2::coord_fixed() +
-          ggplot2::geom_raster(ggplot2::aes_string(fill = "z")) +
-          ggplot2::facet_wrap(~id, nrow = 1, ncol = 1) +
-          ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$x))) +
-          ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$y))) +
-          ggplot2::guides(fill = FALSE) +
-          ggplot2::labs(titel = NULL, x = NULL, y = NULL) +
-          theme_facetplot() +
-          ggplot2::theme(plot.margin = ggplot2::unit(c(0, 0, 0, 0), "cm")) +
-          theme_facetplot()
-        print(p)
-      },
-      error = function(e) {
-        ggplot2::ggplot(x_tibble, ggplot2::aes_string("x", "y")) +
-          ggplot2::coord_fixed() +
-          ggplot2::geom_raster(ggplot2::aes_string(fill = "z")) +
-          ggplot2::facet_wrap(~id, nrow = 1, ncol = 1) +
-          ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$x))) +
-          ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0,max(x_tibble$y))) +
-          ggplot2::guides(fill = FALSE) +
-          ggplot2::labs(titel = NULL, x = NULL, y = NULL) +
-          theme_facetplot() +
-          ggplot2::theme(plot.margin = ggplot2::unit(c(0, 0, 0, 0), "cm")) +
-          theme_facetplot_discrete()
-      })
-
-      p
-
-    })
-
-    p <- gridExtra::grid.arrange(grobs = landscape_plots, nrow=n_row, ncol=n_col)
-
+  if (discrete) {
+    p <- ggplot2::ggplot(x_tibble, ggplot2::aes_string("x", "y")) +
+      ggplot2::coord_fixed() +
+      ggplot2::geom_raster(ggplot2::aes(fill = factor(z))) +
+      ggplot2::facet_wrap( ~ id, nrow = n_row, ncol = n_col) +
+      ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0, max(x_tibble$x))) +
+      ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0, max(x_tibble$y))) +
+      ggplot2::guides(fill = FALSE) +
+      ggplot2::labs(titel = NULL, x = NULL, y = NULL) +
+      theme_facetplot_discrete()
   }
+
 
   return(p)
 

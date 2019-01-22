@@ -20,28 +20,33 @@ status](https://www.r-pkg.org/badges/version/landscapetools)](https://cran.r-pro
 
 #### Utilities:
 
-`util_binarize`: Binarize continuous raster values, if \> 1 breaks are
-given, return a RasterBrick.<br/> `util_classify`: Classify a raster
-into proportions based upon a vector of class weightings.<br/>
-`util_merge`: Merge a primary raster with other rasters weighted by
-scaling factors.<br/> `util_raster2tibble`, `util_tibble2raster`: Coerce
-raster\* objects to tibbles and vice versa.<br/> `util_rescale`:
-Linearly rescale element values in a raster to a range between 0 and
-1.<br/>
+  - `util_binarize`: Binarize continuous raster values, if \> 1 breaks
+    are given, return a RasterBrick.
+  - `util_classify`: Classify a raster into proportions based upon a
+    vector of class weightings.
+  - `util_merge`: Merge a primary raster with other rasters weighted by
+    scaling factors.
+  - `util_raster2tibble`, `util_tibble2raster`: Coerce raster\* objects
+    to tibbles and vice versa.
+  - `util_rescale`: Linearly rescale element values in a raster to a
+    range between 0 and 1.
+  - `util_writeESRI`: Export raster objects as ESRI asciis (with Windows
+    linebreaks).
 
 #### Visualization
 
-`show_landscape`: Plot a Raster\* object with the landscapetools default
-theme (as ggplot) or multiple raster (RasterStack, -brick or list of
-raster) side by side as facets.<br/>
+  - `show_landscape`: Plot a Raster\* object with the landscapetools
+    default theme (as ggplot) or multiple raster (RasterStack, -brick or
+    list of raster) side by side as facets.
 
 #### Themes:
 
-`theme_nlm`, `theme_nlm_grey`: Opinionated ggplot2 theme to visualize
-raster (continuous data).<br/> `theme_nlm_discrete`,
-`theme_nlm_grey_discrete`: Opinionated ggplot2 theme to visualize raster
-(discrete data).<br/> `theme_faceplot`: Opinionated ggplot2 theme to
-visualize raster in a facet wrap.<br/>
+  - `theme_nlm`, `theme_nlm_grey`: Opinionated ggplot2 theme to
+    visualize raster (continuous data).
+  - `theme_nlm_discrete`, `theme_nlm_grey_discrete`: Opinionated ggplot2
+    theme to visualize raster (discrete data).
+  - `theme_faceplot`: Opinionated ggplot2 theme to visualize raster in a
+    facet wrap.
 
 ## Installation
 

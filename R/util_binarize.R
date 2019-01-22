@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' breaks <- c(0.3, 0.5)
-#' binary_maps <- util_binarize(grdmap, breaks)
+#' binary_maps <- util_binarize(gradient_landscape, breaks)
 #'
 #' @aliases util_binarize
 #' @rdname util_binarize

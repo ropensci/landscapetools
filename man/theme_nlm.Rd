@@ -79,8 +79,7 @@ theme_facetplot(base_family = NA, base_size = 11.5,
   subtitle_family = NA, subtitle_size = 13, subtitle_face = "plain",
   subtitle_margin = 15, strip.background = "grey80",
   caption_family = NA, caption_size = 9, caption_face = "plain",
-  caption_margin = 10, ratio = 1, viridis_scale = "D",
-  legend_title = "Z", ...)
+  caption_margin = 10, ratio = 1, viridis_scale = "D", ...)
 
 theme_facetplot_discrete(base_family = NA, base_size = 11.5,
   plot_title_family = base_family, plot_title_size = 18,
@@ -88,9 +87,7 @@ theme_facetplot_discrete(base_family = NA, base_size = 11.5,
   subtitle_family = NA, subtitle_size = 13, subtitle_face = "plain",
   subtitle_margin = 15, strip.background = "grey80",
   caption_family = NA, caption_size = 9, caption_face = "plain",
-  caption_margin = 10, ratio = 1, viridis_scale = "D",
-  legend_title = "Z", legend_labels = NULL, legend_text_size = 8,
-  legend_title_size = 10, ...)
+  caption_margin = 10, ratio = 1, viridis_scale = "D", ...)
 }
 \arguments{
 \item{base_family}{base font family size}

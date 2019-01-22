@@ -1,15 +1,15 @@
 # nolint start
 context("util_rescale")
 
-rndMap <- util_rescale(rndmap)
+random_landscape <- util_rescale(random_landscape)
 
 test_that("basic functionality", {
-  expect_error(util_rescale(rndmap), NA)
+  expect_error(util_rescale(random_landscape), NA)
 })
 
 test_that("util_plot behaves like it should", {
-  expect_equal(raster::minValue(rndMap),0)
-  expect_equal(raster::maxValue(rndMap),1)
+  expect_equal(raster::minValue(random_landscape),0)
+  expect_equal(raster::maxValue(random_landscape),1)
 })
 
 # nolint end

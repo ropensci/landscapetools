@@ -1,14 +1,14 @@
 # nolint start
 context("util_classify")
 
-x <- fbmmap
+x <- fractal_landscape
 y <- c(0.5, 0.25, 0.25)
 classified_x <- util_classify(x, weighting = y, level_names = c("Land Use 1",
                                                     "Land Use 2",
                                                     "Land Use 3"))
 
 
-classified_y <- util_classify(fbmmap,
+classified_y <- util_classify(fractal_landscape,
                               n = 5,
                               style = "fisher")
 

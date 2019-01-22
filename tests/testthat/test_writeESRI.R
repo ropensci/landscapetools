@@ -1,7 +1,7 @@
 context("util_writeESRI")
 
 test_that("fails to create file in non-existent directory", {
-    expect_warning(expect_error(util_writeESRI(grdmap, file.path(tempdir(), "/x/y")), "cannot open the connection"), "No such file or directory")
+    expect_warning(expect_error(util_writeESRI(gradient_landscape, file.path(tempdir(), "/x/y")), "cannot open the connection"), "No such file or directory")
 })
 
 test_that("write_excel_csv/csv2 includes a byte order mark", {
@@ -9,7 +9,7 @@ test_that("write_excel_csv/csv2 includes a byte order mark", {
     tmp <- tempfile()
     on.exit(unlink(tmp))
 
-    util_writeESRI(grdmap, tmp)
+    util_writeESRI(gradient_landscape, tmp)
 
     asciitext <- readLines(tmp)
 

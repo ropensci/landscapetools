@@ -41,13 +41,14 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
 Imports: 
     classInt,
-    gridExtra,
     dplyr,
     ggplot2,
-    purrr,
     raster,
     tibble,
     tidyr
 Suggests: 
     testthat,
-    covr
+    covr,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
