@@ -25,7 +25,6 @@ knitr::opts_chunk$set(
 `landscapetools` provides utility functions to work with landscape data (raster* 
 Objects). 
 
-
 ### The following functions are implemented:
 
 #### Utilities:
