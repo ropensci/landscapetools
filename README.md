@@ -58,67 +58,56 @@ You can install the development version from
 devtools::install_github("ropensci/landscapetools")
 ```
 
-## Usage
-
-``` r
-library(NLMR)
-library(landscapetools)
-# Create an artificial landscape
-nlm_raster <- nlm_fbm(ncol = 200, nrow = 200, fract_dim = 0.8)
-show_landscape(nlm_raster)
-```
-
-<img src="man/figures/README-unnamed-chunk-1-1.png" width="100%" />
-
 ## Utilities
 
 ### Binarize
 
 ``` r
-# Binarize the map into habitat and matrix
-binarized_raster <- util_binarize(nlm_raster, breaks = 0.31415)
+# Binarize the landscape into habitat and matrix
+binarized_raster <- util_binarize(fractal_landscape, breaks = 0.31)
+#> Loading required package: raster
+#> Loading required package: sp
+
 show_landscape(binarized_raster)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-1-1.png" width="100%" />
 
 ### Classify
 
 ``` r
-# Classify the map into land uses
-classified_raster <- util_classify(nlm_raster,
-                                   n = 3,
-                                   level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
-show_landscape(classified_raster, discrete = TRUE)
+# Classify the landscape into land uses
+classified_landscape <- util_classify(fractal_landscape,
+                                      n = 3,
+                                      level_names = c("Land Use 1", 
+                                                      "Land Use 2",
+                                                      "Land Use 3"))
+
+show_landscape(classified_landscape, discrete = TRUE)
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
 ### Merge
 
 ``` r
-# Create a primary and two secondary maps
-prim <- nlm_edgegradient(ncol = 100, nrow = 100)
-
-sec1 <- nlm_distancegradient(ncol = 100, nrow = 100,
-                             origin = c(10, 10, 10, 10))
-
-sec2 <- nlm_random(ncol = 100, nrow = 100)
-
-# Merge all maps into one
-merg <- util_merge(prim, c(sec1, sec2), scalingfactor = 1)
+# Merge all landscapes into one
+merged_landscape <- util_merge(fractal_landscape,
+                               c(gradient_landscape, random_landscape),
+                               scalingfactor = 1)
 
 # Plot an overview
 merge_vis <- list(
-    "1) Primary" = prim,
-    "2) Secondary 1" = sec1,
-    "3) Secondary 2" = sec2,
-    "4) Result" = merg
+    "1) Primary" = fractal_landscape,
+    "2) Secondary 1" = gradient_landscape,
+    "3) Secondary 2" = random_landscape,
+    "4) Result" = merged_landscape
 )
+
 show_landscape(merge_vis)
 ```
 
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
 ## See also
 
