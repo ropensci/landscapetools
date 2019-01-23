@@ -13,10 +13,8 @@ status](https://www.r-pkg.org/badges/version/landscapetools)](https://cran.r-pro
 
 # landscapetools
 
-`landscapetools` provides utility functions to work with landscape data
-(raster\* Objects).
-
-### The following functions are implemented:
+`landscapetools` provides utility functions for some of the
+less-glamorous tasks involved in landscape analysis:
 
 #### Utilities:
 
