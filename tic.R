@@ -11,6 +11,7 @@ if (Sys.getenv("id_rsa") != "") {
 
     if (ci()$get_branch() == "master") {
         get_stage("deploy") %>%
+            add_code_step(devtools::install()) %>%
             add_code_step(rmarkdown::render("README.Rmd", "github_document")) %>%
             add_step(step_push_deploy(path = "README.md")) %>%
             add_code_step(devtools::document()) %>%
