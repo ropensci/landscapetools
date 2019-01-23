@@ -9,11 +9,16 @@ if (Sys.getenv("id_rsa") != "") {
     get_stage("before_deploy") %>%
         add_step(step_setup_ssh())
 
-    get_stage("deploy") %>%
-        add_code_step(rmarkdown::render("README.Rmd")) %>%
-        add_step(step_build_pkgdown()) %>%
-        add_step(step_push_deploy())
+    if (ci()$get_branch() == "master") {
+        get_stage("deploy") %>%
+            add_code_step(rmarkdown::render("README.Rmd")) %>%
+            add_step(step_build_pkgdown()) %>%
+            add_step(step_push_deploy(commit_paths = c("man/",
+                                                       "docs/*",
+                                                       "NAMESPACE")))
+    }
 
     get_stage("after_success") %>%
         step_run_code(covr::codecov(quiet = FALSE))
+
 }
