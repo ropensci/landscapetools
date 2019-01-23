@@ -58,6 +58,10 @@ devtools::install_github("ropensci/landscapetools")
 
 ## Utilities
 
+```{r include=FALSE}
+library(landscapetools)
+```
+
 ### Binarize
 
 ```{r fig.retina=2}
