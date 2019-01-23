@@ -58,7 +58,7 @@ devtools::install_github("ropensci/landscapetools")
 
 ## Utilities
 
-```{r include=FALSE}
+```{r load_libraries_hidden, eval=TRUE, echo=FALSE, message=FALSE, results='hide'}
 library(landscapetools)
 ```
 
@@ -66,7 +66,8 @@ library(landscapetools)
 
 ```{r fig.retina=2}
 # Binarize the landscape into habitat and matrix
-binarized_raster <- util_binarize(fractal_landscape, breaks = 0.31415)
+binarized_raster <- util_binarize(fractal_landscape, breaks = 0.31)
+
 show_landscape(binarized_raster)
 ```
 
@@ -75,8 +76,11 @@ show_landscape(binarized_raster)
 ```{r fig.retina=2}
 # Classify the landscape into land uses
 classified_landscape <- util_classify(fractal_landscappe,
-                                   n = 3,
-                                   level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
+                                      n = 3,
+                                      level_names = c("Land Use 1", 
+                                                      "Land Use 2",
+                                                      "Land Use 3"))
+
 show_landscape(classified_landscape, discrete = TRUE)
 ```
 
@@ -85,8 +89,8 @@ show_landscape(classified_landscape, discrete = TRUE)
 ```{r fig.retina=2}
 # Merge all landscapes into one
 merged_landscape <- util_merge(fractal_landscape,
-                   c(gradient_landscape, random_landscape),
-                   scalingfactor = 1)
+                               c(gradient_landscape, random_landscape),
+                               scalingfactor = 1)
 
 # Plot an overview
 merge_vis <- list(
@@ -95,6 +99,7 @@ merge_vis <- list(
     "3) Secondary 2" = random_landscape,
     "4) Result" = merged_landscape
 )
+
 show_landscape(merge_vis)
 ```
 
