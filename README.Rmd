@@ -19,6 +19,7 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+library(landscapetools)
 ```
 # landscapetools
 
@@ -56,24 +57,13 @@ You can install the development version from [GitHub](https://github.com/) with:
 devtools::install_github("ropensci/landscapetools")
 ```
 
-## Usage
-
-```{r fig.retina=2}
-library(NLMR)
-library(landscapetools)
-# Create an artificial landscape
-nlm_raster <- nlm_fbm(ncol = 200, nrow = 200, fract_dim = 0.8)
-show_landscape(nlm_raster)
-```
-
-
 ## Utilities
 
 ### Binarize
 
 ```{r fig.retina=2}
 # Binarize the landscape into habitat and matrix
-binarized_raster <- util_binarize(nlm_raster, breaks = 0.31415)
+binarized_raster <- util_binarize(fractal_landscape, breaks = 0.31415)
 show_landscape(binarized_raster)
 ```
 
@@ -81,32 +71,26 @@ show_landscape(binarized_raster)
 
 ```{r fig.retina=2}
 # Classify the landscape into land uses
-classified_raster <- util_classify(nlm_raster,
+classified_landscape <- util_classify(fractal_landscappe,
                                    n = 3,
                                    level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
-show_landscape(classified_raster, discrete = TRUE)
+show_landscape(classified_landscape, discrete = TRUE)
 ```
 
 ### Merge
 
 ```{r fig.retina=2}
-# Create a primary and two secondary landscapes
-prim <- nlm_edgegradient(ncol = 100, nrow = 100)
-
-sec1 <- nlm_distancegradient(ncol = 100, nrow = 100,
-                             origin = c(10, 10, 10, 10))
-
-sec2 <- nlm_random(ncol = 100, nrow = 100)
-
 # Merge all landscapes into one
-merg <- util_merge(prim, c(sec1, sec2), scalingfactor = 1)
+merged_landscape <- util_merge(fractal_landscape,
+                   c(gradient_landscape, random_landscape),
+                   scalingfactor = 1)
 
 # Plot an overview
 merge_vis <- list(
-    "1) Primary" = prim,
-    "2) Secondary 1" = sec1,
-    "3) Secondary 2" = sec2,
-    "4) Result" = merg
+    "1) Primary" = fractal_landscape,
+    "2) Secondary 1" = gradient_landscape,
+    "3) Secondary 2" = random_landscape,
+    "4) Result" = merged_landscape
 )
 show_landscape(merge_vis)
 ```
