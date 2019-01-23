@@ -75,7 +75,7 @@ show_landscape(binarized_raster)
 
 ```{r fig.retina=2}
 # Classify the landscape into land uses
-classified_landscape <- util_classify(fractal_landscappe,
+classified_landscape <- util_classify(fractal_landscape,
                                       n = 3,
                                       level_names = c("Land Use 1", 
                                                       "Land Use 2",
