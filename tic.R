@@ -12,7 +12,7 @@ if (Sys.getenv("id_rsa") != "") {
     if (ci()$get_branch() == "master") {
         get_stage("deploy") %>%
             add_step(step_build_pkgdown()) %>%
-            add_step(step_push_deploy(path = "docs", branch = "master"))
+            add_step(step_push_deploy("docs", "gh-pages"))
     }
 
     get_stage("after_success") %>%
