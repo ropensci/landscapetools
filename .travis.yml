@@ -28,6 +28,11 @@ sudo: false
 dist: trusty
 cache: packages
 latex: false
+r_github_packages:
+- r-lib/devtools
+- r-lib/pkgdown
+- r-lib/covr
+- rstudio/rmarkdown
 
 #env
 env:
