@@ -40,13 +40,15 @@ BugReports: https://github.com/ropensci/landscapetools/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
 Imports: 
-    classInt,
     ggplot2,
     raster,
-    tibble
+    tibble,
+    Rcpp
 Suggests: 
     testthat,
     covr,
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+LinkingTo: 
+    Rcpp

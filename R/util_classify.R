@@ -98,8 +98,8 @@ util_classify.RasterLayer <- function(x,
   } else {
 
     if (is.null(weighting)){
-      breaks <- classInt::classIntervals(raster::getValues(x), n = n, style= style)
-      x <-  raster::cut(x, breaks=breaks$brks, include.lowest=T)
+      breaks <- .getJenksBreaks(raster::getValues(x), n)
+      x <-  raster::cut(x, breaks=breaks, include.lowest=T)
     } else {
       x <- .classify(x, weighting)
     }
@@ -143,4 +143,17 @@ util_classify.RasterLayer <- function(x,
 
   return(x)
 
+}
+
+.getJenksBreaks <- function(var, k) {
+
+  #if more breaks than unique values, segfault, so avoid
+  if (k > length(unique(var))) {
+    k <- length(unique(var));
+  }
+  brks <- rep(1, k + 1);
+
+  d <- sort(var)
+  length_d <- length(d)
+  return(.C("rcpp_get_jenkbreaks", as.double(d), as.integer(k), as.integer(length_d), as.double(brks), PACKAGE = "landscapetools")[[4]])
 }

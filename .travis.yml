@@ -35,5 +35,10 @@ env:
   - _R_CHECK_FORCE_SUGGESTS_=false
   - MAKEFLAGS="-j 2"
 
+notifications:
+  email:
+  on_success: change
+  on_failure: change
+
 #services
 services:
