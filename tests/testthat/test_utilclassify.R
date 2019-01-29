@@ -9,8 +9,7 @@ classified_x <- util_classify(x, weighting = y, level_names = c("Land Use 1",
 
 
 classified_y <- util_classify(fractal_landscape,
-                              n = 5,
-                              style = "fisher")
+                              n = 5)
 
 test_that("util_classify behaves like it should", {
     expect_that(classified_x, is_a("RasterLayer"))

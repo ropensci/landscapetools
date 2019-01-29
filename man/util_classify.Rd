@@ -5,18 +5,15 @@
 \alias{util_classify.RasterLayer}
 \title{util_classify}
 \usage{
-util_classify(x, n, style, weighting, level_names, real_land, mask_val)
+util_classify(x, n, weighting, level_names, real_land, mask_val)
 
-\method{util_classify}{RasterLayer}(x, n, style = "fisher",
-  weighting = NULL, level_names = NULL, real_land = NULL,
-  mask_val = NULL)
+\method{util_classify}{RasterLayer}(x, n, weighting = NULL,
+  level_names = NULL, real_land = NULL, mask_val = NULL)
 }
 \arguments{
 \item{x}{raster}
 
 \item{n}{Number of classes}
-
-\item{style}{chosen style: one of "fixed", "sd", "equal", "pretty", "quantile", "kmeans", "hclust", "bclust", "fisher", or "jenks" (see classInt::classInvervals() for more details)}
 
 \item{weighting}{Vector of numeric values that are considered to be habitat percentages (see details)}
 
@@ -33,14 +30,17 @@ RasterLayer
 Classify continuous landscapes into landscapes with discrete classes
 }
 \details{
-Mode 1: Convienient interface to classInt::classIntervals to classify landscapes.
+Mode 1: Calculate the optimum breakpoints using Jenks natural
+breaks optimization, the number of classes is determined with \code{n}.
+The Jenks optimization seeks to minimize the variance within categories,
+while maximizing the variance between categories.
 
 Mode 2: The number of elements in the weighting vector determines the number of classes
 in the resulting matrix. The classes start with the value 1.
 If non-numerical levels are required, the user can specify a vector to turn the
 numerical factors into other data types, for example into character strings (i.e. class labels).
 If the numerical vector of weightings does not sum up to 1, the sum of the
-weightings is divided by the number of elements in the weightings vector and this is then used for the classification.
+weightings is divided by the number of elements in the weightings vector and this is then used for the classificat#'     .
 
 Mode 3: For a given 'real' landscape the number of classes and the weightings are
 extracted and used to classify the given landscape (any given weighting parameter is
@@ -51,7 +51,6 @@ class from the 'real' landscape is cut from the landscape beforehand.
 # Mode 1
 util_classify(fractal_landscape,
               n = 3,
-              style = "fisher",
               level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
 
 # Mode 2

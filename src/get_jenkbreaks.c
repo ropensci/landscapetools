@@ -110,12 +110,3 @@ void rcpp_get_jenkbreaks(double *d, int *k1, int *length_d1, double *brks)
     Free(mat1);
     Free(mat2);
 }
-
-/*** R
-breaks <- classInt::classIntervals(raster::getValues(fractal_landscape), n = 4, style= "fisher")
-x <-  raster::cut(x, breaks=breaks$brks, include.lowest=T)
-
-landscapetools:::getJenksBreaks(raster::getValues(fractal_landscape), 4, PACKAGE = 'landscapetools')
-
-*/
-
