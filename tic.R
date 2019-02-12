@@ -13,9 +13,9 @@ if (Sys.getenv("id_rsa") != "") {
         get_stage("deploy") %>%
             add_code_step(rmarkdown::render("README.Rmd")) %>%
             add_step(step_push_deploy(commit_paths = "README.md", branch = "master")) %>%
-            add_code_step(pkgbuild::compile_dll()) %>%
             add_code_step(devtools::document()) %>%
             add_step(step_push_deploy(commit_paths = c("man/", "DESCRIPTION", "NAMESPACE", branch =  "master"))) %>%
+            add_code_step(pkgbuild::compile_dll()) %>%
             add_step(step_build_pkgdown()) %>%
             add_step(step_push_deploy("docs", "gh-pages"))
     }
