@@ -80,6 +80,9 @@ util_classify.RasterLayer <- function(x,
                           real_land = NULL,
                           mask_val = NULL) {
 
+  # Check input
+  if (!is.null(weighting) & !is.null(n)) warning("If n AND weighting are used, util_classify will fallback to weighting as classification method.")
+
   # Classify based on real landscape ----
   if (!is.null(real_land)) {
 
