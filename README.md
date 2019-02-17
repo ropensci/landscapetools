@@ -34,7 +34,8 @@ You can install the released version from CRAN with:
 install.packages("landscapetools")
 ```
 
-You can install the development version from [GitHub](https://github.com/) with:
+You can install the development version from
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
