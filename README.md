@@ -48,6 +48,12 @@ less-glamorous tasks involved in landscape analysis:
 
 ## Installation
 
+You can install the released version from CRAN with:
+
+``` r
+install.packages("landscapetools")
+```
+
 You can install the development version from
 [GitHub](https://github.com/) with:
 
