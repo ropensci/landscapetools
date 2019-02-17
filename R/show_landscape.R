@@ -73,7 +73,7 @@ show_landscape.RasterLayer <- function(x,
     xyz  <- raster::as.data.frame(x, xy = TRUE)
 
     ggplot2::ggplot(xyz) +
-      ggplot2::geom_tile(ggplot2::aes(x, y, fill = xyz[, 3])) +
+      ggplot2::geom_tile(ggplot2::aes(x, y, fill = factor(xyz[, 3]))) +
       ggplot2::labs(x = xlab,
                     y = ylab)  +
       theme_nlm_discrete(..., legend_labels = legend_labels, ratio = ratio)
