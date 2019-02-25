@@ -1,8 +1,14 @@
 title: landscapetools
 
 reference:
+  - title: Datasets
+    contents:
+    - classified_landscape
+    - fractal_landscape
+    - random_landscape
   - title: Utilities
     contents:
+    - util_as_integer
     - util_binarize
     - util_classify
     - util_merge

@@ -74,7 +74,7 @@ util_classify <- function(x,
 #' @name util_classify
 #' @export
 util_classify.RasterLayer <- function(x,
-                          n,
+                          n = NULL,
                           weighting = NULL,
                           level_names = NULL,
                           real_land = NULL,

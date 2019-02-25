@@ -7,7 +7,7 @@
 \usage{
 util_classify(x, n, weighting, level_names, real_land, mask_val)
 
-\method{util_classify}{RasterLayer}(x, n, weighting = NULL,
+\method{util_classify}{RasterLayer}(x, n = NULL, weighting = NULL,
   level_names = NULL, real_land = NULL, mask_val = NULL)
 }
 \arguments{
