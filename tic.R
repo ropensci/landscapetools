@@ -13,7 +13,7 @@ if (Sys.getenv("id_rsa") != "") {
         get_stage("deploy") %>%
             add_code_step(rmarkdown::render("README.Rmd")) %>%
             add_step(step_push_deploy(commit_paths = "README.md", branch = "master")) %>%
-            add_code_step(devtools::document()) %>%
+            add_code_step(devtools::document(".")) %>%
             add_step(step_push_deploy(commit_paths = c("man/", "DESCRIPTION", "NAMESPACE", branch =  "master"))) %>%
             add_code_step(remotes::install_version("roxygen2", "6.1.0")) %>%
             add_step(step_build_pkgdown()) %>%
