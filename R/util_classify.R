@@ -30,6 +30,7 @@
 #' @return RasterLayer
 #'
 #' @examples
+#' \dontrun{
 #' # Mode 1
 #' util_classify(fractal_landscape,
 #'               n = 3,
@@ -48,7 +49,6 @@
 #' fractal_landscape_real <- util_classify(fractal_landscape, real_land = real_land)
 #' fractal_landscape_mask <- util_classify(fractal_landscape, real_land = real_land, mask_val = 1)
 #'
-#' \dontrun{
 #' landscapes <- list(
 #' '1 nlm' = fractal_landscape,
 #' '2 real' = real_land,

@@ -1,6 +1,6 @@
 ## Submission
 
-New version includes some new features and minor bug fixes.
+New version includes massive dependency trimming and new functionality.
 
 ## Test environments
 
