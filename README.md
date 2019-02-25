@@ -64,19 +64,6 @@ devtools::install_github("ropensci/landscapetools")
 
 ## Utilities
 
-### Binarize
-
-``` r
-# Binarize the landscape into habitat and matrix
-binarized_raster <- util_binarize(fractal_landscape, breaks = 0.31)
-#> Loading required package: raster
-#> Loading required package: sp
-
-show_landscape(binarized_raster)
-```
-
-<img src="man/figures/README-unnamed-chunk-1-1.png" width="100%" />
-
 ### Classify
 
 ``` r
@@ -90,7 +77,7 @@ classified_landscape <- util_classify(fractal_landscape,
 show_landscape(classified_landscape, discrete = TRUE)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-1-1.png" width="100%" />
 
 ### Merge
 
@@ -111,7 +98,7 @@ merge_vis <- list(
 show_landscape(merge_vis)
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
 ## See also
 
