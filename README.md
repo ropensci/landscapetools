@@ -36,6 +36,8 @@ less-glamorous tasks involved in landscape analysis:
   - `show_landscape`: Plot a Raster\* object with the landscapetools
     default theme (as ggplot) or multiple raster (RasterStack, -brick or
     list of raster) side by side as facets.
+  - `show_shareplot`: Plot the landscape share in subsequential buffers
+    around a/multiple point(s) of interest
 
 #### Themes:
 
