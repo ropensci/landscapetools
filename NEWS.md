@@ -1,8 +1,9 @@
-# landscapetools 0.5.0
+# landscapetools 0.6.0
 
+# landscapetools 0.5.0
 - new interface for `util_classify`
     - now takes argument n to specify number of classes
-    - style
+    - n argument implemented in C++
 - Removed Roboto font and `util_import_roboto`
 - Removed `util_plot_grey`
 - Renamed:
