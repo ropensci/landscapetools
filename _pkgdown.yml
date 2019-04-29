@@ -19,6 +19,7 @@ reference:
   - title: Visualization
     contents:
     - show_landscape
+    - show_shareplot
   - title: Themes
     contents:
     - theme_facetplot

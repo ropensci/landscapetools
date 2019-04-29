@@ -7,4 +7,4 @@
 #' @importFrom Rcpp sourceCpp
 "_PACKAGE"
 
-globalVariables(c("value", ".", "id", "y", "z"))
+globalVariables(c("value", ".", "id", "y", "z", "buffer", "freq", "layer"))
