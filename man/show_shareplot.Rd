@@ -13,11 +13,11 @@ show_shareplot(landscape, points, buffer_width, max_width,
 \arguments{
 \item{landscape}{Raster* object}
 
-\item{points}{Point(s) represented by a two-column matrix or data.frame, or SpatialPoints*; SpatialPolygons*; SpatialLines; Extent; a numeric vector representing cell numbers; or sf* POINT object}
+\item{points}{Point(s) represented by a two-column matrix or data.frame; SpatialPoints*; SpatialPolygons*; SpatialLines; Extent; a numeric vector representing cell numbers; or sf* POINT object}
 
 \item{buffer_width}{Buffer width in which landscape share is measured}
 
-\item{max_width}{Max distance to which buffer_width is summed up, the x axis in the plot}
+\item{max_width}{Max distance to which buffer_width is summed up; the x axis in the plot}
 
 \item{return_df}{Logical value indicating if a tibble with the underlying data should be returned}
 }
