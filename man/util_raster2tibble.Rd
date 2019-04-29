@@ -4,12 +4,14 @@
 \alias{util_raster2tibble}
 \title{Converts raster data into tibble}
 \usage{
-util_raster2tibble(x)
+util_raster2tibble(x, format = "long")
 
-util_raster2tibble(x)
+util_raster2tibble(x, format = "long")
 }
 \arguments{
 \item{x}{Raster* object}
+
+\item{format}{Either \emph{"long"} (default) or \emph{"wide"} output for the resulting tibble}
 }
 \value{
 a tibble
@@ -29,4 +31,5 @@ ggplot(maptib, aes(x,y)) +
     coord_fixed() +
     geom_raster(aes(fill = z))
 }
+
 }
