@@ -3,9 +3,9 @@
 #' Plot the landscape share in subsequential buffers around a/multiple point(s) of interest
 #'
 #' @param landscape Raster* object
-#' @param points Point(s) represented by a two-column matrix or data.frame, or SpatialPoints*; SpatialPolygons*; SpatialLines; Extent; a numeric vector representing cell numbers; or sf* POINT object
+#' @param points Point(s) represented by a two-column matrix or data.frame; SpatialPoints*; SpatialPolygons*; SpatialLines; Extent; a numeric vector representing cell numbers; or sf* POINT object
 #' @param buffer_width Buffer width in which landscape share is measured
-#' @param max_width Max distance to which buffer_width is summed up, the x axis in the plot
+#' @param max_width Max distance to which buffer_width is summed up; the x axis in the plot
 #' @param return_df Logical value indicating if a tibble with the underlying data should be returned
 #'
 #' @return ggplot2 Object
