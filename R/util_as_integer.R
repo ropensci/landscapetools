@@ -27,7 +27,7 @@ util_as_integer <- function(x) UseMethod("util_as_integer")
 #' @export
 util_as_integer.RasterLayer <- function(x){
 
-    raster::values(x) <- match(raster::values(x), unique(raster::values(x)))
+    raster::values(x) <- match(raster::values(x), raster::unique(x))
     x
 
 }
