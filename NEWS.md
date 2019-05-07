@@ -1,6 +1,7 @@
 # landscapetools 0.6.0
 - `util_raster2tibble` can now return a wide tibble
 - New function `show_shareplot`
+- `util_as_integer` now returns integer values from 1:n instead of rounding numeric values
 
 # landscapetools 0.5.0
 - new interface for `util_classify`
