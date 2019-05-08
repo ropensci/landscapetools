@@ -101,7 +101,6 @@ util_classify.RasterLayer <- function(x,
 
     if (is.null(weighting)){
       breaks <- .getJenksBreaks(raster::getValues(x), n)
-      if(anyDuplicated(breaks)) breaks[1] <- 0
       x <-  raster::cut(x, breaks=breaks, include.lowest = TRUE)
     } else {
       x <- .classify(x, weighting)
