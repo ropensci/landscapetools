@@ -36,7 +36,7 @@ util_binarize.RasterLayer <- function(x, breaks) {
         util_classify(
           x,
           weighting = c(1 - breaks[i], breaks[i]),
-          c("Matrix", "Habitat")
+          level_names = c("Matrix", "Habitat")
         )
       )
     }
@@ -46,7 +46,7 @@ util_binarize.RasterLayer <- function(x, breaks) {
     r <- util_classify(
       x,
       weighting = c(1 - breaks, breaks),
-      c("Matrix", "Habitat")
+      level_names = c("Matrix", "Habitat")
     )
   }
 
