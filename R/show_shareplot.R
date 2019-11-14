@@ -55,10 +55,10 @@ show_shareplot <- function(landscape,
     p1 <- ggplot2::ggplot(result, ggplot2::aes(buffer, freq, group = layer, fill = layer)) +
              ggplot2::geom_area(position = "fill") +
              ggplot2::facet_wrap(~id) +
-             ggplot2::expand_limits() +
+             # ggplot2::expand_limits() +
              ggplot2::scale_y_continuous(name = "Shared proportion of landcover classes (%)",
                                          expand = c(0.01, 0.01),
-                                         labels = function(x) paste0(x*100)) +
+                                         labels = function(x) paste0(x * 100)) +
              ggplot2::scale_x_continuous(expand = c(0.01, 0.01)) +
              ggplot2::xlab("Distance (km)") +
              ggplot2::scale_fill_viridis_d() +

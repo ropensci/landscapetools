@@ -55,7 +55,7 @@ You can define a value in the range of your landscape values and get a binary re
 ```{r fig.retina=2}
 # Binarize the landscape into habitat and matrix
 binarized_raster <- util_binarize(fractal_landscape, breaks = 0.31415)
-show_landscape(binarized_raster)
+show_landscape(binarized_raster, discrete = TRUE)
 
 # You can also provide a vector with thresholds and get a RasterStack with multiple binarized maps
 binarized_raster <- util_binarize(fractal_landscape, breaks = c(0.25, 0.5, 0.7))
@@ -63,6 +63,7 @@ show_landscape(binarized_raster)
 ```
 
 ## Classify
+
 Complementary to `util_binarize`, `util_classify` classifies a 
 landscape with continuous values into *n* discrete classes.
 The function is quite the workhorse, so I will spent some more details here
