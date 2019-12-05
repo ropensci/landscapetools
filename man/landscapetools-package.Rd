@@ -12,7 +12,7 @@
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://ropensci.github.io/landscapetools/}
+  \item \url{https://docs.ropensci.org/landscapetools/}
   \item Report bugs at \url{https://github.com/ropensci/landscapetools/issues}
 }
 

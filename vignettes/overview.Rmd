@@ -24,7 +24,7 @@ It is basically designed to accompany all the packages in [r-spatialecology](htt
 
 # Visualize 
 
-There are a plethora of R packages to visualize spatial data, all of them covering unique aspects and ways to do that (find a short introduction [here](https://ropensci.github.io/NLMR/articles/articles/visualize_nlms.html)). With [NLMR](https://ropensci.github.io/NLMR), we needed a way to visualize landscapes without much fuss and also have a way to visualize many of them in a way we found sufficient.
+There are a plethora of R packages to visualize spatial data, all of them covering unique aspects and ways to do that (find a short introduction [here](https://docs.ropensci.org/NLMR/articles/articles/visualize_nlms.html)). With [NLMR](https://docs.ropensci.org/NLMR), we needed a way to visualize landscapes without much fuss and also have a way to visualize many of them in a way we found sufficient.
 
 ## General raster plotting
 ```{r fig.retina=2, message=FALSE, warning=FALSE}
@@ -118,7 +118,7 @@ summary(scaled_landscape)
 ```
 
 ## Merge
-`util_merge` most likely makes sense in the context of [NLMR](https://ropensci.github.io/NLMR). If you merge multiple 
+`util_merge` most likely makes sense in the context of [NLMR](https://docs.ropensci.org/NLMR). If you merge multiple 
 neutral landscapes models, you can create more feasible landscape
 patterns for certain questions, or come up with ecotones if you
 merge fractal patterns with gradients.

@@ -35,7 +35,7 @@ LazyData: true
 ByteCompile: true
 Depends:
     R (>= 3.1.0)
-URL: https://ropensci.github.io/landscapetools/
+URL: https://docs.ropensci.org/landscapetools/
 BugReports: https://github.com/ropensci/landscapetools/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
