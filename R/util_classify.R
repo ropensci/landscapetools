@@ -138,7 +138,7 @@ util_classify.RasterLayer <- function(x,
   # Classify the matrix based on the boundary values ----
   raster::values(x) <-  base::cut(raster::values(x),
                                   breaks = c(0, boundary_values),
-                                  include.lowest = TRUE)
+                                  include.lowest = TRUE, labels = FALSE)
 
   return(x)
 
