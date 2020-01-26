@@ -136,12 +136,9 @@ util_classify.RasterLayer <- function(x,
   }
 
   # Classify the matrix based on the boundary values ----
-  raster::values(x) <- findInterval(raster::values(x),
-                                    boundary_values,
-                                    rightmost.closed = TRUE)
-
-  # first class should be 1
-  x <- x + 1
+  raster::values(x) <-  base::cut(raster::values(x),
+                                  breaks = c(0, boundary_values),
+                                  include.lowest = TRUE)
 
   return(x)
 
