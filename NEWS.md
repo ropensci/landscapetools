@@ -1,3 +1,6 @@
+# landscapetools 0.6.2
+- Bugfix in `util_classify`
+
 # landscapetools 0.6.0
 - `util_raster2tibble` can now return a wide tibble
 - New function `show_shareplot`
