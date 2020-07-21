@@ -4,7 +4,9 @@
 \name{gradient_landscape}
 \alias{gradient_landscape}
 \title{Example map (planar gradient).}
-\format{A raster layer object.}
+\format{
+A raster layer object.
+}
 \source{
 Simulated neutral landscape models with R. \url{https://github.com/ropensci/NLMR/}
 }

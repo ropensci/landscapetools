@@ -38,7 +38,7 @@ Depends:
 URL: https://docs.ropensci.org/landscapetools/
 BugReports: https://github.com/ropensci/landscapetools/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 Imports: 
     ggplot2,
     raster,
