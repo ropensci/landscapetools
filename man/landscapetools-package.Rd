@@ -18,13 +18,13 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Marco Sciaini \email{sciaini.marco@gmail.com} (\href{https://orcid.org/0000-0002-3042-5435}{ORCID})
+\strong{Maintainer}: Marco Sciaini \email{sciaini.marco@gmail.com} (0000-0002-3042-5435)
 
 Authors:
 \itemize{
   \item Matthias Fritsch \email{matthias.fritsch@forst.uni-goettingen.de}
-  \item Maximillian H.K. Hesselbarth \email{maximilian.hesselbarth@uni-goettingen.de} (\href{https://orcid.org/0000-0003-1125-9918}{ORCID})
-  \item Jakub Nowosad \email{nowosad.jakub@gmail.com} (\href{https://orcid.org/0000-0002-1057-3721}{ORCID})
+  \item Maximillian H.K. Hesselbarth \email{maximilian.hesselbarth@uni-goettingen.de} (0000-0003-1125-9918)
+  \item Jakub Nowosad \email{nowosad.jakub@gmail.com} (0000-0002-1057-3721)
 }
 
 Other contributors:

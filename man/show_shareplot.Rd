@@ -4,9 +4,11 @@
 \alias{show_shareplot}
 \title{show_shareplot}
 \usage{
-show_shareplot(landscape, points, buffer_width, max_width, return_df = FALSE)
+show_shareplot(landscape, points, buffer_width, max_width,
+  return_df = FALSE)
 
-show_shareplot(landscape, points, buffer_width, max_width, return_df = FALSE)
+show_shareplot(landscape, points, buffer_width, max_width,
+  return_df = FALSE)
 }
 \arguments{
 \item{landscape}{Raster* object}

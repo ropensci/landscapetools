@@ -7,7 +7,8 @@
 \usage{
 util_merge(primary_nlm, secondary_nlm, scalingfactor = 1, rescale)
 
-\method{util_merge}{RasterLayer}(primary_nlm, secondary_nlm, scalingfactor = 1, rescale = TRUE)
+\method{util_merge}{RasterLayer}(primary_nlm, secondary_nlm,
+  scalingfactor = 1, rescale = TRUE)
 }
 \arguments{
 \item{primary_nlm}{Primary \code{Raster* object}}
