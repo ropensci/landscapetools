@@ -98,6 +98,7 @@ merge_vis <- list(
 )
 
 show_landscape(merge_vis)
+#> Warning: Removed 1196 rows containing missing values (geom_raster).
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
