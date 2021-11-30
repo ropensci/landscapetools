@@ -104,7 +104,7 @@ show_landscape.list <- function(x,
     y <- x[[id]]
     if (unique_scales) y <- util_rescale(y)
     raster_tibble <- util_raster2tibble(y)
-    raster_tibble$id <- names(x[id])
+    raster_tibble$id <- ifelse(is.null(names(x[id])), id, names(x[id]))
     raster_tibble
   })
 
