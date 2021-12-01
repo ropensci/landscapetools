@@ -110,6 +110,10 @@ show_landscape.list <- function(x,
 
   x_tibble <- do.call(rbind, x_list)
 
+  # preserve original ordering
+  order <- names(x)
+  x_tibble <- transform(x_tibble, id = factor(id, levels = order))
+
   if (!discrete) {
     p <- ggplot2::ggplot(x_tibble, ggplot2::aes_string("x", "y")) +
       ggplot2::coord_fixed() +
