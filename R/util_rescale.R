@@ -29,4 +29,12 @@ util_rescale <- function(x) {
   return(rescaled_NLM)
 }
 
+#' @name util_rescale
+#' @export
+util_rescale.SpatRaster <- function(x) {
+    rescaled_NLM <-
+        (x - terra::global(x, "min")) /
+        (terra::global(x, "max") - terra::global(x, "min"))
 
+    return(rescaled_NLM)
+}
