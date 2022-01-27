@@ -36,3 +36,16 @@ util_tibble2raster <- function(x) {
 
   return(r)
 }
+
+#' @name util_tibble2raster
+#' @export
+# for terra, not yet exported
+# (not sure how to include use methods for that)
+util_tibble2raster_terra <- function(x) {
+
+    # Create raster with values from tibble ----
+    r <- terra::rast(matrix(x$z, max(x$y), max(x$x), byrow = TRUE))
+    terra::ext(r) <- c(0, max(x$x), 0, max(x$y))
+
+    return(r)
+}
