@@ -6,24 +6,47 @@
 \alias{show_landscape.list}
 \alias{show_landscape.RasterStack}
 \alias{show_landscape.RasterBrick}
+\alias{show_landscape.SpatRaster}
 \title{show_landscape}
 \usage{
 show_landscape(x, xlab, ylab, discrete, unique_scales, n_col, n_row, ...)
 
-\method{show_landscape}{RasterLayer}(x, xlab = "Easting",
-  ylab = "Northing", discrete = FALSE, ...)
+\method{show_landscape}{RasterLayer}(x, xlab = "Easting", ylab = "Northing", discrete = FALSE, ...)
 
-\method{show_landscape}{list}(x, xlab = "Easting", ylab = "Northing",
-  discrete = FALSE, unique_scales = FALSE, n_col = NULL,
-  n_row = NULL, ...)
+\method{show_landscape}{list}(
+  x,
+  xlab = "Easting",
+  ylab = "Northing",
+  discrete = FALSE,
+  unique_scales = FALSE,
+  n_col = NULL,
+  n_row = NULL,
+  ...
+)
 
-\method{show_landscape}{RasterStack}(x, xlab = "Easting",
-  ylab = "Northing", discrete = FALSE, unique_scales = FALSE,
-  n_col = NULL, n_row = NULL, ...)
+\method{show_landscape}{RasterStack}(
+  x,
+  xlab = "Easting",
+  ylab = "Northing",
+  discrete = FALSE,
+  unique_scales = FALSE,
+  n_col = NULL,
+  n_row = NULL,
+  ...
+)
 
-\method{show_landscape}{RasterBrick}(x, xlab = "Easting",
-  ylab = "Northing", discrete = FALSE, unique_scales = FALSE,
-  n_col = NULL, n_row = NULL, ...)
+\method{show_landscape}{RasterBrick}(
+  x,
+  xlab = "Easting",
+  ylab = "Northing",
+  discrete = FALSE,
+  unique_scales = FALSE,
+  n_col = NULL,
+  n_row = NULL,
+  ...
+)
+
+\method{show_landscape}{SpatRaster}(x, xlab = "Easting", ylab = "Northing", discrete = FALSE, ...)
 }
 \arguments{
 \item{x}{Raster* object}

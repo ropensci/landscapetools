@@ -3,6 +3,7 @@
 S3method(show_landscape,RasterBrick)
 S3method(show_landscape,RasterLayer)
 S3method(show_landscape,RasterStack)
+S3method(show_landscape,SpatRaster)
 S3method(show_landscape,list)
 S3method(util_as_integer,RasterLayer)
 S3method(util_binarize,RasterLayer)

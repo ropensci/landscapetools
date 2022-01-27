@@ -18,21 +18,19 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Marco Sciaini \email{sciaini.marco@gmail.com} (0000-0002-3042-5435)
+\strong{Maintainer}: Marco Sciaini \email{sciaini.marco@gmail.com} (\href{https://orcid.org/0000-0002-3042-5435}{ORCID})
 
 Authors:
 \itemize{
   \item Matthias Fritsch \email{matthias.fritsch@forst.uni-goettingen.de}
-  \item Maximillian H.K. Hesselbarth \email{maximilian.hesselbarth@uni-goettingen.de} (0000-0003-1125-9918)
-  \item Jakub Nowosad \email{nowosad.jakub@gmail.com} (0000-0002-1057-3721)
+  \item Maximillian H.K. Hesselbarth \email{maximilian.hesselbarth@uni-goettingen.de} (\href{https://orcid.org/0000-0003-1125-9918}{ORCID})
+  \item Jakub Nowosad \email{nowosad.jakub@gmail.com} (\href{https://orcid.org/0000-0002-1057-3721}{ORCID})
 }
 
 Other contributors:
 \itemize{
-  \item Laura Graham (Laura reviewed the package for rOpenSci, see 
-                  https://github.com/ropensci/onboarding/issues/188) [reviewer]
-  \item Jeffrey Hollister (Jeffrey reviewed the package for rOpenSci, see 
-                  https://github.com/ropensci/onboarding/issues/188) [reviewer]
+  \item Laura Graham (Laura reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/188) [reviewer]
+  \item Jeffrey Hollister (Jeffrey reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/188) [reviewer]
 }
 
 }
