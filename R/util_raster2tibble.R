@@ -32,16 +32,16 @@ util_raster2tibble <- function(x, format = "long") {
 
   if (format == "long"){
   # Create empty tibble with the same dimension as the raster ----
-  grd <- tibble::new_tibble(expand.grid(x = seq(1, raster::ncol(x)),
-                                        y = seq(raster::nrow(x), 1)),
-                            nrow = raster::ncell(x))
+  grd <- tibble::new_tibble(expand.grid(x = seq(1, terra::ncol(x)),
+                                        y = seq(terra::nrow(x), 1)),
+                            nrow = terra::ncell(x))
 
   # Fill with raster values ----
-  grd$z <- raster::values(x)
+  grd$z <- terra::values(x)
   }
 
   if (format == "wide"){
-    grd <- tibble::as_tibble(raster::as.matrix(x), .name_repair = "universal")
+    grd <- tibble::as_tibble(terra::as.matrix(x), .name_repair = "universal")
     colnames(grd) <- seq_len(ncol(grd))
   }
 
