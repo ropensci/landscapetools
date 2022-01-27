@@ -91,6 +91,49 @@ show_landscape.RasterLayer <- function(x,
 
 #' @name show_landscape
 #' @export
+show_landscape.SpatRaster <- function(x,
+                                      xlab = "Easting",
+                                      ylab = "Northing",
+                                      discrete = FALSE,
+                                      ...) {
+  # derive ratio for plot, cells should be a square and axis equal in length
+  if (terra::ncol(x) == terra::nrow(x)) {
+    ratio <- 1
+  } else {
+    ratio <- terra::nrow(x) / terra::ncol(x)
+  }
+  if (isTRUE(discrete)) {
+    # get rasterlabels
+    legend_labels <- tryCatch({
+      terra::levels(x)[!is.na(terra::levels(x))]
+    },
+    error = function(e) {
+      x <- raster::as.factor(x) # error
+      levels <- terra::unique(x)
+      levels(x) <- levels # error
+    })
+
+    xyz  <- terra::as.data.frame(x, xy = TRUE)
+
+    ggplot2::ggplot(xyz) +
+      ggplot2::geom_tile(ggplot2::aes(x, y, fill = factor(xyz[, 3]))) +
+      ggplot2::labs(x = xlab,
+                    y = ylab)  +
+      theme_nlm_discrete(..., legend_labels = legend_labels, ratio = ratio)
+
+  } else {
+    xyz  <- raster::as.data.frame(x, xy = TRUE)
+
+    ggplot2::ggplot(xyz) +
+      ggplot2::geom_tile(ggplot2::aes(x, y, fill = xyz[, 3])) +
+      ggplot2::labs(x = xlab,
+                    y = ylab) +
+      theme_nlm(..., ratio = ratio)
+  }
+}
+
+#' @name show_landscape
+#' @export
 show_landscape.list <- function(x,
                                 xlab = "Easting",
                                 ylab = "Northing",
