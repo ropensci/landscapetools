@@ -4,11 +4,23 @@
 \alias{show_shareplot}
 \title{show_shareplot}
 \usage{
-show_shareplot(landscape, points, buffer_width, max_width,
-  return_df = FALSE)
+show_shareplot(
+  landscape,
+  points,
+  buffer_width,
+  max_width,
+  multibuffer_df = NULL,
+  return_df = FALSE
+)
 
-show_shareplot(landscape, points, buffer_width, max_width,
-  return_df = FALSE)
+show_shareplot(
+  landscape,
+  points,
+  buffer_width,
+  max_width,
+  multibuffer_df = NULL,
+  return_df = FALSE
+)
 }
 \arguments{
 \item{landscape}{Raster* object}
@@ -18,6 +30,10 @@ show_shareplot(landscape, points, buffer_width, max_width,
 \item{buffer_width}{Buffer width in which landscape share is measured}
 
 \item{max_width}{Max distance to which buffer_width is summed up; the x axis in the plot}
+
+\item{multibuffer_df}{\code{data.frame} with landscape share or a function from it already extracted, such as
+through the \code{\link[=util_extract_buffer]{util_extract_buffer()}} function. If given, the other arguments
+(\code{landscape}, \code{points}, \code{buffer_width}, \code{max_width}) are ignored. Default is NULL.}
 
 \item{return_df}{Logical value indicating if a tibble with the underlying data should be returned}
 }
@@ -47,5 +63,10 @@ show_shareplot(classified_landscape, new_points, 10, 50)
 # get data frame with results back
 result <- show_shareplot(classified_landscape, new_points, 10, 50, return_df = TRUE)
 result$share_df
+
+# use the output from util_extract_multibuffer
+new_points = matrix(c(75, 110, 75, 30), ncol = 2)
+df = util_extract_multibuffer(classified_landscape, new_points, 10, 50)
+show_shareplot(multibuffer_df = df)
 
 }
