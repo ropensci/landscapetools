@@ -6,6 +6,9 @@
 #' @param points Point(s) represented by a two-column matrix or data.frame; SpatialPoints*; SpatialPolygons*; SpatialLines; Extent; a numeric vector representing cell numbers; or sf* POINT object
 #' @param buffer_width Buffer width in which landscape share is measured
 #' @param max_width Max distance to which buffer_width is summed up; the x axis in the plot
+#' @param multibuffer_df `data.frame` with landscape share or a function from it already extracted, such as
+#' through the [landscapetools::util_extract_buffer()] function. If given, the other arguments
+#' (`landscape`, `points`, `buffer_width`, `max_width`) are ignored. Default is NULL.
 #' @param return_df Logical value indicating if a tibble with the underlying data should be returned
 #'
 #' @return ggplot2 Object
@@ -31,11 +34,16 @@
 #' result <- show_shareplot(classified_landscape, new_points, 10, 50, return_df = TRUE)
 #' result$share_df
 #'
+#' # use the output from util_extract_multibuffer
+#' new_points = matrix(c(75, 110, 75, 30), ncol = 2)
+#' df = util_extract_multibuffer(classified_landscape, new_points, 10, 50)
+#' show_shareplot(multibuffer_df = df)
+#'
 #' @aliases show_shareplot
 #' @rdname show_shareplot
 #'
 #' @export
-show_shareplot <- function(landscape, points, buffer_width, max_width, return_df = FALSE) UseMethod("show_shareplot")
+show_shareplot <- function(landscape, points, buffer_width, max_width, multibuffer_df = NULL, return_df = FALSE) UseMethod("show_shareplot")
 
 #' @name show_shareplot
 #' @export
@@ -43,13 +51,22 @@ show_shareplot <- function(landscape,
                            points,
                            buffer_width,
                            max_width,
+                           multibuffer_df = NULL,
                            return_df = FALSE){
 
     # extract data around points
-    result <- .extract_multibuffer(landscape,
-                                   points,
-                                   buffer_width = buffer_width,
-                                   max_width = max_width)
+    if(is.null(multibuffer_df)) {
+        result <- util_extract_multibuffer(landscape,
+                                           points,
+                                           buffer_width = buffer_width,
+                                           max_width = max_width)
+    } else {
+        result <- multibuffer_df
+        ### Here we need to check the type of variable. It the count of cells if given, we go on normally.
+        ### If a function is calculated (through the use of `fun` argument) in the util_extract_multibuffer,
+        ### though, maybe a linear plot should be used - it is not a landscape share anymore.
+        ### Or should we create a new show_metric function for that?
+    }
 
     # construct plot
     p1 <- ggplot2::ggplot(result, ggplot2::aes(buffer, freq, group = layer, fill = layer)) +
