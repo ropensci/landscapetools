@@ -48,8 +48,8 @@ show_landscape(raster::stack(gradient_landscape, random_landscape, classified_la
 # Scaling 
 ## Binarize
 
-In landscape ecology, many people often work with landscapes that reflect a matrix / habitat context.
-If you work with simulated landscale, `util_binarize` is a convienent wrapper to achieve this.
+In landscape ecology, many people work with landscapes that reflect a matrix / habitat context.
+If you work with simulated landscapes, `util_binarize` is a convienent wrapper to achieve this.
 You can define a value in the range of your landscape values and get a binary reflection of it:
 
 ```{r fig.retina=2}
@@ -66,7 +66,7 @@ show_landscape(binarized_raster)
 
 Complementary to `util_binarize`, `util_classify` classifies a 
 landscape with continuous values into *n* discrete classes.
-The function is quite the workhorse, so I will spent some more details here
+The function is quite the workhorse, so I provide some extra detail here
 to explain everything:
 
 ```{r fig.retina=2}
@@ -106,7 +106,7 @@ show_landscape(classified_raster, discrete = TRUE)
 ```
 
 ## Rescale
-`util_rescale` l linearly rescale element values in a raster to a range between 0 and 1.
+`util_rescale` linearly rescales element values in a raster to a range between 0 and 1.
 
 ```{r fig.retina=2}
 library(raster) 
@@ -138,7 +138,7 @@ show_landscape(merge_vis)
 ```
 
 # Export
-Some propriatery requires that .asc files have the same
+Some proprietary software requires that .asc files have the same
 line breaks as ESRI ArcMap produces. As we didn't find a 
 correct parser in R, we wrote our on:
 
