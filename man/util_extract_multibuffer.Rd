@@ -21,20 +21,20 @@ util_extract_multibuffer(
 \item{points}{Point(s) represented by a two-column matrix or \code{data.frame}; \verb{SpatialPoints*}; \verb{SpatialPolygons*};
 \code{SpatialLines}; \code{Extent}; a numeric vector representing cell numbers; or \verb{sf*} POINT object.}
 
-\item{buffer_width}{Buffer width in which landscape share is measured. It might be either a single value
-or a vector of buffer sizes, if \code{max_width = NULL} (default). If a value if provided for \code{max_width},
-a series of buffer sizes is created, from \code{buffer_width} to \code{max_width}, with increases of
-\code{buffer_width}.}
+\item{buffer_width}{Buffer widths in which the frequency of landscape values is measured.
+It might be either a single value or a vector of buffer sizes, if \code{max_width = NULL} (default).
+If a value if provided for \code{max_width}, a series of buffer sizes is created,
+from \code{buffer_width} to \code{max_width}, with increases of \code{buffer_width}.}
 
 \item{max_width}{Maximum distance to which buffer_width is summed up. If \code{NULL}, \code{buffer_width} is
-interpreted as a series of buffers.}
+interpreted as a series of buffer widths.}
 
-\item{rel_freq}{Logical. If \code{TRUE}, the relative frequency of raster values is returned, instead of
+\item{rel_freq}{Logical. If \code{TRUE}, the relative frequency of raster values is also returned, besides
 the absolute frequency. Ignored if \code{fun} is provided.}
 
-\item{fun}{Function to apply to raster values within the buffer.}
+\item{fun}{Function to apply to raster values within the buffer (e.g. "median", "mean").}
 
-\item{point_id_text}{Logical. If \code{TRUE}, a text with "Point ID:" is added to the first column
+\item{point_id_text}{Logical. If \code{TRUE}, the string "Point ID:" is added to the first column
 of the output.}
 
 \item{...}{additional arguments (none implemented)}
@@ -59,11 +59,17 @@ ggplot2::geom_point(data = data.frame(x = new_point[,1], y = new_point[,2]),
                     ggplot2::aes(x = x, y = y),
                     col = "grey", size = 3)
 
-# show single point share
+# extract frequency of each pixel value within each buffer from 10 to 50 m width
 util_extract_multibuffer(classified_landscape, new_point, 10, 50)
-# relative frequency
+# use irregular buffer sizes
+util_extract_multibuffer(classified_landscape, new_point, c(5, 10, 20, 30))
+# also returns relative frequency
 util_extract_multibuffer(classified_landscape, new_point, 10, 50, rel_freq = TRUE)
-# function
-util_extract_multibuffer(classified_landscape, new_point, 10, 50, fun = median)
+# use a given function - e.g. median in each buffer width
+util_extract_multibuffer(classified_landscape, new_point, 10, 50, fun = "median")
+
+# show multiple points share
+new_points = matrix(c(75, 110, 75, 30), ncol = 2)
+util_extract_multibuffer(classified_landscape, new_points, c(5, 10, 20, 30))
 
 }

@@ -4,7 +4,10 @@
 #'
 #' @param landscape Raster* object
 #' @param points Point(s) represented by a two-column matrix or data.frame; SpatialPoints*; SpatialPolygons*; SpatialLines; Extent; a numeric vector representing cell numbers; or sf* POINT object
-#' @param buffer_width Buffer width in which landscape share is measured
+#' @param buffer_width Buffer widths in which landscape share is measured.
+#' By default, it is a vector of buffer sizes, if `max_width = NULL`.
+#' If a value if provided for `max_width`, a series of buffer sizes is created,
+#' from `buffer_width` to `max_width`, with increases of `buffer_width`.
 #' @param max_width Max distance to which buffer_width is summed up; the x axis in the plot
 #' @param multibuffer_df `data.frame` with landscape share or a function from it already extracted, such as
 #' through the [landscapetools::util_extract_multibuffer()] function. If given, the other arguments
@@ -30,6 +33,10 @@
 #' new_points = matrix(c(75, 110, 75, 30), ncol = 2)
 #' show_shareplot(classified_landscape, new_points, 10, 50)
 #'
+#' # irregular buffer widths
+#' new_points = matrix(c(75, 110, 75, 30), ncol = 2)
+#' show_shareplot(classified_landscape, new_points, c(10, 30, 50))
+#'
 #' # get data frame with results back
 #' result <- show_shareplot(classified_landscape, new_points, 10, 50, return_df = TRUE)
 #' result$share_df
@@ -43,14 +50,19 @@
 #' @rdname show_shareplot
 #'
 #' @export
-show_shareplot <- function(landscape, points, buffer_width, max_width, multibuffer_df = NULL, return_df = FALSE) UseMethod("show_shareplot")
+show_shareplot <- function(landscape,
+                           points,
+                           buffer_width,
+                           max_width = NULL,
+                           multibuffer_df = NULL,
+                           return_df = FALSE) UseMethod("show_shareplot")
 
 #' @name show_shareplot
 #' @export
 show_shareplot <- function(landscape,
                            points,
                            buffer_width,
-                           max_width,
+                           max_width = NULL,
                            multibuffer_df = NULL,
                            return_df = FALSE){
 
@@ -59,7 +71,8 @@ show_shareplot <- function(landscape,
         result <- util_extract_multibuffer(landscape,
                                            points,
                                            buffer_width = buffer_width,
-                                           max_width = max_width)
+                                           max_width = max_width,
+                                           point_id_text = TRUE)
     } else {
         result <- multibuffer_df
         ### Here we need to check the type of variable. It the count of cells if given, we go on normally.
@@ -108,6 +121,7 @@ show_shareplot <- function(landscape,
     }
 }
 
+# NOT IN USE ANYMORE
 .share = function(buffer, x, y){
     df = tibble::new_tibble(as.data.frame(raster::extract(x = x,  y = y, buffer = buffer, df = TRUE)))
     df = tibble::new_tibble(as.data.frame(table(df)))
@@ -117,6 +131,7 @@ show_shareplot <- function(landscape,
     df
 }
 
+# NOT IN USE ANYMORE
 .extract_multibuffer = function(x, y, buffer_width, max_width){
     buffers = seq(buffer_width, max_width, buffer_width)
     df = do.call(rbind, lapply(buffers, .share, x, y))
