@@ -8,7 +8,7 @@ show_shareplot(
   landscape,
   points,
   buffer_width,
-  max_width,
+  max_width = NULL,
   multibuffer_df = NULL,
   return_df = FALSE
 )
@@ -17,7 +17,7 @@ show_shareplot(
   landscape,
   points,
   buffer_width,
-  max_width,
+  max_width = NULL,
   multibuffer_df = NULL,
   return_df = FALSE
 )
@@ -27,7 +27,10 @@ show_shareplot(
 
 \item{points}{Point(s) represented by a two-column matrix or data.frame; SpatialPoints*; SpatialPolygons*; SpatialLines; Extent; a numeric vector representing cell numbers; or sf* POINT object}
 
-\item{buffer_width}{Buffer width in which landscape share is measured}
+\item{buffer_width}{Buffer widths in which landscape share is measured.
+By default, it is a vector of buffer sizes, if \code{max_width = NULL}.
+If a value if provided for \code{max_width}, a series of buffer sizes is created,
+from \code{buffer_width} to \code{max_width}, with increases of \code{buffer_width}.}
 
 \item{max_width}{Max distance to which buffer_width is summed up; the x axis in the plot}
 
@@ -59,6 +62,10 @@ show_shareplot(classified_landscape, new_point, 10, 50)
 # show multiple points share
 new_points = matrix(c(75, 110, 75, 30), ncol = 2)
 show_shareplot(classified_landscape, new_points, 10, 50)
+
+# irregular buffer widths
+new_points = matrix(c(75, 110, 75, 30), ncol = 2)
+show_shareplot(classified_landscape, new_points, c(10, 30, 50))
 
 # get data frame with results back
 result <- show_shareplot(classified_landscape, new_points, 10, 50, return_df = TRUE)

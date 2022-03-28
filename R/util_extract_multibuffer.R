@@ -7,16 +7,16 @@
 #' @param landscape `Raster*` object
 #' @param points Point(s) represented by a two-column matrix or `data.frame`; `SpatialPoints*`; `SpatialPolygons*`;
 #' `SpatialLines`; `Extent`; a numeric vector representing cell numbers; or `sf*` POINT object.
-#' @param buffer_width Buffer width in which landscape share is measured. It might be either a single value
-#' or a vector of buffer sizes, if `max_width = NULL` (default). If a value if provided for `max_width`,
-#' a series of buffer sizes is created, from `buffer_width` to `max_width`, with increases of
-#' `buffer_width`.
+#' @param buffer_width Buffer widths in which the frequency of landscape values is measured.
+#' It might be either a single value or a vector of buffer sizes, if `max_width = NULL` (default).
+#' If a value if provided for `max_width`, a series of buffer sizes is created,
+#' from `buffer_width` to `max_width`, with increases of `buffer_width`.
 #' @param max_width Maximum distance to which buffer_width is summed up. If `NULL`, `buffer_width` is
-#' interpreted as a series of buffers.
-#' @param rel_freq Logical. If `TRUE`, the relative frequency of raster values is returned, instead of
+#' interpreted as a series of buffer widths.
+#' @param rel_freq Logical. If `TRUE`, the relative frequency of raster values is also returned, besides
 #' the absolute frequency. Ignored if `fun` is provided.
-#' @param fun Function to apply to raster values within the buffer.
-#' @param point_id_text Logical. If `TRUE`, a text with "Point ID:" is added to the first column
+#' @param fun Function to apply to raster values within the buffer (e.g. "median", "mean").
+#' @param point_id_text Logical. If `TRUE`, the string "Point ID:" is added to the first column
 #' of the output.
 #'
 #' @return A tibble with the frequency of each raster value within the buffers of different sizes
@@ -33,12 +33,18 @@
 #'                     ggplot2::aes(x = x, y = y),
 #'                     col = "grey", size = 3)
 #'
-#' # show single point share
+#' # extract frequency of each pixel value within each buffer from 10 to 50 m width
 #' util_extract_multibuffer(classified_landscape, new_point, 10, 50)
-#' # relative frequency
+#' # use irregular buffer sizes
+#' util_extract_multibuffer(classified_landscape, new_point, c(5, 10, 20, 30))
+#' # also returns relative frequency
 #' util_extract_multibuffer(classified_landscape, new_point, 10, 50, rel_freq = TRUE)
-#' # function
-#' util_extract_multibuffer(classified_landscape, new_point, 10, 50, fun = median)
+#' # use a given function - e.g. median in each buffer width
+#' util_extract_multibuffer(classified_landscape, new_point, 10, 50, fun = "median")
+#'
+#' # show multiple points share
+#' new_points = matrix(c(75, 110, 75, 30), ncol = 2)
+#' util_extract_multibuffer(classified_landscape, new_points, c(5, 10, 20, 30))
 #'
 #' @export
 util_extract_multibuffer = function(landscape, points, buffer_width, max_width = NULL,
@@ -61,23 +67,28 @@ util_extract_multibuffer = function(landscape, points, buffer_width, max_width =
     df = tibble::new_tibble(as.data.frame(raster::extract(x = x, y = y, buffer = buffer, fun = fun, df = TRUE, ...)))
     df = table(df)
 
+    # organize output df
+    df_out = tibble::new_tibble(as.data.frame(df))
+
     # if rel_freq = TRUE, calculate relative frequency
     if(is.null(fun))
-        if(rel_freq) df = df/rowSums(df)
+        if(rel_freq) {
+            df_rel = df/rowSums(df)
+            df_rel = as.data.frame(df_rel)
+            df_out = tibble::new_tibble(cbind(df_out, df_rel[3]))
+        }
 
-    # organize output df
-    df = tibble::new_tibble(as.data.frame(df))
-    df$buffer = buffer
+    # add buffer size to output df
+    df_out$buffer = buffer
 
     # names
-    if(!is.null(fun)) column = quote(fun) else
-        if(rel_freq) column = "rel_freq" else
-            column = "freq"
-    names(df) = c("id", "layer", column, "buffer")
+    if(!is.null(fun)) names(df_out) = c("id", "layer", fun, "buffer") else
+        if(rel_freq) names(df_out) = c("id", "layer", "freq", "rel_freq", "buffer") else
+            names(df_out) = c("id", "layer", "freq", "buffer")
 
     # add text to point
-    if(point_id_text) df$id <- paste("Point ID:", df$id, sep = " ")
+    if(point_id_text) df_out$id <- paste("Point ID:", df_out$id, sep = " ")
 
     # return df
-    df
+    df_out
 }
