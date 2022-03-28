@@ -121,8 +121,8 @@ show_landscape.list <- function(x,
       ggplot2::facet_wrap( ~ id, nrow = n_row, ncol = n_col) +
       ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0, max(x_tibble$x))) +
       ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0, max(x_tibble$y))) +
-      ggplot2::guides(fill = FALSE) +
-      ggplot2::labs(titel = NULL, x = NULL, y = NULL) +
+      ggplot2::guides(fill = "none") +
+      ggplot2::labs(title = NULL, x = NULL, y = NULL) +
       theme_facetplot()
   }
 
@@ -133,8 +133,8 @@ show_landscape.list <- function(x,
       ggplot2::facet_wrap( ~ id, nrow = n_row, ncol = n_col) +
       ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0, max(x_tibble$x))) +
       ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0, max(x_tibble$y))) +
-      ggplot2::guides(fill = FALSE) +
-      ggplot2::labs(titel = NULL, x = NULL, y = NULL) +
+      ggplot2::guides(fill = "none") +
+      ggplot2::labs(title = NULL, x = NULL, y = NULL) +
       theme_facetplot_discrete()
   }
 
