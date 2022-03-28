@@ -1,8 +1,6 @@
 
-[![Travis build
-status](https://travis-ci.org/ropensci/landscapetools.svg?branch=master)](https://travis-ci.org/ropensci/landscapetools)
-[![Build
-status](https://ci.appveyor.com/api/projects/status/aehfkxfb5r4vjlm9?svg=true)](https://ci.appveyor.com/project/ropensci/landscapetools)
+[![R-CMD-check](https://github.com/ropensci/landscapetools/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/landscapetools/actions)
+<!-- badges: end -->
 [![codecov](https://codecov.io/gh/ropensci/landscapetools/branch/develop/graph/badge.svg)](https://codecov.io/gh/ropensci/landscapetools)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![CRAN
@@ -122,7 +120,6 @@ look at the [NLMR](https://github.com/ropensci/NLMR/) package.
     [Contributing](CONTRIBUTING.md).
       - Please note that this project is released with a [Contributor
         Code of Conduct](CODE_OF_CONDUCT.md). By participating in this
-        project you agree to abide by its
-terms.
+        project you agree to abide by its terms.
 
 [![ropensci\_footer](https://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
