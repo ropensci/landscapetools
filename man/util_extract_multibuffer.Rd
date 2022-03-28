@@ -36,6 +36,8 @@ the absolute frequency. Ignored if \code{fun} is provided.}
 
 \item{point_id_text}{Logical. If \code{TRUE}, a text with "Point ID:" is added to the first column
 of the output.}
+
+\item{...}{additional arguments (none implemented)}
 }
 \value{
 A tibble with the frequency of each raster value within the buffers of different sizes
