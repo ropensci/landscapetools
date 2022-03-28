@@ -4,7 +4,9 @@
 \name{classified_landscape}
 \alias{classified_landscape}
 \title{Example map (factor).}
-\format{A raster layer object.}
+\format{
+A raster layer object.
+}
 \source{
 Simulated neutral landscape models with R. \url{https://github.com/ropensci/NLMR/}
 }

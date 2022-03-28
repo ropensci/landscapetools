@@ -18,6 +18,7 @@
 #' @param fun Function to apply to raster values within the buffer (e.g. "median", "mean").
 #' @param point_id_text Logical. If `TRUE`, the string "Point ID:" is added to the first column
 #' of the output.
+#' @param ... Arguments passed on to [raster::extract()].
 #'
 #' @return A tibble with the frequency of each raster value within the buffers of different sizes
 #' around each point. Alternatively, a tibble with the relative frequency of raster values, if `rel_freq = TRUE`,

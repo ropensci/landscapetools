@@ -35,7 +35,7 @@ from \code{buffer_width} to \code{max_width}, with increases of \code{buffer_wid
 \item{max_width}{Max distance to which buffer_width is summed up; the x axis in the plot}
 
 \item{multibuffer_df}{\code{data.frame} with landscape share or a function from it already extracted, such as
-through the \code{\link[=util_extract_buffer]{util_extract_buffer()}} function. If given, the other arguments
+through the \code{\link[=util_extract_multibuffer]{util_extract_multibuffer()}} function. If given, the other arguments
 (\code{landscape}, \code{points}, \code{buffer_width}, \code{max_width}) are ignored. Default is NULL.}
 
 \item{return_df}{Logical value indicating if a tibble with the underlying data should be returned}

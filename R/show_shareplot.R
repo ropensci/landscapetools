@@ -10,7 +10,7 @@
 #' from `buffer_width` to `max_width`, with increases of `buffer_width`.
 #' @param max_width Max distance to which buffer_width is summed up; the x axis in the plot
 #' @param multibuffer_df `data.frame` with landscape share or a function from it already extracted, such as
-#' through the [landscapetools::util_extract_buffer()] function. If given, the other arguments
+#' through the [landscapetools::util_extract_multibuffer()] function. If given, the other arguments
 #' (`landscape`, `points`, `buffer_width`, `max_width`) are ignored. Default is NULL.
 #' @param return_df Logical value indicating if a tibble with the underlying data should be returned
 #'
