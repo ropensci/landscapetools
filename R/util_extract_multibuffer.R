@@ -18,7 +18,7 @@
 #' @param fun Function to apply to raster values within the buffer (e.g. "median", "mean").
 #' @param point_id_text Logical. If `TRUE`, the string "Point ID:" is added to the first column
 #' of the output.
-#' @param ... Arguments passed on to [raster::extract()].
+#' @param ... additional arguments (none implemented)
 #'
 #' @return A tibble with the frequency of each raster value within the buffers of different sizes
 #' around each point. Alternatively, a tibble with the relative frequency of raster values, if `rel_freq = TRUE`,
@@ -51,7 +51,7 @@
 util_extract_multibuffer = function(landscape, points, buffer_width, max_width = NULL,
                                     rel_freq = FALSE, fun = NULL, point_id_text = TRUE, ...) {
 
-    if(is.null(max_width)) {
+    if (is.null(max_width)) {
         buffers = buffer_width
     } else {
         ### POSSIBLE: raise a warning here if length(buffer_width) > 1, stating that only the first value is used
