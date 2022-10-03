@@ -5,12 +5,14 @@ reference:
     contents:
     - classified_landscape
     - fractal_landscape
+    - gradient_landscape
     - random_landscape
   - title: Utilities
     contents:
     - util_as_integer
     - util_binarize
     - util_classify
+    - util_extract_multibuffer
     - util_merge
     - util_raster2tibble
     - util_tibble2raster
