@@ -1,21 +1,33 @@
 {
-  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "landscapetools",
-  "description": "Toolbox designed to support some of the less-glamorous \n    tasks involved in most landscape analysis. It includes functions to coerce\n    raster data to the common tibble format and vice versa, it helps with \n    flexible reclassification tasks of raster data and provides a function to \n    merge multiple raster. Furthermore, landscapetools helps landscape \n    scientist to visualize their data by providing opionated themes \n    and utility functions to plot rasterstacks, -bricks and lists of rasters.",
+  "description": "Provides utility functions for some of the less-glamorous tasks involved in landscape analysis. It includes functions to coerce raster data to the common tibble format and vice versa, it helps with flexible reclassification tasks of raster data and it provides a function to merge multiple raster. Furthermore, 'landscapetools' helps landscape scientists to visualize their data by providing optional themes and utility functions to plot single landscapes, rasterstacks, -bricks and lists of raster.",
   "name": "landscapetools: Landscape Utility Toolbox",
-  "codeRepository": "https://github.com/marcosci/landscapetools",
+  "codeRepository": "https://docs.ropensci.org/landscapetools/",
   "issueTracker": "https://github.com/ropensci/landscapetools/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.3.0",
+  "version": "0.6.2",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.4.3",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.4.3 (2017-11-30)",
+  "runtimePlatform": "R version 4.2.1 (2022-06-23)",
+  "provider": {
+    "@id": "https://cran.r-project.org",
+    "@type": "Organization",
+    "name": "Comprehensive R Archive Network (CRAN)",
+    "url": "https://cran.r-project.org"
+  },
   "author": [
+    {
+      "@type": "Person",
+      "givenName": "Marco",
+      "familyName": "Sciaini",
+      "email": "sciaini.marco@gmail.com",
+      "@id": "https://orcid.org/0000-0002-3042-5435"
+    },
     {
       "@type": "Person",
       "givenName": "Matthias",
@@ -24,24 +36,28 @@
     },
     {
       "@type": "Person",
+      "givenName": "Maximilian H.K.",
+      "familyName": "Hesselbarth",
+      "email": "mhk.hesselbarth@gmail.com",
+      "@id": "https://orcid.org/0000-0003-1125-9918"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Jakub",
+      "familyName": "Nowosad",
+      "email": "nowosad.jakub@gmail.com",
+      "@id": "https://orcid.org/0000-0002-1057-3721"
+    }
+  ],
+  "maintainer": [
+    {
+      "@type": "Person",
       "givenName": "Marco",
       "familyName": "Sciaini",
       "email": "sciaini.marco@gmail.com",
       "@id": "https://orcid.org/0000-0002-3042-5435"
     }
   ],
-  "copyrightHolder": [
-    {
-      "@type": "Organization",
-      "name": "Google"
-    }
-  ],
-  "maintainer": {
-    "@type": "Person",
-    "givenName": "Matthias",
-    "familyName": "Fritsch",
-    "email": "matthias.fritsch@forst.uni-goettingen.de"
-  },
   "softwareSuggestions": [
     {
       "@type": "SoftwareApplication",
@@ -50,9 +66,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
     },
     {
       "@type": "SoftwareApplication",
@@ -61,142 +78,132 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=covr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "knitr",
+      "name": "knitr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rmarkdown",
+      "name": "rmarkdown",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
     }
   ],
-  "softwareRequirements": [
-    {
+  "softwareRequirements": {
+    "1": {
       "@type": "SoftwareApplication",
-      "identifier": "magrittr",
-      "name": "magrittr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      }
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 3.1.0"
     },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "checkmate",
-      "name": "checkmate",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "dplyr",
-      "name": "dplyr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "extrafont",
-      "name": "extrafont",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      }
-    },
-    {
+    "2": {
       "@type": "SoftwareApplication",
       "identifier": "ggplot2",
       "name": "ggplot2",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=ggplot2"
     },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "purrr",
-      "name": "purrr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      }
-    },
-    {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "raster",
       "name": "raster",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=raster"
     },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "rasterVis",
-      "name": "rasterVis",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      }
-    },
-    {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "tibble",
       "name": "tibble",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tibble"
     },
-    {
+    "5": {
       "@type": "SoftwareApplication",
-      "identifier": "tidyr",
-      "name": "tidyr",
+      "identifier": "Rcpp",
+      "name": "Rcpp",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=Rcpp"
     },
+    "SystemRequirements": null
+  },
+  "fileSize": "1377.771KB",
+  "citation": [
     {
-      "@type": "SoftwareApplication",
-      "identifier": "viridis",
-      "name": "viridis",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
+      "@type": "ScholarlyArticle",
+      "datePublished": "2018",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "Marco",
+          "familyName": "Sciaini"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Matthias",
+          "familyName": "Fritsch"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Cedric",
+          "familyName": "Scherer"
+        },
+        {
+          "@type": "Person",
+          "givenName": ["Craig", "E."],
+          "familyName": "Simpkins"
+        }
+      ],
+      "name": "NLMR and landscapetools: An integrated environment for simulating and modifying neutral landscape models in R",
+      "url": "https://doi.org/10.1111/2041-210X.13076",
+      "pagination": "1--9",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "datePublished": "2018",
+        "isPartOf": {
+          "@type": ["PublicationVolume", "Periodical"],
+          "volumeNumber": "00",
+          "name": "Methods in Ecololgy and Evolution"
+        }
       }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "R",
-      "name": "R",
-      "version": "3.1.0"
     }
-  ],
-  "contIntegration": "https://travis-ci.org/ropensci/landscapetools",
-  "releaseNotes": "https://github.com/marcosci/landscapetools/blob/master/NEWS.md",
-  "readme": "https://github.com/marcosci/landscapetools/blob/master/README.md",
-  "fileSize": "2006.701KB"
+  ]
 }
