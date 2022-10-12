@@ -23,7 +23,7 @@ Useful links:
 Authors:
 \itemize{
   \item Matthias Fritsch \email{matthias.fritsch@forst.uni-goettingen.de}
-  \item Maximillian H.K. Hesselbarth \email{maximilian.hesselbarth@uni-goettingen.de} (\href{https://orcid.org/0000-0003-1125-9918}{ORCID})
+  \item Maximilian H.K. Hesselbarth \email{mhk.hesselbarth@gmail.com} (\href{https://orcid.org/0000-0003-1125-9918}{ORCID})
   \item Jakub Nowosad \email{nowosad.jakub@gmail.com} (\href{https://orcid.org/0000-0002-1057-3721}{ORCID})
 }
 
