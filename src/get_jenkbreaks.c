@@ -7,7 +7,7 @@
 // brks = empty vector to receive results
 
 #include <float.h>
-#include <R.h>
+#include <stdlib.h>
 
 // Function declarations
 void rcpp_get_jenkbreaks(double *d, int *k1, int *length_d1, double *brks);
@@ -25,11 +25,11 @@ void rcpp_get_jenkbreaks(double *d, int *k1, int *length_d1, double *brks)
     int nCat = k;
     int length_d = length_d1[0];
 
-    double** mat1 = Calloc(length_d, double*);
-    double** mat2 = Calloc(length_d, double*);
+    double** mat1 = calloc(length_d, sizeof(double*));
+    double** mat2 = calloc(length_d, sizeof(double*));
 
     for (int i = 0; i < length_d; i++) {
-        double* row = Calloc(k, double);
+        double* row = calloc(k, sizeof(double));
         for (int j = 0; j < k; j++) {
             row[j] = 1.0;
         }
@@ -37,7 +37,7 @@ void rcpp_get_jenkbreaks(double *d, int *k1, int *length_d1, double *brks)
     }
 
     for (int i = 0; i < length_d; i++) {
-        double* row = Calloc(k, double);
+        double* row = calloc(k, sizeof(double));
         for (int j = 0; j < k; j++) {
             row[j] = 0.0;
         }
@@ -103,10 +103,10 @@ void rcpp_get_jenkbreaks(double *d, int *k1, int *length_d1, double *brks)
 
     //delete objects
     for (int i = 0; i < length_d; i++) {
-        Free(mat1[i]);
-        Free(mat2[i]);
+        free(mat1[i]);
+        free(mat2[i]);
     }
 
-    Free(mat1);
-    Free(mat2);
+    free(mat1);
+    free(mat2);
 }
