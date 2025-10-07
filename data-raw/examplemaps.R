@@ -19,18 +19,22 @@
 #
 # usethis::use_data(classified_landscape, overwrite = TRUE)
 
+remotes::install_github("ropensci/landscapetools")
 
 library(landscapetools)
 # fractal_landscape <- NLMR::nlm_fbm(ncol = 150, nrow = 150, fract_dim = 0.8)
-fractal_landscape <- raster::raster(fractal_landscape)
+x <- fractal_landscape
+fractal_landscape <- raster::setValues(x, raster::values(x))
 usethis::use_data(fractal_landscape, overwrite = TRUE)
 #
 # gradient_landscape <- NLMR::nlm_planargradient(150, 150)
-gradient_landscape <- raster::raster(gradient_landscape)
+x <- gradient_landscape
+gradient_landscape <- raster::setValues(x, raster::values(x))
 usethis::use_data(gradient_landscape, overwrite = TRUE)
 #
 # random_landscape <- NLMR::nlm_random(150, 150)
-random_landscape <- raster::raster(random_landscape)
+x <- random_landscape
+random_landscape <- raster::setValues(x, raster::values(x))
 usethis::use_data(random_landscape, overwrite = TRUE)
 #
 # # Classify the map into land uses
