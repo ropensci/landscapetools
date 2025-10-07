@@ -19,35 +19,35 @@ less-glamorous tasks involved in landscape analysis:
 
 #### Utilities:
 
-  - `util_binarize`: Binarize continuous raster values, if \> 1 breaks
-    are given, return a RasterBrick.
-  - `util_classify`: Classify a raster into proportions based upon a
-    vector of class weightings.
-  - `util_merge`: Merge a primary raster with other rasters weighted by
-    scaling factors.
-  - `util_raster2tibble`, `util_tibble2raster`: Coerce raster\* objects
-    to tibbles and vice versa.
-  - `util_rescale`: Linearly rescale element values in a raster to a
-    range between 0 and 1.
-  - `util_writeESRI`: Export raster objects as ESRI asciis (with Windows
-    linebreaks).
+- `util_binarize`: Binarize continuous raster values, if \> 1 breaks are
+  given, return a RasterBrick.
+- `util_classify`: Classify a raster into proportions based upon a
+  vector of class weightings.
+- `util_merge`: Merge a primary raster with other rasters weighted by
+  scaling factors.
+- `util_raster2tibble`, `util_tibble2raster`: Coerce raster\* objects to
+  tibbles and vice versa.
+- `util_rescale`: Linearly rescale element values in a raster to a range
+  between 0 and 1.
+- `util_writeESRI`: Export raster objects as ESRI asciis (with Windows
+  linebreaks).
 
 #### Visualization
 
-  - `show_landscape`: Plot a Raster\* object with the landscapetools
-    default theme (as ggplot) or multiple raster (RasterStack, -brick or
-    list of raster) side by side as facets.
-  - `show_shareplot`: Plot the landscape share in subsequential buffers
-    around a/multiple point(s) of interest
+- `show_landscape`: Plot a Raster\* object with the landscapetools
+  default theme (as ggplot) or multiple raster (RasterStack, -brick or
+  list of raster) side by side as facets.
+- `show_shareplot`: Plot the landscape share in subsequential buffers
+  around a/multiple point(s) of interest
 
 #### Themes:
 
-  - `theme_nlm`, `theme_nlm_grey`: Opinionated ggplot2 theme to
-    visualize raster (continuous data).
-  - `theme_nlm_discrete`, `theme_nlm_grey_discrete`: Opinionated ggplot2
-    theme to visualize raster (discrete data).
-  - `theme_faceplot`: Opinionated ggplot2 theme to visualize raster in a
-    facet wrap.
+- `theme_nlm`, `theme_nlm_grey`: Opinionated ggplot2 theme to visualize
+  raster (continuous data).
+- `theme_nlm_discrete`, `theme_nlm_grey_discrete`: Opinionated ggplot2
+  theme to visualize raster (discrete data).
+- `theme_faceplot`: Opinionated ggplot2 theme to visualize raster in a
+  facet wrap.
 
 ## Installation
 
@@ -99,7 +99,17 @@ merge_vis <- list(
 )
 
 show_landscape(merge_vis)
-#> Warning: Removed 1196 rows containing missing values (geom_raster).
+#> Warning: `aes_string()` was deprecated in ggplot2 3.0.0.
+#> ℹ Please use tidy evaluation idioms with `aes()`.
+#> ℹ See also `vignette("ggplot2-in-packages")` for more information.
+#> ℹ The deprecated feature was likely used in the landscapetools package.
+#>   Please report the issue at
+#>   <https://github.com/ropensci/landscapetools/issues>.
+#> This warning is displayed once every 8 hours.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+#> generated.
+#> Warning: Removed 1196 rows containing missing values or values outside the scale range
+#> (`geom_raster()`).
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
@@ -114,15 +124,15 @@ look at the [NLMR](https://github.com/ropensci/NLMR/) package.
 
 ## Meta
 
-  - Please [report any issues or
-    bugs](https://github.com/ropensci/landscapetools/issues/new/).
-  - License: GPL3
-  - Get citation information for `landscapetools` in R doing
-    `citation(package = 'landscapetools')`
-  - We are very open to contributions - if you are interested check
-    [Contributing](CONTRIBUTING.md).
-      - Please note that this project is released with a [Contributor
-        Code of Conduct](CODE_OF_CONDUCT.md). By participating in this
-        project you agree to abide by its terms.
+- Please [report any issues or
+  bugs](https://github.com/ropensci/landscapetools/issues/new/).
+- License: GPL3
+- Get citation information for `landscapetools` in R doing
+  `citation(package = 'landscapetools')`
+- We are very open to contributions - if you are interested check
+  [Contributing](CONTRIBUTING.md).
+  - Please note that this project is released with a [Contributor Code
+    of Conduct](CODE_OF_CONDUCT.md). By participating in this project
+    you agree to abide by its terms.
 
-[![ropensci\_footer](https://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![ropensci_footer](https://ropensci.org/public_images/github_footer.png)](http://ropensci.org)

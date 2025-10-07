@@ -10,13 +10,13 @@
 \title{theme_nlm}
 \usage{
 theme_nlm(
-  base_family = NA,
+  base_family = NULL,
   base_size = 11.5,
   plot_title_family = base_family,
   plot_title_size = 18,
   plot_title_face = "bold",
   plot_title_margin = 10,
-  subtitle_family = NA,
+  subtitle_family = NULL,
   subtitle_size = 13,
   subtitle_face = "plain",
   subtitle_margin = 15,
@@ -24,7 +24,7 @@ theme_nlm(
   strip_text_size = 12,
   strip_text_face = "plain",
   strip.background = "grey80",
-  caption_family = NA,
+  caption_family = NULL,
   caption_size = 9,
   caption_face = "plain",
   caption_margin = 10,
@@ -49,13 +49,13 @@ theme_nlm(
 )
 
 theme_nlm_discrete(
-  base_family = NA,
+  base_family = NULL,
   base_size = 11.5,
   plot_title_family = base_family,
   plot_title_size = 18,
   plot_title_face = "bold",
   plot_title_margin = 10,
-  subtitle_family = NA,
+  subtitle_family = NULL,
   subtitle_size = 13,
   subtitle_face = "plain",
   subtitle_margin = 15,
@@ -63,7 +63,7 @@ theme_nlm_discrete(
   strip_text_size = 12,
   strip_text_face = "plain",
   strip.background = "grey80",
-  caption_family = NA,
+  caption_family = NULL,
   caption_size = 9,
   caption_face = "plain",
   caption_margin = 10,
@@ -88,13 +88,13 @@ theme_nlm_discrete(
 )
 
 theme_nlm_grey(
-  base_family = NA,
+  base_family = NULL,
   base_size = 11.5,
   plot_title_family = base_family,
   plot_title_size = 18,
   plot_title_face = "bold",
   plot_title_margin = 10,
-  subtitle_family = NA,
+  subtitle_family = NULL,
   subtitle_size = 13,
   subtitle_face = "plain",
   subtitle_margin = 15,
@@ -102,7 +102,7 @@ theme_nlm_grey(
   strip_text_size = 12,
   strip_text_face = "plain",
   strip.background = "grey80",
-  caption_family = NA,
+  caption_family = NULL,
   caption_size = 9,
   caption_face = "plain",
   caption_margin = 10,
@@ -126,13 +126,13 @@ theme_nlm_grey(
 )
 
 theme_nlm_grey_discrete(
-  base_family = NA,
+  base_family = NULL,
   base_size = 11.5,
   plot_title_family = base_family,
   plot_title_size = 18,
   plot_title_face = "bold",
   plot_title_margin = 10,
-  subtitle_family = NA,
+  subtitle_family = NULL,
   subtitle_size = 13,
   subtitle_face = "plain",
   subtitle_margin = 15,
@@ -140,7 +140,7 @@ theme_nlm_grey_discrete(
   strip_text_size = 12,
   strip_text_face = "plain",
   strip.background = "grey80",
-  caption_family = NA,
+  caption_family = NULL,
   caption_size = 9,
   caption_face = "plain",
   caption_margin = 10,
@@ -164,18 +164,18 @@ theme_nlm_grey_discrete(
 )
 
 theme_facetplot(
-  base_family = NA,
+  base_family = NULL,
   base_size = 11.5,
   plot_title_family = base_family,
   plot_title_size = 18,
   plot_title_face = "bold",
   plot_title_margin = 10,
-  subtitle_family = NA,
+  subtitle_family = NULL,
   subtitle_size = 13,
   subtitle_face = "plain",
   subtitle_margin = 15,
   strip.background = "grey80",
-  caption_family = NA,
+  caption_family = NULL,
   caption_size = 9,
   caption_face = "plain",
   caption_margin = 10,
@@ -185,18 +185,18 @@ theme_facetplot(
 )
 
 theme_facetplot_discrete(
-  base_family = NA,
+  base_family = NULL,
   base_size = 11.5,
   plot_title_family = base_family,
   plot_title_size = 18,
   plot_title_face = "bold",
   plot_title_margin = 10,
-  subtitle_family = NA,
+  subtitle_family = NULL,
   subtitle_size = 13,
   subtitle_face = "plain",
   subtitle_margin = 15,
   strip.background = "grey80",
-  caption_family = NA,
+  caption_family = NULL,
   caption_size = 9,
   caption_face = "plain",
   caption_margin = 10,
