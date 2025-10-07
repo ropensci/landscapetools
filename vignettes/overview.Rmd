@@ -144,7 +144,7 @@ show_landscape(merge_vis)
 # Rescale
 
 ```{r eval=FALSE}
-util_rescale(fractal_landscape, "fractal.asc")
+util_rescale(fractal_landscape)
 ```
 
 
