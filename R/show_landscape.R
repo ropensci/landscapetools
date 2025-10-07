@@ -115,9 +115,9 @@ show_landscape.list <- function(x,
   x_tibble <- transform(x_tibble, id = factor(id, levels = order))
 
   if (!discrete) {
-    p <- ggplot2::ggplot(x_tibble, ggplot2::aes_string("x", "y")) +
+    p <- ggplot2::ggplot(x_tibble, ggplot2::aes(.data$x, .data$y)) +
       ggplot2::coord_fixed() +
-      ggplot2::geom_raster(ggplot2::aes_string(fill = "z")) +
+      ggplot2::geom_raster(ggplot2::aes(fill =.data$z)) +
       ggplot2::facet_wrap( ~ id, nrow = n_row, ncol = n_col) +
       ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0, max(x_tibble$x))) +
       ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0, max(x_tibble$y))) +
@@ -127,9 +127,9 @@ show_landscape.list <- function(x,
   }
 
   if (discrete) {
-    p <- ggplot2::ggplot(x_tibble, ggplot2::aes_string("x", "y")) +
+    p <- ggplot2::ggplot(x_tibble, ggplot2::aes(.data$x, .data$y)) +
       ggplot2::coord_fixed() +
-      ggplot2::geom_raster(ggplot2::aes(fill = factor(z))) +
+      ggplot2::geom_raster(ggplot2::aes(fill = factor(.data$z))) +
       ggplot2::facet_wrap( ~ id, nrow = n_row, ncol = n_col) +
       ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0, max(x_tibble$x))) +
       ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0, max(x_tibble$y))) +
