@@ -99,15 +99,6 @@ merge_vis <- list(
 )
 
 show_landscape(merge_vis)
-#> Warning: `aes_string()` was deprecated in ggplot2 3.0.0.
-#> ℹ Please use tidy evaluation idioms with `aes()`.
-#> ℹ See also `vignette("ggplot2-in-packages")` for more information.
-#> ℹ The deprecated feature was likely used in the landscapetools package.
-#>   Please report the issue at
-#>   <https://github.com/ropensci/landscapetools/issues>.
-#> This warning is displayed once every 8 hours.
-#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-#> generated.
 #> Warning: Removed 1196 rows containing missing values or values outside the scale range
 #> (`geom_raster()`).
 ```
