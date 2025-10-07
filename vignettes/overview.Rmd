@@ -5,8 +5,10 @@ date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Overview}
-  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include = FALSE}
@@ -37,7 +39,7 @@ show_landscape(gradient_landscape)
 show_landscape(classified_landscape, discrete = TRUE)
 
 # RasterStack/RasterBrick
-show_landscape(raster::stack(gradient_landscape, random_landscape), discrete = TRUE)
+show_landscape(raster::brick(gradient_landscape, random_landscape), discrete = TRUE)
 
 # Plot a list of raster (list names become facet text)
 show_landscape(list("Gradient landscape" = gradient_landscape,
@@ -139,11 +141,10 @@ merge_vis <- list(
 show_landscape(merge_vis)
 ```
 
-# Export
-Some proprietary software requires that .asc files have the same
-line breaks as ESRI ArcMap produces. As we didn't find a 
-correct parser in R, we wrote our on:
+# Rescale
 
 ```{r eval=FALSE}
 util_rescale(fractal_landscape, "fractal.asc")
 ```
+
+
