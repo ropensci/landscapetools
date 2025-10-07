@@ -13,8 +13,8 @@ test_that("basic functionality", {
 })
 
 test_that("show_landscape behaves like it should", {
-  expect_equal(class(p), c("gg","ggplot"))
-  expect_equal(class(p_discrete), c("gg","ggplot"))
+  expect_equal(inherits(p, c("gg","ggplot")), TRUE)
+  expect_equal(inherits(p_discrete, c("gg","ggplot")), TRUE)
 })
 
 l2 <- gradient_landscape
@@ -44,9 +44,9 @@ test_that("basic functionality", {
 })
 
 test_that("util_plot behaves like it should", {
-  expect_equal(class(p1), c("gg","ggplot"))
-  expect_equal(class(p2), c("gg","ggplot"))
-  expect_equal(class(p3), c("gg","ggplot"))
+  expect_equal(inherits(p1, c("gg","ggplot")), TRUE)
+  expect_equal(inherits(p2, c("gg","ggplot")), TRUE)
+  expect_equal(inherits(p3, c("gg","ggplot")), TRUE)
 })
 
 # nolint end
