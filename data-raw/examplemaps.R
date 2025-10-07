@@ -1,15 +1,39 @@
 # Example maps from NLMR -------
 
-fractal_landscape <- NLMR::nlm_fbm(ncol = 150, nrow = 150, fract_dim = 0.8)
+# fractal_landscape <- NLMR::nlm_fbm(ncol = 150, nrow = 150, fract_dim = 0.8)
+# usethis::use_data(fractal_landscape, overwrite = TRUE)
+#
+# gradient_landscape <- NLMR::nlm_planargradient(150, 150)
+# usethis::use_data(gradient_landscape, overwrite = TRUE)
+#
+# random_landscape <- NLMR::nlm_random(150, 150)
+# usethis::use_data(random_landscape, overwrite = TRUE)
+#
+# # Classify the map into land uses
+# classified_landscape <- util_classify(fractal_landscape,
+#                         n = 3,
+#                         level_names = c("Land Use 1",
+#                                         "Land Use 2",
+#                                         "Land Use 3"))
+#
+#
+# usethis::use_data(classified_landscape, overwrite = TRUE)
+
+
+library(landscapetools)
+# fractal_landscape <- NLMR::nlm_fbm(ncol = 150, nrow = 150, fract_dim = 0.8)
+fractal_landscape <- raster::raster(fractal_landscape)
 usethis::use_data(fractal_landscape, overwrite = TRUE)
-
-gradient_landscape <- NLMR::nlm_planargradient(150, 150)
+#
+# gradient_landscape <- NLMR::nlm_planargradient(150, 150)
+gradient_landscape <- raster::raster(gradient_landscape)
 usethis::use_data(gradient_landscape, overwrite = TRUE)
-
-random_landscape <- NLMR::nlm_random(150, 150)
+#
+# random_landscape <- NLMR::nlm_random(150, 150)
+random_landscape <- raster::raster(random_landscape)
 usethis::use_data(random_landscape, overwrite = TRUE)
-
-# Classify the map into land uses
+#
+# # Classify the map into land uses
 classified_landscape <- util_classify(fractal_landscape,
                         n = 3,
                         level_names = c("Land Use 1",
@@ -18,3 +42,4 @@ classified_landscape <- util_classify(fractal_landscape,
 
 
 usethis::use_data(classified_landscape, overwrite = TRUE)
+

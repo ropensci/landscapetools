@@ -34,7 +34,7 @@ Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 Depends:
-    R (>= 3.1.0)
+    R (>= 3.5)
 URL: https://docs.ropensci.org/landscapetools/
 BugReports: https://github.com/ropensci/landscapetools/issues
 Roxygen: list(markdown = TRUE)
