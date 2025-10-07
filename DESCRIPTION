@@ -43,7 +43,8 @@ Imports:
     ggplot2,
     raster,
     tibble,
-    Rcpp
+    Rcpp,
+    rlang
 Suggests: 
     testthat,
     covr,

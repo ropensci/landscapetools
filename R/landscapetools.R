@@ -6,6 +6,7 @@
 #' @useDynLib landscapetools, .registration = TRUE
 #' @importFrom Rcpp sourceCpp
 #' @keywords internal
+#' @importFrom rlang .data
 "_PACKAGE"
 
 globalVariables(c("value", ".", "id", "y", "z", "buffer", "freq", "layer"))
