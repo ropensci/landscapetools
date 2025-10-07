@@ -33,7 +33,7 @@ util_merge.RasterLayer <- function(primary_nlm,
   if(is.numeric(scalingfactor) == FALSE) stop("scalingfactor must be numeric")
   if(is.logical(rescale) == FALSE) stop("rescale most be logical")
 
-  if (class(secondary_nlm) != "RasterStack") {
+  if (!inherits(secondary_nlm, "RasterStack")) {
     secondary_nlm <- raster::stack(secondary_nlm)
   }
 

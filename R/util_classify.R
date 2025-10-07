@@ -86,7 +86,7 @@ util_classify.RasterLayer <- function(x,
   # Classify based on real landscape ----
   if (!is.null(real_land)) {
 
-      if(class(real_land) != "RasterLayer") stop("real_land muste be a RasterLayer object.")
+      if(!inherits(real_land, "RasterLayer")) stop("real_land muste be a RasterLayer object.")
 
       frq <- raster::freq(real_land)
       if (!is.null(mask_val)) {
