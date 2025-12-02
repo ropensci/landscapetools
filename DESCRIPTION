@@ -1,7 +1,7 @@
 Package: landscapetools
 Type: Package
 Title: Landscape Utility Toolbox
-Version: 0.6.2
+Version: 0.6.2.9001
 Description: Provides utility functions for some of the less-glamorous tasks involved
     in landscape analysis. It includes functions to coerce raster data to the
     common tibble format and vice versa, it helps with flexible reclassification
@@ -34,16 +34,17 @@ Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 Depends:
-    R (>= 3.1.0)
+    R (>= 3.5)
 URL: https://docs.ropensci.org/landscapetools/
 BugReports: https://github.com/ropensci/landscapetools/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.3.3
 Imports: 
     ggplot2,
     raster,
     tibble,
-    Rcpp
+    Rcpp,
+    rlang
 Suggests: 
     testthat,
     covr,
