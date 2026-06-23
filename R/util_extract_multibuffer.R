@@ -26,7 +26,7 @@
 #'
 #' @examples
 #' # create single point
-#' new_point = matrix(c(75,75), ncol = 2)
+#' new_point <- matrix(c(75,75), ncol = 2)
 #'
 #' # show landscape and point of interest
 #' show_landscape(classified_landscape, discrete = TRUE) +
@@ -44,7 +44,7 @@
 #' util_extract_multibuffer(classified_landscape, new_point, 10, 50, fun = "median")
 #'
 #' # show multiple points share
-#' new_points = matrix(c(75, 110, 75, 30), ncol = 2)
+#' new_points <- matrix(c(75, 110, 75, 30), ncol = 2)
 #' util_extract_multibuffer(classified_landscape, new_points, c(5, 10, 20, 30))
 #'
 #' @export
