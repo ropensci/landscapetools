@@ -19,3 +19,4 @@
 ^air\.toml$
 ^jarl\.toml$
 ^justfile$
+^CRAN-SUBMISSION$
