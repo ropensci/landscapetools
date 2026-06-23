@@ -4,16 +4,16 @@
   "identifier": "landscapetools",
   "description": "Provides utility functions for some of the less-glamorous tasks involved in landscape analysis. It includes functions to coerce raster data to the common tibble format and vice versa, it helps with flexible reclassification tasks of raster data and it provides a function to merge multiple raster. Furthermore, 'landscapetools' helps landscape scientists to visualize their data by providing optional themes and utility functions to plot single landscapes, rasterstacks, -bricks and lists of raster.",
   "name": "landscapetools: Landscape Utility Toolbox",
-  "codeRepository": "https://docs.ropensci.org/landscapetools/",
+  "codeRepository": "https://github.com/ropensci/landscapetools",
   "issueTracker": "https://github.com/ropensci/landscapetools/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.6.2.9001",
+  "version": "0.6.3",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.5.2 (2025-10-31)",
+  "runtimePlatform": "R version 4.6.0 (2026-04-24)",
   "author": [
     {
       "@type": "Person",
@@ -41,15 +41,22 @@
       "familyName": "Nowosad",
       "email": "nowosad.jakub@gmail.com",
       "@id": "https://orcid.org/0000-0002-1057-3721"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Anatoly",
+      "familyName": "Tsyplenkov",
+      "email": "s2@sent.com",
+      "@id": "https://orcid.org/0000-0003-4144-8402"
     }
   ],
   "maintainer": [
     {
       "@type": "Person",
-      "givenName": "Marco",
-      "familyName": "Sciaini",
-      "email": "sciaini.marco@gmail.com",
-      "@id": "https://orcid.org/0000-0002-3042-5435"
+      "givenName": "Anatoly",
+      "familyName": "Tsyplenkov",
+      "email": "s2@sent.com",
+      "@id": "https://orcid.org/0000-0003-4144-8402"
     }
   ],
   "softwareSuggestions": [
@@ -171,7 +178,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "1376.685KB",
+  "fileSize": "1429.349KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -194,22 +201,35 @@
         },
         {
           "@type": "Person",
-          "givenName": ["Craig", "E."],
+          "givenName": "Craig E.",
           "familyName": "Simpkins"
         }
       ],
-      "name": "NLMR and landscapetools: An integrated environment for simulating and modifying neutral landscape models in R",
-      "url": "https://doi.org/10.1111/2041-210X.13076",
-      "pagination": "1--9",
+      "name": "NLMR and landscapetools: An integrated environment for simulating and modifying neutral landscape models in R",
+      "identifier": "10.1111/2041-210X.13076",
+      "pagination": "2240--2248",
+      "@id": "https://doi.org/10.1111/2041-210X.13076",
+      "sameAs": "https://doi.org/10.1111/2041-210X.13076",
       "isPartOf": {
         "@type": "PublicationIssue",
         "datePublished": "2018",
         "isPartOf": {
           "@type": ["PublicationVolume", "Periodical"],
-          "volumeNumber": "00",
-          "name": "Methods in Ecololgy and Evolution"
+          "volumeNumber": "9",
+          "name": "Methods in Ecology and Evolution"
         }
       }
     }
-  ]
+  ],
+  "relatedLink": "https://docs.ropensci.org/landscapetools/",
+  "releaseNotes": "https://github.com/ropensci/landscapetools/blob/main/NEWS.md",
+  "readme": "https://github.com/ropensci/landscapetools/blob/master/README.md",
+  "contIntegration": ["https://github.com/ropensci/landscapetools/actions", "https://codecov.io/gh/ropensci/landscapetools"],
+  "developmentStatus": "https://www.tidyverse.org/lifecycle/#maturing",
+  "review": {
+    "@type": "Review",
+    "url": "https://github.com/ropensci/software-review/issues/188",
+    "provider": "https://ropensci.org"
+  },
+  "keywords": ["r", "rstats", "raster", "landscape", "landscape-ecology", "visualization", "workflow", "r-package"]
 }
