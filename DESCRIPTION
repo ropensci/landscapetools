@@ -42,7 +42,6 @@ Depends:
 URL: https://docs.ropensci.org/landscapetools/
 BugReports: https://github.com/ropensci/landscapetools/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
 Imports: 
     ggplot2,
     raster,
@@ -57,3 +56,4 @@ Suggests:
 VignetteBuilder: knitr
 LinkingTo: 
     Rcpp
+Config/roxygen2/version: 8.0.0
