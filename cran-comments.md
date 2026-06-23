@@ -1,23 +1,28 @@
 ## Submission
 
-New version includes massive dependency trimming and new functionality.
+This is a resubmission of an archived package. The previous version was archived because the maintainer email was undeliverable. The maintainer has been updated to Anatoly Tsyplenkov <s2@sent.com> (see ropensci/landscapetools#48).
+
+This release also fixes the compilation failure under `STRICT_R_HEADERS` reported on CRAN by replacing R's `Calloc`/`Free` macros with standard C `calloc`/`free` in `src/get_jenkbreaks.c`.
 
 ## Test environments
 
-* local Ubuntu Linux 16.04 LTS install, R 3.4.1
-* Ubuntu 14.04 (on travis-ci), R 3.4.1
-* Windows Server 2012 R2 x64 (build 9600) (on appveyor), R 3.4.2
-* Rhub
-* Windows Server 2008 R2 SP1, R-devel, 32/64 bit
-* Debian Linux, R-devel, GCC ASAN/UBSAN
-* Fedora Linux, R-devel, clang, gfortran
-* macOS 10.11 El Capitan, R-release
-* macOS 10.9 Mavericks, R-oldrel
-* win-builder (devel and release)
+* local Arch Linux, R 4.6.0
+* win-builder, R-devel (r90185 ucrt)
 
 ## R CMD check results
 
-0 errors | 0 warnings | 0 note
+win-builder R-devel:
+
+```
+0 errors | 0 warnings | 1 note
+```
+
+The single NOTE is the expected CRAN incoming feasibility message for a new submission of a previously archived package. It also flags two possibly misspelled words in `DESCRIPTION`:
+
+* `tibble` — the name of the tidyverse data-frame package.
+* `rasterstacks` — refers to `RasterStack` objects from the `raster` package.
+
+Both are intentional technical terms.
 
 ## Reverse dependencies
 
