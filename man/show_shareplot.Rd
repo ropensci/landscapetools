@@ -48,7 +48,7 @@ Plot the landscape share in subsequential buffers around a/multiple point(s) of 
 }
 \examples{
 # create single point
-new_point = matrix(c(75,75), ncol = 2)
+new_point <- matrix(c(75,75), ncol = 2)
 
 # show landscape and point of interest
 show_landscape(classified_landscape, discrete = TRUE) +
@@ -60,11 +60,11 @@ ggplot2::geom_point(data = data.frame(x = new_point[,1], y = new_point[,2]),
 show_shareplot(classified_landscape, new_point, 10, 50)
 
 # show multiple points share
-new_points = matrix(c(75, 110, 75, 30), ncol = 2)
+new_points <- matrix(c(75, 110, 75, 30), ncol = 2)
 show_shareplot(classified_landscape, new_points, 10, 50)
 
 # irregular buffer widths
-new_points = matrix(c(75, 110, 75, 30), ncol = 2)
+new_points <- matrix(c(75, 110, 75, 30), ncol = 2)
 show_shareplot(classified_landscape, new_points, c(10, 30, 50))
 
 # get data frame with results back
@@ -72,8 +72,8 @@ result <- show_shareplot(classified_landscape, new_points, 10, 50, return_df = T
 result$share_df
 
 # use the output from util_extract_multibuffer
-new_points = matrix(c(75, 110, 75, 30), ncol = 2)
-df = util_extract_multibuffer(classified_landscape, new_points, 10, 50)
+new_points <- matrix(c(75, 110, 75, 30), ncol = 2)
+df <- util_extract_multibuffer(classified_landscape, new_points, 10, 50)
 show_shareplot(multibuffer_df = df)
 
 }
