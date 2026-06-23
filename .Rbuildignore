@@ -16,3 +16,6 @@
 ^codemeta\.json$
 ^cran\-comments\.md$
 ^tic\.R$
+^air\.toml$
+^jarl\.toml$
+^justfile$
