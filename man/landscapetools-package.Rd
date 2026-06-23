@@ -18,10 +18,12 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Marco Sciaini \email{sciaini.marco@gmail.com} (\href{https://orcid.org/0000-0002-3042-5435}{ORCID})
+\strong{Maintainer}: Anatoly Tsyplenkov \email{s2@sent.com} (\href{https://orcid.org/0000-0003-4144-8402}{ORCID})
 
 Authors:
 \itemize{
+  \item Anatoly Tsyplenkov \email{s2@sent.com} (\href{https://orcid.org/0000-0003-4144-8402}{ORCID})
+  \item Marco Sciaini \email{sciaini.marco@gmail.com} (\href{https://orcid.org/0000-0002-3042-5435}{ORCID})
   \item Matthias Fritsch \email{matthias.fritsch@forst.uni-goettingen.de}
   \item Maximilian H.K. Hesselbarth \email{mhk.hesselbarth@gmail.com} (\href{https://orcid.org/0000-0003-1125-9918}{ORCID})
   \item Jakub Nowosad \email{nowosad.jakub@gmail.com} (\href{https://orcid.org/0000-0002-1057-3721}{ORCID})
