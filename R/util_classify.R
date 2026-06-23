@@ -79,7 +79,7 @@ util_classify.RasterLayer <- function(
   mask_val = NULL
 ) {
   # Check input
-  if (!is.null(weighting) & !is.null(n)) {
+  if (!is.null(weighting) && !is.null(n)) {
     warning(
       "If n AND weighting are used, util_classify will fallback to weighting as classification method."
     )
