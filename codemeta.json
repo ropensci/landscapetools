@@ -4,7 +4,7 @@
   "identifier": "landscapetools",
   "description": "Provides utility functions for some of the less-glamorous tasks involved in landscape analysis. It includes functions to coerce raster data to the common 'tibble' format and vice versa, it helps with flexible reclassification tasks of raster data and it provides a function to merge multiple raster. Furthermore, 'landscapetools' helps landscape scientists to visualize their data by providing optional themes and utility functions to plot single landscapes, 'rasterstacks', '-bricks' and lists of raster.",
   "name": "landscapetools: Landscape Utility Toolbox",
-  "codeRepository": "https://github.com/ropensci/landscapetools",
+  "codeRepository": "https://docs.ropensci.org/landscapetools/",
   "issueTracker": "https://github.com/ropensci/landscapetools/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
   "version": "0.6.3",
@@ -178,7 +178,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "1424.154KB",
+  "fileSize": "1372.002KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -220,16 +220,5 @@
         }
       }
     }
-  ],
-  "relatedLink": "https://docs.ropensci.org/landscapetools/",
-  "releaseNotes": "https://github.com/ropensci/landscapetools/blob/main/NEWS.md",
-  "readme": "https://github.com/ropensci/landscapetools/blob/master/README.md",
-  "contIntegration": ["https://github.com/ropensci/landscapetools/actions", "https://codecov.io/gh/ropensci/landscapetools"],
-  "developmentStatus": "https://www.tidyverse.org/lifecycle/#maturing",
-  "review": {
-    "@type": "Review",
-    "url": "https://github.com/ropensci/software-review/issues/188",
-    "provider": "https://ropensci.org"
-  },
-  "keywords": ["r", "rstats", "raster", "landscape", "landscape-ecology", "visualization", "workflow", "r-package"]
+  ]
 }
