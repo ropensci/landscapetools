@@ -48,44 +48,44 @@
 #' util_extract_multibuffer(classified_landscape, new_points, c(5, 10, 20, 30))
 #'
 #' @export
-util_extract_multibuffer = function(landscape, points, buffer_width, max_width = NULL,
+util_extract_multibuffer <- function(landscape, points, buffer_width, max_width = NULL,
                                     rel_freq = FALSE, fun = NULL, point_id_text = TRUE, ...) {
 
     if (is.null(max_width)) {
-        buffers = buffer_width
+        buffers <- buffer_width
     } else {
         ### POSSIBLE: raise a warning here if length(buffer_width) > 1, stating that only the first value is used
-        buffers = seq(buffer_width[1], max_width, buffer_width)
+        buffers <- seq(buffer_width[1], max_width, buffer_width)
     }
 
-    df = do.call(rbind, lapply(buffers, .extract_buffer, landscape, points, rel_freq, fun, point_id_text, ...))
+    df <- do.call(rbind, lapply(buffers, .extract_buffer, landscape, points, rel_freq, fun, point_id_text, ...))
     df
 }
 
-.extract_buffer = function(buffer, x, y, rel_freq = FALSE, fun = NULL, point_id_text = TRUE, ...) {
+.extract_buffer <- function(buffer, x, y, rel_freq = FALSE, fun = NULL, point_id_text = TRUE, ...) {
 
     # extract values
-    df = tibble::new_tibble(as.data.frame(raster::extract(x = x, y = y, buffer = buffer, fun = fun, df = TRUE, ...)))
-    df = table(df)
+    df <- tibble::new_tibble(as.data.frame(raster::extract(x = x, y = y, buffer = buffer, fun = fun, df = TRUE, ...)))
+    df <- table(df)
 
     # organize output df
-    df_out = tibble::new_tibble(as.data.frame(df))
+    df_out <- tibble::new_tibble(as.data.frame(df))
 
     # if rel_freq = TRUE, calculate relative frequency
     if(is.null(fun))
         if(rel_freq) {
-            df_rel = df/rowSums(df)
-            df_rel = as.data.frame(df_rel)
-            df_out = tibble::new_tibble(cbind(df_out, df_rel[3]))
+            df_rel <- df/rowSums(df)
+            df_rel <- as.data.frame(df_rel)
+            df_out <- tibble::new_tibble(cbind(df_out, df_rel[3]))
         }
 
     # add buffer size to output df
-    df_out$buffer = buffer
+    df_out$buffer <- buffer
 
     # names
-    if(!is.null(fun)) names(df_out) = c("id", "layer", fun, "buffer") else
-        if(rel_freq) names(df_out) = c("id", "layer", "freq", "rel_freq", "buffer") else
-            names(df_out) = c("id", "layer", "freq", "buffer")
+    if(!is.null(fun)) names(df_out) <- c("id", "layer", fun, "buffer") else
+        if(rel_freq) names(df_out) <- c("id", "layer", "freq", "rel_freq", "buffer") else
+            names(df_out) <- c("id", "layer", "freq", "buffer")
 
     # add text to point
     if(point_id_text) df_out$id <- paste("Point ID:", df_out$id, sep = " ")

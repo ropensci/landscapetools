@@ -122,17 +122,17 @@ show_shareplot <- function(landscape,
 }
 
 # NOT IN USE ANYMORE
-.share = function(buffer, x, y){
-    df = tibble::new_tibble(as.data.frame(raster::extract(x = x,  y = y, buffer = buffer, df = TRUE)))
-    df = tibble::new_tibble(as.data.frame(table(df)))
-    df$buffer = buffer
-    names(df) = c("id", "layer", "freq", "buffer")
+.share <- function(buffer, x, y){
+    df <- tibble::new_tibble(as.data.frame(raster::extract(x = x,  y = y, buffer = buffer, df = TRUE)))
+    df <- tibble::new_tibble(as.data.frame(table(df)))
+    df$buffer <- buffer
+    names(df) <- c("id", "layer", "freq", "buffer")
     df$id <- paste("Point ID:", df$id, sep = " ")
     df
 }
 
 # NOT IN USE ANYMORE
-.extract_multibuffer = function(x, y, buffer_width, max_width){
-    buffers = seq(buffer_width, max_width, buffer_width)
-    df = do.call(rbind, lapply(buffers, .share, x, y))
+.extract_multibuffer <- function(x, y, buffer_width, max_width){
+    buffers <- seq(buffer_width, max_width, buffer_width)
+    df <- do.call(rbind, lapply(buffers, .share, x, y))
 }
