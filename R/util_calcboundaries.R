@@ -22,7 +22,7 @@
 util_calc_boundaries <- function(x, cumulative_proportions) {
 
   # remove na (e.g. if cells are masked from classify)
-  if (any(is.na(x))) {
+  if (anyNA(x)) {
       x <- x[!is.na(x)]
   }
 
