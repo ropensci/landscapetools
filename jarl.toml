@@ -1,0 +1,3 @@
+[lint]
+extend-select = ["assignment"]
+ignore = ["internal_function"]
