@@ -3,6 +3,7 @@
 ## BUG FIXES
 - Fix compilation with `STRICT_R_HEADERS` by replacing R memory allocation macros with standard C functions in `src/get_jenkbreaks.c`.
 - Fix broken or redirected URLs in the package vignettes.
+- Reduce `show_shareplot()` example runtime by wrapping heavier examples in `\donttest{}`.
 
 ## MAINTENANCE
 - New package maintainer -- Anatoly Tsyplenkov (#48).

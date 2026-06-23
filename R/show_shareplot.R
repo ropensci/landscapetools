@@ -17,34 +17,46 @@
 #' @return ggplot2 Object
 #'
 #' @examples
+#' # Minimal runnable example with a pre-built multi-buffer data frame
+#' df <- data.frame(
+#'   id = "Point ID: 1",
+#'   layer = factor(rep(1:3, each = 2)),
+#'   freq = c(10, 15, 20, 25, 5, 10),
+#'   buffer = rep(c(10, 20), 3)
+#' )
+#' show_shareplot(multibuffer_df = df)
+#'
+#' \donttest{
+#' # use a smaller aggregated landscape for the longer-running examples below
+#' small_landscape <- raster::aggregate(classified_landscape, fact = 5)
+#'
 #' # create single point
-#' new_point <- matrix(c(75,75), ncol = 2)
+#' new_point <- matrix(c(75, 75), ncol = 2)
 #'
 #' # show landscape and point of interest
-#' show_landscape(classified_landscape, discrete = TRUE) +
-#' ggplot2::geom_point(data = data.frame(x = new_point[,1], y = new_point[,2]),
+#' show_landscape(small_landscape, discrete = TRUE) +
+#' ggplot2::geom_point(data = data.frame(x = new_point[, 1], y = new_point[, 2]),
 #'                     ggplot2::aes(x = x, y = y),
 #'                     col = "grey", size = 3)
 #'
 #' # show single point share
-#' show_shareplot(classified_landscape, new_point, 10, 50)
+#' show_shareplot(small_landscape, new_point, 10, 30)
 #'
 #' # show multiple points share
 #' new_points <- matrix(c(75, 110, 75, 30), ncol = 2)
-#' show_shareplot(classified_landscape, new_points, 10, 50)
+#' show_shareplot(small_landscape, new_points, 10, 30)
 #'
 #' # irregular buffer widths
-#' new_points <- matrix(c(75, 110, 75, 30), ncol = 2)
-#' show_shareplot(classified_landscape, new_points, c(10, 30, 50))
+#' show_shareplot(small_landscape, new_points, c(10, 30))
 #'
 #' # get data frame with results back
-#' result <- show_shareplot(classified_landscape, new_points, 10, 50, return_df = TRUE)
+#' result <- show_shareplot(small_landscape, new_points, 10, 30, return_df = TRUE)
 #' result$share_df
 #'
 #' # use the output from util_extract_multibuffer
-#' new_points <- matrix(c(75, 110, 75, 30), ncol = 2)
-#' df <- util_extract_multibuffer(classified_landscape, new_points, 10, 50)
+#' df <- util_extract_multibuffer(small_landscape, new_points, 10, 30)
 #' show_shareplot(multibuffer_df = df)
+#' }
 #'
 #' @aliases show_shareplot
 #' @rdname show_shareplot
