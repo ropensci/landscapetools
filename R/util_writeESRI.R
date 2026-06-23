@@ -27,27 +27,44 @@
 #' @aliases util_writeESRI
 #' @rdname util_writeESRI
 #' @export
-util_writeESRI <- function(x,
-                           filepath) UseMethod("util_writeESRI")
+util_writeESRI <- function(x, filepath) UseMethod("util_writeESRI")
 
 #' @name util_writeESRI
 #' @export
 util_writeESRI.RasterLayer <- function(x, filepath) {
+  zz <- file(filepath, "w")
 
-    zz <- file(filepath, "w")
+  #write the header info
+  cat("ncols         ", raster::nrow(x), '\r\n', sep = "", file = zz)
+  cat("nrows         ", raster::ncol(x), '\r\n', sep = "", file = zz)
+  cat(
+    "xllcorner     ",
+    as.character(raster::xmin(x)),
+    '\r\n',
+    sep = "",
+    file = zz
+  )
+  cat(
+    "yllcorner     ",
+    as.character(raster::ymin(x)),
+    '\r\n',
+    sep = "",
+    file = zz
+  )
+  cat(
+    "cellsize      ",
+    as.character(raster::xres(x)),
+    '\r\n',
+    sep = "",
+    file = zz
+  )
+  cat("NODATA_value  ", -9999, '\r\n', sep = "", file = zz)
 
-    #write the header info
-    cat("ncols         ",raster::nrow(x),'\r\n',sep = "",file=zz)
-    cat("nrows         ",raster::ncol(x),'\r\n',sep = "",file=zz)
-    cat("xllcorner     ",as.character(raster::xmin(x)),'\r\n',sep = "",file=zz)
-    cat("yllcorner     ",as.character(raster::ymin(x)),'\r\n',sep = "",file=zz)
-    cat("cellsize      ",as.character(raster::xres(x)),'\r\n',sep = "",file=zz)
-    cat("NODATA_value  ", -9999,'\r\n',sep = "",file=zz)
+  #prep and write the data
+  apply(raster::as.matrix(x), 1, function(y) {
+    cat(y, '\r\n', sep = " ", file = zz)
+  })
 
-    #prep and write the data
-    apply(raster::as.matrix(x),1,function(y) cat(y,'\r\n',sep = " ",file=zz))
-
-    #close the connection to the file
-    close(zz)
-
+  #close the connection to the file
+  close(zz)
 }

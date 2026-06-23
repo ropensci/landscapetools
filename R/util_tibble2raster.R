@@ -29,7 +29,6 @@ util_tibble2raster <- function(x) UseMethod("util_tibble2raster")
 #' @name util_tibble2raster
 #' @export
 util_tibble2raster <- function(x) {
-
   # Create raster with values from tibble ----
   r <- raster::raster(matrix(x$z, max(x$y), max(x$x), byrow = TRUE))
   raster::extent(r) <- c(0, max(x$x), 0, max(x$y))

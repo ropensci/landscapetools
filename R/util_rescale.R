@@ -22,11 +22,8 @@ util_rescale <- function(x) UseMethod("util_rescale")
 #' @name util_rescale
 #' @export
 util_rescale <- function(x) {
-  rescaled_NLM <-
-    (x - raster::cellStats(x, "min")) /
-      (raster::cellStats(x, "max") - raster::cellStats(x, "min"))
+  rescaled_NLM <- (x - raster::cellStats(x, "min")) /
+    (raster::cellStats(x, "max") - raster::cellStats(x, "min"))
 
   return(rescaled_NLM)
 }
-
-

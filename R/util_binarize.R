@@ -24,9 +24,10 @@ util_binarize <- function(x, breaks) UseMethod("util_binarize")
 #' @name util_binarize
 #' @export
 util_binarize.RasterLayer <- function(x, breaks) {
-
   # Check function arguments ----
-  if(!is.numeric(breaks)) stop("breaks must be a numeric vector")
+  if (!is.numeric(breaks)) {
+    stop("breaks must be a numeric vector")
+  }
 
   if (length(breaks) > 1) {
     map.stack <- raster::stack()

@@ -37,22 +37,28 @@
 #' @rdname show_landscape
 #'
 #' @export
-show_landscape <- function(x,
-                           xlab,
-                           ylab,
-                           discrete,
-                           unique_scales,
-                           n_col,
-                           n_row,
-                           ...) UseMethod("show_landscape")
+show_landscape <- function(
+  x,
+  xlab,
+  ylab,
+  discrete,
+  unique_scales,
+  n_col,
+  n_row,
+  ...
+) {
+  UseMethod("show_landscape")
+}
 
 #' @name show_landscape
 #' @export
-show_landscape.RasterLayer <- function(x,
-                                       xlab = "Easting",
-                                       ylab = "Northing",
-                                       discrete = FALSE,
-                                       ...) {
+show_landscape.RasterLayer <- function(
+  x,
+  xlab = "Easting",
+  ylab = "Northing",
+  discrete = FALSE,
+  ...
+) {
   # derive ratio for plot, cells should be a square and axis equal in length
   if (raster::ncol(x) == raster::nrow(x)) {
     ratio <- 1
@@ -61,48 +67,50 @@ show_landscape.RasterLayer <- function(x,
   }
   if (isTRUE(discrete)) {
     # get rasterlabels
-    legend_labels <- tryCatch({
-      x@data@attributes[[1]][, 2]
-    },
-    error = function(e) {
-      x <- raster::as.factor(x)
-      levels <- raster::unique(x)
-      x@data@attributes[[1]][, 2] <- levels
-    })
+    legend_labels <- tryCatch(
+      {
+        x@data@attributes[[1]][, 2]
+      },
+      error = function(e) {
+        x <- raster::as.factor(x)
+        levels <- raster::unique(x)
+        x@data@attributes[[1]][, 2] <- levels
+      }
+    )
 
-    xyz  <- raster::as.data.frame(x, xy = TRUE)
+    xyz <- raster::as.data.frame(x, xy = TRUE)
 
     ggplot2::ggplot(xyz) +
       ggplot2::geom_tile(ggplot2::aes(x, y, fill = factor(xyz[, 3]))) +
-      ggplot2::labs(x = xlab,
-                    y = ylab)  +
+      ggplot2::labs(x = xlab, y = ylab) +
       theme_nlm_discrete(..., legend_labels = legend_labels, ratio = ratio)
-
   } else {
-    xyz  <- raster::as.data.frame(x, xy = TRUE)
+    xyz <- raster::as.data.frame(x, xy = TRUE)
 
     ggplot2::ggplot(xyz) +
       ggplot2::geom_tile(ggplot2::aes(x, y, fill = xyz[, 3])) +
-      ggplot2::labs(x = xlab,
-                    y = ylab) +
+      ggplot2::labs(x = xlab, y = ylab) +
       theme_nlm(..., ratio = ratio)
   }
 }
 
 #' @name show_landscape
 #' @export
-show_landscape.list <- function(x,
-                                xlab = "Easting",
-                                ylab = "Northing",
-                                discrete = FALSE,
-                                unique_scales = FALSE,
-                                n_col = NULL,
-                                n_row = NULL,
-                                ...) {
-
-  x_list <-  lapply(seq_along(x), function(id) {
+show_landscape.list <- function(
+  x,
+  xlab = "Easting",
+  ylab = "Northing",
+  discrete = FALSE,
+  unique_scales = FALSE,
+  n_col = NULL,
+  n_row = NULL,
+  ...
+) {
+  x_list <- lapply(seq_along(x), function(id) {
     y <- x[[id]]
-    if (unique_scales) y <- util_rescale(y)
+    if (unique_scales) {
+      y <- util_rescale(y)
+    }
     raster_tibble <- util_raster2tibble(y)
     raster_tibble$id <- ifelse(is.null(names(x[id])), id, names(x[id]))
     raster_tibble
@@ -117,10 +125,16 @@ show_landscape.list <- function(x,
   if (!discrete) {
     p <- ggplot2::ggplot(x_tibble, ggplot2::aes(.data$x, .data$y)) +
       ggplot2::coord_fixed() +
-      ggplot2::geom_raster(ggplot2::aes(fill =.data$z)) +
-      ggplot2::facet_wrap( ~ id, nrow = n_row, ncol = n_col) +
-      ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0, max(x_tibble$x))) +
-      ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0, max(x_tibble$y))) +
+      ggplot2::geom_raster(ggplot2::aes(fill = .data$z)) +
+      ggplot2::facet_wrap(~id, nrow = n_row, ncol = n_col) +
+      ggplot2::scale_x_continuous(
+        expand = c(0, 0),
+        limits = c(0, max(x_tibble$x))
+      ) +
+      ggplot2::scale_y_continuous(
+        expand = c(0, 0),
+        limits = c(0, max(x_tibble$y))
+      ) +
       ggplot2::guides(fill = "none") +
       ggplot2::labs(title = NULL, x = NULL, y = NULL) +
       theme_facetplot()
@@ -130,53 +144,77 @@ show_landscape.list <- function(x,
     p <- ggplot2::ggplot(x_tibble, ggplot2::aes(.data$x, .data$y)) +
       ggplot2::coord_fixed() +
       ggplot2::geom_raster(ggplot2::aes(fill = factor(.data$z))) +
-      ggplot2::facet_wrap( ~ id, nrow = n_row, ncol = n_col) +
-      ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(0, max(x_tibble$x))) +
-      ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(0, max(x_tibble$y))) +
+      ggplot2::facet_wrap(~id, nrow = n_row, ncol = n_col) +
+      ggplot2::scale_x_continuous(
+        expand = c(0, 0),
+        limits = c(0, max(x_tibble$x))
+      ) +
+      ggplot2::scale_y_continuous(
+        expand = c(0, 0),
+        limits = c(0, max(x_tibble$y))
+      ) +
       ggplot2::guides(fill = "none") +
       ggplot2::labs(title = NULL, x = NULL, y = NULL) +
       theme_facetplot_discrete()
   }
 
-
   return(p)
-
 }
 
 #' @name show_landscape
 #' @export
-show_landscape.RasterStack <- function(x,
-                                       xlab = "Easting",
-                                       ylab = "Northing",
-                                       discrete = FALSE,
-                                       unique_scales = FALSE,
-                                       n_col = NULL,
-                                       n_row = NULL,
-                                       ...) {
-
+show_landscape.RasterStack <- function(
+  x,
+  xlab = "Easting",
+  ylab = "Northing",
+  discrete = FALSE,
+  unique_scales = FALSE,
+  n_col = NULL,
+  n_row = NULL,
+  ...
+) {
   maplist <- list()
   for (i in seq_len(raster::nlayers(x))) {
     maplist <- append(maplist, list(raster::raster(x, layer = i)))
   }
   names(maplist) <- names(x)
-  show_landscape.list(maplist, xlab, ylab, discrete, unique_scales, n_col, n_row, ...)
+  show_landscape.list(
+    maplist,
+    xlab,
+    ylab,
+    discrete,
+    unique_scales,
+    n_col,
+    n_row,
+    ...
+  )
 }
 
 #' @name show_landscape
 #' @export
-show_landscape.RasterBrick <- function(x,
-                                       xlab = "Easting",
-                                       ylab = "Northing",
-                                       discrete = FALSE,
-                                       unique_scales = FALSE,
-                                       n_col = NULL,
-                                       n_row = NULL,
-                                       ...) {
-
+show_landscape.RasterBrick <- function(
+  x,
+  xlab = "Easting",
+  ylab = "Northing",
+  discrete = FALSE,
+  unique_scales = FALSE,
+  n_col = NULL,
+  n_row = NULL,
+  ...
+) {
   maplist <- list()
   for (i in seq_len(raster::nlayers(x))) {
     maplist <- append(maplist, list(raster::raster(x, layer = i)))
   }
   names(maplist) <- names(x)
-  show_landscape.list(maplist, xlab, ylab, discrete, unique_scales, n_col, n_row, ...)
+  show_landscape.list(
+    maplist,
+    xlab,
+    ylab,
+    discrete,
+    unique_scales,
+    n_col,
+    n_row,
+    ...
+  )
 }

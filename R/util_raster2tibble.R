@@ -24,31 +24,28 @@
 #'
 #' @export
 #'
-util_raster2tibble <- function(x, format = "long") UseMethod("util_raster2tibble")
+util_raster2tibble <- function(x, format = "long") {
+  UseMethod("util_raster2tibble")
+}
 
 #' @name util_raster2tibble
 #' @export
 util_raster2tibble <- function(x, format = "long") {
+  if (format == "long") {
+    # Create empty tibble with the same dimension as the raster ----
+    grd <- tibble::new_tibble(
+      expand.grid(x = seq(1, raster::ncol(x)), y = seq(raster::nrow(x), 1)),
+      nrow = raster::ncell(x)
+    )
 
-  if (format == "long"){
-  # Create empty tibble with the same dimension as the raster ----
-  grd <- tibble::new_tibble(expand.grid(x = seq(1, raster::ncol(x)),
-                                        y = seq(raster::nrow(x), 1)),
-                            nrow = raster::ncell(x))
-
-  # Fill with raster values ----
-  grd$z <- raster::values(x)
+    # Fill with raster values ----
+    grd$z <- raster::values(x)
   }
 
-  if (format == "wide"){
+  if (format == "wide") {
     grd <- tibble::as_tibble(raster::as.matrix(x), .name_repair = "universal")
     colnames(grd) <- seq_len(ncol(grd))
   }
 
   return(grd)
-
 }
-
-
-
-

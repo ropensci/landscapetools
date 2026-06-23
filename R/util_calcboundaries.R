@@ -18,19 +18,17 @@
 #' @keywords internal
 #' @export
 
-
 util_calc_boundaries <- function(x, cumulative_proportions) {
-
   # remove na (e.g. if cells are masked from classify)
   if (anyNA(x)) {
-      x <- x[!is.na(x)]
+    x <- x[!is.na(x)]
   }
 
   # Get number of cells  ----
   n_cells <- length(x)
 
   # Use number of cells to find index of upper boundary element ----
-  boundary_indexes <- as.integer( (cumulative_proportions * n_cells))
+  boundary_indexes <- as.integer((cumulative_proportions * n_cells))
 
   # Get boundary values ----
   boundary_values <- sort(as.vector(x))[boundary_indexes]

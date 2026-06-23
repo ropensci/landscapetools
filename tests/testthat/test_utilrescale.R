@@ -8,8 +8,8 @@ test_that("basic functionality", {
 })
 
 test_that("util_plot behaves like it should", {
-  expect_equal(raster::minValue(random_landscape),0)
-  expect_equal(raster::maxValue(random_landscape),1)
+  expect_equal(raster::minValue(random_landscape), 0)
+  expect_equal(raster::maxValue(random_landscape), 1)
 })
 
 # nolint end

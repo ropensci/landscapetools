@@ -38,12 +38,11 @@ random_landscape <- raster::setValues(raster::raster(x), raster::values(x))
 usethis::use_data(random_landscape, overwrite = TRUE)
 #
 # # Classify the map into land uses
-classified_landscape <- util_classify(fractal_landscape,
-                        n = 3,
-                        level_names = c("Land Use 1",
-                                        "Land Use 2",
-                                        "Land Use 3"))
+classified_landscape <- util_classify(
+  fractal_landscape,
+  n = 3,
+  level_names = c("Land Use 1", "Land Use 2", "Land Use 3")
+)
 
 
 usethis::use_data(classified_landscape, overwrite = TRUE)
-

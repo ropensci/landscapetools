@@ -64,53 +64,52 @@
 #'
 #' @export
 
-util_classify <- function(x,
-                          n,
-                          weighting,
-                          level_names,
-                          real_land,
-                          mask_val) UseMethod("util_classify")
+util_classify <- function(x, n, weighting, level_names, real_land, mask_val) {
+  UseMethod("util_classify")
+}
 
 #' @name util_classify
 #' @export
-util_classify.RasterLayer <- function(x,
-                          n = NULL,
-                          weighting = NULL,
-                          level_names = NULL,
-                          real_land = NULL,
-                          mask_val = NULL) {
-
+util_classify.RasterLayer <- function(
+  x,
+  n = NULL,
+  weighting = NULL,
+  level_names = NULL,
+  real_land = NULL,
+  mask_val = NULL
+) {
   # Check input
-  if (!is.null(weighting) & !is.null(n)) warning("If n AND weighting are used, util_classify will fallback to weighting as classification method.")
+  if (!is.null(weighting) & !is.null(n)) {
+    warning(
+      "If n AND weighting are used, util_classify will fallback to weighting as classification method."
+    )
+  }
 
   # Classify based on real landscape ----
   if (!is.null(real_land)) {
+    if (!inherits(real_land, "RasterLayer")) {
+      stop("real_land muste be a RasterLayer object.")
+    }
 
-      if(!inherits(real_land, "RasterLayer")) stop("real_land muste be a RasterLayer object.")
+    frq <- raster::freq(real_land)
+    if (!is.null(mask_val)) {
+      frq <- frq[frq[, 1] != mask_val, ]
+      x <- raster::mask(x, real_land, maskvalue = mask_val)
+    }
+    weighting <- frq[, 2] / sum(frq[, 2])
 
-      frq <- raster::freq(real_land)
-      if (!is.null(mask_val)) {
-        frq <- frq[frq[,1] != mask_val, ]
-        x <- raster::mask(x, real_land, maskvalue = mask_val)
-      }
-      weighting <- frq[,2] / sum(frq[,2])
-
-      x <- .classify(x, weighting)
-
+    x <- .classify(x, weighting)
   } else {
-
-    if (is.null(weighting)){
+    if (is.null(weighting)) {
       breaks <- .getJenksBreaks(raster::getValues(x), n)
-      x <-  raster::cut(x, breaks=breaks, include.lowest = TRUE)
+      x <- raster::cut(x, breaks = breaks, include.lowest = TRUE)
     } else {
       x <- .classify(x, weighting)
     }
-
   }
 
   # If level_names are not NULL, add them as specified ----
   if (!is.null(level_names)) {
-
     # Turn raster values into factors ----
     x <- raster::as.factor(x)
 
@@ -122,12 +121,13 @@ util_classify.RasterLayer <- function(x,
   return(x)
 }
 
-.classify <- function(x, weighting){
-
+.classify <- function(x, weighting) {
   # Calculate cum. proportions and boundary values ----
   cumulative_proportions <- util_w2cp(weighting)
-  boundary_values <- util_calc_boundaries(raster::values(x),
-                                          cumulative_proportions)
+  boundary_values <- util_calc_boundaries(
+    raster::values(x),
+    cumulative_proportions
+  )
 
   # If there is just one boundary value, all categories are set to one ----
   if (length(unique(boundary_values)) == 1) {
@@ -136,23 +136,31 @@ util_classify.RasterLayer <- function(x,
   }
 
   # Classify the matrix based on the boundary values ----
-  raster::values(x) <-  base::cut(raster::values(x),
-                                  breaks = c(0, boundary_values),
-                                  include.lowest = TRUE, labels = FALSE)
+  raster::values(x) <- base::cut(
+    raster::values(x),
+    breaks = c(0, boundary_values),
+    include.lowest = TRUE,
+    labels = FALSE
+  )
 
   return(x)
-
 }
 
 .getJenksBreaks <- function(var, k) {
-
   #if more breaks than unique values, segfault, so avoid
   if (k > length(unique(var))) {
-    k <- length(unique(var));
+    k <- length(unique(var))
   }
-  brks <- rep(1, k + 1);
+  brks <- rep(1, k + 1)
 
   d <- sort(var)
   length_d <- length(d)
-  return(.C("rcpp_get_jenkbreaks", as.double(d), as.integer(k), as.integer(length_d), as.double(brks), PACKAGE = "landscapetools")[[4]])
+  return(.C(
+    "rcpp_get_jenkbreaks",
+    as.double(d),
+    as.integer(k),
+    as.integer(length_d),
+    as.double(brks),
+    PACKAGE = "landscapetools"
+  )[[4]])
 }

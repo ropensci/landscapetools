@@ -7,9 +7,7 @@ sL <- gradient_landscape
 mL <- util_merge(pL, sL)
 
 test_that("basic functionality", {
-  expect_error(util_merge(random_landscape,
-                          gradient_landscape),
-               NA)
+  expect_error(util_merge(random_landscape, gradient_landscape), NA)
 })
 
 test_that("mL behaves like it should", {
@@ -17,9 +15,8 @@ test_that("mL behaves like it should", {
 })
 
 test_that("mL behaves like it should", {
-  mL_test <-  util_rescale(pL + sL)
+  mL_test <- util_rescale(pL + sL)
   expect_equal(mL[], mL_test[])
 })
-
 
 # nolint end

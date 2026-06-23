@@ -17,21 +17,25 @@
 #' @rdname util_merge
 #'
 #' @export
-util_merge <- function(primary_nlm,
-                       secondary_nlm,
-                       scalingfactor = 1,
-                       rescale) UseMethod("util_merge")
+util_merge <- function(primary_nlm, secondary_nlm, scalingfactor = 1, rescale) {
+  UseMethod("util_merge")
+}
 
 #' @name util_merge
 #' @export
-util_merge.RasterLayer <- function(primary_nlm,
-                       secondary_nlm,
-                       scalingfactor = 1,
-                       rescale = TRUE) {
-
+util_merge.RasterLayer <- function(
+  primary_nlm,
+  secondary_nlm,
+  scalingfactor = 1,
+  rescale = TRUE
+) {
   # Check function arguments ----
-  if(!is.numeric(scalingfactor)) stop("scalingfactor must be numeric")
-  if(!is.logical(rescale)) stop("rescale most be logical")
+  if (!is.numeric(scalingfactor)) {
+    stop("scalingfactor must be numeric")
+  }
+  if (!is.logical(rescale)) {
+    stop("rescale most be logical")
+  }
 
   if (!inherits(secondary_nlm, "RasterStack")) {
     secondary_nlm <- raster::stack(secondary_nlm)

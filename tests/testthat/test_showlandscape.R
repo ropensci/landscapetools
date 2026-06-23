@@ -2,7 +2,11 @@
 context("show_landscape")
 
 x <- random_landscape
-y <- util_classify(gradient_landscape,  n = 3, level_names = c("Land Use 1", "Land Use 2", "Land Use 3"))
+y <- util_classify(
+  gradient_landscape,
+  n = 3,
+  level_names = c("Land Use 1", "Land Use 2", "Land Use 3")
+)
 
 p <- show_landscape(x)
 p_discrete <- show_landscape(y, discrete = TRUE)
@@ -13,8 +17,8 @@ test_that("basic functionality", {
 })
 
 test_that("show_landscape behaves like it should", {
-  expect_equal(inherits(p, c("gg","ggplot")), TRUE)
-  expect_equal(inherits(p_discrete, c("gg","ggplot")), TRUE)
+  expect_equal(inherits(p, c("gg", "ggplot")), TRUE)
+  expect_equal(inherits(p_discrete, c("gg", "ggplot")), TRUE)
 })
 
 l2 <- gradient_landscape
@@ -23,13 +27,9 @@ l3 <- random_landscape
 bri1 <- raster::brick(l2, l3)
 p1 <- show_landscape(bri1)
 
-lst1 <- list(lay1 = l2,
-             lay2 = l3,
-             lay3 = l2,
-             lay4 = l3)
+lst1 <- list(lay1 = l2, lay2 = l3, lay3 = l2, lay4 = l3)
 
-lst2 <- list(lay1 = y,
-             lay2 = y)
+lst2 <- list(lay1 = y, lay2 = y)
 
 
 p2 <- show_landscape(lst1)
@@ -44,9 +44,9 @@ test_that("basic functionality", {
 })
 
 test_that("util_plot behaves like it should", {
-  expect_equal(inherits(p1, c("gg","ggplot")), TRUE)
-  expect_equal(inherits(p2, c("gg","ggplot")), TRUE)
-  expect_equal(inherits(p3, c("gg","ggplot")), TRUE)
+  expect_equal(inherits(p1, c("gg", "ggplot")), TRUE)
+  expect_equal(inherits(p2, c("gg", "ggplot")), TRUE)
+  expect_equal(inherits(p3, c("gg", "ggplot")), TRUE)
 })
 
 # nolint end
