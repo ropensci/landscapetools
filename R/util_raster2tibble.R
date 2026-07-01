@@ -12,7 +12,7 @@
 #'
 #' @examples
 #' maptib <- util_raster2tibble(fractal_landscape)
-#' \dontrun{
+#' \donttest{
 #' library(ggplot2)
 #' ggplot(maptib, aes(x,y)) +
 #'     coord_fixed() +

@@ -17,12 +17,13 @@
 #' otherwise `raster::writeRaster` is the better fit for exporting
 #' raster data in R.
 #'
-#' @return NULL
+#' @return No return value, called for the side effect of writing an ESRI ASCII
+#' raster file to `filepath`.
 #'
 #' @examples
-#' \dontrun{
-#' util_writeESRI(gradient_landscape, "gradient_landscape.asc")
-#' }
+#' filepath <- tempfile(fileext = ".asc")
+#' util_writeESRI(gradient_landscape, filepath)
+#' unlink(filepath)
 #'
 #' @aliases util_writeESRI
 #' @rdname util_writeESRI

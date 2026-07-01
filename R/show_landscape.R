@@ -15,7 +15,7 @@
 #' @return ggplot2 Object
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' x <- gradient_landscape
 #'
 #' # classify

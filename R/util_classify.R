@@ -30,7 +30,7 @@
 #' @return RasterLayer
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # Mode 1
 #' util_classify(fractal_landscape,
 #'               n = 3,
