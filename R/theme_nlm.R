@@ -56,6 +56,10 @@
 #' The theme itself is heavily influenced by hrbrmstr and his package
 #' hrbrthemes (\url{https://github.com/hrbrmstr/hrbrthemes/}).
 #'
+#'
+#' @return A list of ggplot2 components. The list contains a ggplot2 theme
+#' object and a fill scale object that can be added to a ggplot with `+` to
+#' style raster visualizations.
 #' @aliases theme_nlm
 #' @rdname theme_nlm
 #' @name theme_nlm
