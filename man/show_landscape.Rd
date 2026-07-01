@@ -70,7 +70,7 @@ ggplot2 Object
 Plot a Raster* object with the NLMR default theme (as ggplot).
 }
 \examples{
-\dontrun{
+\donttest{
 x <- gradient_landscape
 
 # classify

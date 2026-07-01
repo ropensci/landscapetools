@@ -14,6 +14,10 @@ util_writeESRI(x, filepath)
 
 \item{filepath}{path where to write the raster to file}
 }
+\value{
+No return value, called for the side effect of writing an ESRI ASCII
+raster file to \code{filepath}.
+}
 \description{
 Export raster objects as ESRI ascii files.
 }
@@ -29,8 +33,8 @@ otherwise \code{raster::writeRaster} is the better fit for exporting
 raster data in R.
 }
 \examples{
-\dontrun{
-util_writeESRI(gradient_landscape, "gradient_landscape.asc")
-}
+filepath <- tempfile(fileext = ".asc")
+util_writeESRI(gradient_landscape, filepath)
+unlink(filepath)
 
 }

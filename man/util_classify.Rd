@@ -54,7 +54,7 @@ overwritten in this case!). If an optional mask value is given the corresponding
 class from the 'real' landscape is cut from the landscape beforehand.
 }
 \examples{
-\dontrun{
+\donttest{
 # Mode 1
 util_classify(fractal_landscape,
               n = 3,

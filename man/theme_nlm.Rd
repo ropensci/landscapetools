@@ -284,6 +284,11 @@ be \code{raster::nrow(x) / raster::ncol(x)})}
 
 \item{...}{optional arguments to ggplot2::theme}
 }
+\value{
+A list of ggplot2 components. The list contains a ggplot2 theme
+object and a fill scale object that can be added to a ggplot with \code{+} to
+style raster visualizations.
+}
 \description{
 Opinionated ggplot2 theme to visualize NLM raster.
 }
