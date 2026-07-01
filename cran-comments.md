@@ -8,6 +8,8 @@ In response to the incoming pre-test feedback on 0.6.3:
 
 - Quoted package/software names (`'tibble'`, `'landscapetools'`) and class abbreviations (`'rasterstacks'`, `'-bricks'`) in `DESCRIPTION` to avoid the spell-check NOTE.
 - Reduced the `show_shareplot()` example runtime by keeping a minimal runnable example and wrapping the heavier, raster-dependent examples in `\donttest{}`.
+- Added missing `\value{}` documentation for `theme_nlm.Rd` and `util_writeESRI.Rd`.
+- Replaced `\dontrun{}` examples with `\donttest{}` where the examples are executable but longer-running, and made the `util_writeESRI()` example runnable with a temporary file.
 
 ## Test environments
 
@@ -19,8 +21,10 @@ In response to the incoming pre-test feedback on 0.6.3:
 local Arch Linux (`--as-cran --no-manual`):
 
 ```
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 2 notes
 ```
+
+The local NOTEs are the expected CRAN incoming feasibility message for a new submission of a previously archived package and local non-portable compiler flags from the Arch Linux R build.
 
 win-builder R-devel:
 
@@ -28,7 +32,7 @@ win-builder R-devel:
 0 errors | 0 warnings | 1 note
 ```
 
-The single NOTE is the expected CRAN incoming feasibility message for a new submission of a previously archived package.
+The win-builder NOTE is the expected CRAN incoming feasibility message for a new submission of a previously archived package.
 
 ## Reverse dependencies
 

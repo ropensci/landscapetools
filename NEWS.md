@@ -4,6 +4,8 @@
 - Fix compilation with `STRICT_R_HEADERS` by replacing R memory allocation macros with standard C functions in `src/get_jenkbreaks.c`.
 - Fix broken or redirected URLs in the package vignettes.
 - Reduce `show_shareplot()` example runtime by wrapping heavier examples in `\donttest{}`.
+- Add missing value documentation for `theme_nlm()` and `util_writeESRI()`.
+- Replace `\dontrun{}` examples with `\donttest{}` or runnable examples.
 
 ## MAINTENANCE
 - New package maintainer -- Anatoly Tsyplenkov (#48).
