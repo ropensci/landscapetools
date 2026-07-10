@@ -3,12 +3,14 @@
 
 [![R-CMD-check](https://github.com/ropensci/landscapetools/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/landscapetools/actions)
 [![codecov](https://codecov.io/gh/ropensci/landscapetools/branch/develop/graph/badge.svg)](https://codecov.io/gh/ropensci/landscapetools)
-[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/landscapetools)](https://cran.r-project.org/package=landscapetools)
+[![Check CRAN
+status](https://github.com/ropensci/landscapetools/actions/workflows/cran-checks.yaml/badge.svg)](https://github.com/ropensci/landscapetools/actions/workflows/cran-checks.yaml)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/landscapetools)](http://cran.rstudio.com/web/packages/landscapetools/index.html)
 [![](https://badges.ropensci.org/188_status.svg)](https://github.com/ropensci/onboarding/issues/188)
-[![DOI:10.1111/2041-210X.13076](https://img.shields.io/badge/DOI-10.1111%2F2041--210X.13076-blue)](https://doi.org/10.1111/2041-210X.13076)
+[![DOI:10.1111/2041-210X.13076](https://zenodo.org/badge/DOI/10.1111/2041-210X.13076.svg)](https://doi.org/10.1111/2041-210X.13076)
 
 <!-- badges: end -->
 
@@ -73,14 +75,14 @@ devtools::install_github("ropensci/landscapetools")
 # Classify the landscape into land uses
 classified_landscape <- util_classify(fractal_landscape,
                                       n = 3,
-                                      level_names = c("Land Use 1", 
+                                      level_names = c("Land Use 1",
                                                       "Land Use 2",
                                                       "Land Use 3"))
 
 show_landscape(classified_landscape, discrete = TRUE)
 ```
 
-<img src="man/figures/README-unnamed-chunk-1-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-1-1.png" alt="" width="100%" />
 
 ### Merge
 
@@ -103,7 +105,7 @@ show_landscape(merge_vis)
 #> (`geom_raster()`).
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-2-1.png" alt="" width="100%" />
 
 ## See also
 
